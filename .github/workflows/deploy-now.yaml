@@ -1,51 +1,40 @@
-name: Deploy Now
+name: Deploy to GitHub Pages
 
 on:
-  - push
-  - workflow_dispatch
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-  deploy-now:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Fetch project data
-        uses: ionos-deploy-now/retrieve-project-info-action@v1
-        id: project
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          api-key: ${{ secrets.IONOS_API_KEY }}
-          project: ${{ secrets.IONOS_PROJECT_ID }}
-          service-host: api-us.ionos.space
-      - name: checkout
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        uses: actions/checkout@v2
-        with:
-          submodules: 'recursive'
-      - name: Setup Node.js 14.x
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
-      - name: Open correct directory
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        run: cd svelte-app
-      - name: Prepare project environment
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        run: npm --prefix svelte-app ci
-      - name: Build project
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        run: npm run --prefix svelte-app build
-        env:
-          CI: true
-          SITE_URL: ${{ steps.project.outputs.site-url }}
-      - name: Deploy build
-        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
-        uses: ionos-deploy-now/deploy-to-ionos-action@v1
-        with:
-          api-key: ${{ secrets.IONOS_API_KEY }}
-          bootstrap-deploy: ${{ steps.project.outputs.bootstrap-deploy }}
-          branch-id: ${{ steps.project.outputs.branch-id }}
-          dist-folder: svelte-app/public
-          project: ${{ secrets.IONOS_PROJECT_ID }}
-          remote-host: ${{ steps.project.outputs.remote-host }}
-          service-host: api-us.ionos.space
-          storage-quota: ${{ steps.project.outputs.storage-quota }}
+          node-version: 18.x
+
+      - name: Install dependencies
+        working-directory: svelte-app
+        run: npm ci
+
+      - name: Build
+        working-directory: svelte-app
+        run: npm run build
+
+      - name: Copy build to docs
+        run: |
+          rm -rf docs/build
+          cp -r svelte-app/public/. docs/
+
+      - name: Commit and push docs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --staged --quiet || git commit -m "Update docs build [skip ci]"
+          git push
