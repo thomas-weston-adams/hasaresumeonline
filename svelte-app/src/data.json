@@ -12,16 +12,16 @@
       "label": "Years Teaching Experience"
     },
     {
-      "number": "5+",
+      "number": "3+",
       "label": "Years Emergency Management"
+    },
+    {
+      "number": "5+",
+      "label": "Years Search & Rescue"
     },
     {
       "number": "7+",
       "label": "Years Daily Running Streak"
-    },
-    {
-      "number": "30+",
-      "label": "Countries Visited"
     }
   ],
   "emergencyHighlights": [
@@ -401,14 +401,14 @@
       "caption": "With students"
     },
     {
-      "file": "IMG_20180307_153042.jpg",
-      "alt": "Tommy Adams presenting in front of a projected screen",
-      "caption": "Guest lecture — memes presentation"
-    },
-    {
       "file": "IMG_20181205_184824028.jpg",
       "alt": "Tommy Adams with students",
       "caption": "With students"
+    },
+    {
+      "file": "IMG_20180307_153042.jpg",
+      "alt": "Tommy Adams pointing at dumpster fire slide on projected screen",
+      "caption": "Guest lecture — memes presentation"
     },
     {
       "file": "PXL_20220505_171353153_exported_2865_1651929241593~2.jpg",
