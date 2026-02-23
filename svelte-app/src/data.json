@@ -5,7 +5,7 @@
   "linkedin": "https://www.linkedin.com/in/thomaswestonadams",
   "cvLink": "https://drive.google.com/file/d/1YcIyOntvnZ0ZjoglsZmQgq4Wd2NyHxzN/view?usp=drivesdk",
   "strava": "https://strava.app.link/KvabRccdW0b",
-  "statement": "I work at the intersection of emergency management, communication, and community service. As a Section Supervisor at Kentucky Emergency Management, I steward the drawdown of the FEMA-funded Chemical Stockpile Emergency Preparedness Program (CSEPP) and serve in the State Emergency Operations Center during emergencies and disasters. I also serve with Wolfe County Search and Rescue as an officer, Wilderness First Responder, and certified rope and swiftwater rescue technician. Over 17 years of higher education teaching have prepared this generation's communication leaders—equipping them with speaking, critical thinking, and technology skills in classrooms across multiple universities and colleges. Nonprofit leadership in communication, outreach, and development grounds my work in audience-centered messaging, organizational stewardship, and public service. Some careers are built in one place. Mine has been built in the space between places—the classroom, the operations center, the disaster field, the community meeting room. I volunteer my time and energy where they matter most, staying committed to my personal goals and the relationships that fuel this work. I'd love to work with you.",
+  "statement": "I work at the intersection of emergency management, communication, and community service. As a Section Supervisor at Kentucky Emergency Management, I steward the drawdown of the FEMA-funded Chemical Stockpile Emergency Preparedness Program (CSEPP) and serve in the State Emergency Operations Center during emergencies and disasters. I also serve with Wolfe County Search and Rescue as an officer, Wilderness First Responder, and certified rope and swiftwater rescue technician. Over 17 years of higher education teaching have prepared this generation's communication leaders—equipping them with speaking, critical thinking, and technology skills in classrooms across multiple universities and colleges. Nonprofit leadership in communication, outreach, and development grounds my work in audience-centered messaging, organizational stewardship, and public service. Some careers are built in one place. Mine has been built in the space between places—the classroom, the operations center, the disaster field, the community meeting room. I volunteer my time and energy where they matter most, staying committed to my personal goals and the relationships that fuel this work.",
   "stats": [
     {
       "number": "17+",
@@ -27,17 +27,28 @@
   "emergencyHighlights": [
     "Run the State EOC in five distinct roles — Planning Section Chief, Field Ops, Logistics, Public Safety Branch, and ESF5",
     "Steward the drawdown of a multi-million-dollar FEMA program under full federal audit compliance (2 CFR 200, FAR 31.2)",
-    "Author all-hazards emergency plans that dictate how Kentucky responds when things go wrong",
-    "Quarterback multi-agency operations spanning law enforcement, fire, EMS, public health, U.S. Army, and National Guard",
+    "Support the writing, updating, and implementation of all-hazards emergency plans and site-specific response plans",
+    "Coordinate multi-agency exercises and responses with law enforcement, fire, EMS, public health, military, and local and federal partners",
     "Build and execute emergency preparedness exercises from tabletop to full-scale — then measure what worked",
     "Deployed to Eastern Kentucky floods (2022) as a field responder under federal disaster declaration",
     "Certified rope rescue, swift water rescue, and wilderness search technician — trained to operate where helicopters can't",
-    "Deliver public information under pressure for KYEM, FEMA, and SAR operations — no second drafts in a crisis",
+    "Support public information efforts during emergencies and blue sky days for KYEM and SAR operations",
     "Brief senior leadership and partner agencies with situation reports and after-action reviews that drive real change",
     "Selected for Naval Postgraduate School executive education (2025) — one of the few in emergency management nationally",
-    "Talk people through the worst day of their life — de-escalation and trauma-informed communication in the field"
+    "Provide perspective for my agency and its partners through an understanding of relational, organizational, social, and public communication"
   ],
   "emergencyContent": "Kentucky Emergency Management (May 2023 – Present): Section Supervisor overseeing Chemical Stockpile Emergency Preparedness Program (CSEPP) stewardship and drawdown. Serve on State EOC team during activations in multiple roles: Planning Section Chief, Field Operations, Logistics, Public Safety Branch, and ESF5 Emergency Management Support Function. FEMA-funded position requiring high-level coordination with federal, state, and local partners including U.S. Army and National Guard.\n\nWolfe County Search & Rescue (January 2021 – Present): Officer, Treasurer, and Finance Officer for 501(c)(3) nonprofit. Active team member with certifications as Wilderness First Responder, Rope Rescue Technician, and Swift Water/Moving Water Rescue Technician. FEMA National Incident Management System (ICS) certified. Responded to Eastern Kentucky floods (2022) and numerous search operations.",
+  "cseppExplainer": {
+    "title": "What is CSEPP?",
+    "overview": "The Chemical Stockpile Emergency Preparedness Program (CSEPP) was a joint federal initiative by the U.S. Army, FEMA, states, and local governments to prepare communities near Army chemical weapons stockpiles for potential accidents. Created in 1985 following congressional mandates to destroy aging chemical stockpiles while prioritizing public and environmental safety, it focused on sites like Blue Grass Army Depot in Kentucky.",
+    "programOverview": "CSEPP enhanced emergency capabilities around eight U.S. chemical stockpile sites, including Blue Grass Army Depot (Kentucky), Pueblo Chemical Depot (Colorado), and others. It involved partnerships across federal, state, local, and tribal levels to develop plans, conduct exercises, and distribute resources. The program operated until stockpiles were fully destroyed, transitioning to closeout phases by the early 2020s.",
+    "accomplishments": [
+      "Community Education and Training: Delivered extensive public outreach, training, and resources, establishing CSEPP as a national leader in emergency preparedness education.",
+      "Infrastructure Upgrades: Funded alert systems, emergency operations centers, protective equipment (PPE), and medical countermeasures like atropine autoinjectors for hospitals.",
+      "Planning and Exercises: Created measurable protection benchmarks, NIMS-compliant plans, risk assessments, and annual full-scale drills across 10 states, 40 counties, and one tribal nation. These efforts ensured \"maximum protection\" for offsite populations and left lasting all-hazards emergency capabilities in host communities."
+    ],
+    "personalNote": "I chose to stay with the program until the final funding ended — and it ended with me in my state. The final weapons were destroyed in 2023. The final pieces of agent-contaminated secondary waste were destroyed in 2025. March 31, 2026 marks the end of the program."
+  },
   "educationHighlights": [
     "17 years in the classroom across 10+ universities — from Pepperdine to Penn State to Shanghai University",
     "Critical Thinking Teacher of the Year nominee (2015) and Teacher Who Made a Difference Award winner (2014)",

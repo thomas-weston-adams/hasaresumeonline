@@ -31,6 +31,13 @@
   const teachingInstitutions = data.teachingInstitutions || [];
   const runningStartPhotos = data.runningStartPhotos || [];
   const runningPhotos = data.runningPhotos || [];
+  const cseppExplainer = data.cseppExplainer || null;
+
+  let cseppOpen = false;
+  function toggleCsepp() { cseppOpen = !cseppOpen; }
+
+  let institutionsOpen = false;
+  function toggleInstitutions() { institutionsOpen = !institutionsOpen; }
 
   // Use local calendar dates (not UTC) so the count rolls over at local midnight
   const streakStart = new Date(2018, 9, 15); // Oct 15, 2018 in local time (months are 0-indexed)
@@ -177,6 +184,34 @@
       {#each paragraphs(data.emergencyContent) as para}
         <p>{para}</p>
       {/each}
+
+      {#if cseppExplainer}
+        <div class="csepp-dropdown">
+          <button class="csepp-toggle" on:click={toggleCsepp} aria-expanded={cseppOpen}>
+            <span class="csepp-toggle-label">{cseppExplainer.title}</span>
+            <span class="csepp-chevron" class:open={cseppOpen}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          {#if cseppOpen}
+            <div class="csepp-content">
+              <p>{cseppExplainer.overview}</p>
+              <h4>Program Overview</h4>
+              <p>{cseppExplainer.programOverview}</p>
+              <h4>Key Accomplishments</h4>
+              <ul>
+                {#each cseppExplainer.accomplishments as item}
+                  <li>{item}</li>
+                {/each}
+              </ul>
+              <p class="csepp-personal">{cseppExplainer.personalNote}</p>
+            </div>
+          {/if}
+        </div>
+      {/if}
+
       <div class="thumb-row">
         {#if data.sarTeamPhoto}
           <div class="thumb-cell" on:click={() => openLightbox('./images/' + data.sarTeamPhoto, data.sarTeamPhotoAlt || 'WCSAR Water Rescue')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/' + data.sarTeamPhoto, data.sarTeamPhotoAlt || 'WCSAR Water Rescue')}>
@@ -206,11 +241,24 @@
         <p>{para}</p>
       {/each}
       {#if teachingInstitutions.length > 0}
-        <div class="teaching-grid-label">Institutions taught at</div>
-        <div class="teaching-grid">
-          {#each teachingInstitutions as inst}
-            <div class="teaching-card">{inst}</div>
-          {/each}
+        <div class="csepp-dropdown">
+          <button class="csepp-toggle" on:click={toggleInstitutions} aria-expanded={institutionsOpen}>
+            <span class="csepp-toggle-label">Institutions taught at</span>
+            <span class="csepp-chevron" class:open={institutionsOpen}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          {#if institutionsOpen}
+            <div class="csepp-content">
+              <div class="teaching-grid">
+                {#each teachingInstitutions as inst}
+                  <div class="teaching-card">{inst}</div>
+                {/each}
+              </div>
+            </div>
+          {/if}
         </div>
       {/if}
       {#if educationDegreesList.length > 0}
@@ -517,6 +565,84 @@
   }
 
 
+  /* CSEPP dropdown */
+  .csepp-dropdown {
+    margin: 20px 0;
+    border: 1px solid #d4cdc2;
+    border-radius: 6px;
+    background: #faf8f4;
+    overflow: hidden;
+  }
+
+  .csepp-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 16px;
+    background: #f5f2ec;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #2d5a47;
+    letter-spacing: 0.3px;
+    transition: background 0.2s ease;
+  }
+
+  .csepp-toggle:hover {
+    background: #ede8e0;
+  }
+
+  .csepp-chevron {
+    display: flex;
+    align-items: center;
+    color: #4a7c6b;
+    transition: transform 0.25s ease;
+  }
+
+  .csepp-chevron.open {
+    transform: rotate(180deg);
+  }
+
+  .csepp-content {
+    padding: 16px 20px;
+    font-size: 0.92em;
+    line-height: 1.7;
+    color: #34403b;
+  }
+
+  .csepp-content h4 {
+    font-size: 0.95em;
+    font-weight: 700;
+    color: #1e3a2f;
+    margin: 16px 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .csepp-content p {
+    margin: 0 0 10px;
+  }
+
+  .csepp-content ul {
+    margin: 8px 0 12px;
+    padding-left: 20px;
+  }
+
+  .csepp-content li {
+    margin-bottom: 8px;
+  }
+
+  .csepp-personal {
+    margin-top: 16px !important;
+    padding-top: 14px;
+    border-top: 1px solid #e8e2d8;
+    font-style: italic;
+    color: #4a5c54;
+  }
+
   @media (max-width: 768px) {
     .content { padding: 25px 18px; }
     .profile { padding: 25px 18px; }
@@ -679,16 +805,6 @@
   }
 
   /* Teaching grid */
-  .teaching-grid-label {
-    font-size: 0.75em;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: #4a7c6b;
-    margin-top: 22px;
-    margin-bottom: 10px;
-  }
-
   .teaching-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -1304,8 +1420,7 @@
     color: #cc5555;
   }
 
-  :global(body.upside-down .degrees-label),
-  :global(body.upside-down .teaching-grid-label) {
+  :global(body.upside-down .degrees-label) {
     color: #cc5555;
   }
 
@@ -1383,5 +1498,37 @@
   /* ── Lightbox ──────────────────────────────────── */
   :global(body.upside-down .lightbox) {
     background: rgba(5, 0, 0, 0.96);
+  }
+
+  /* ── CSEPP dropdown ──────────────────────────── */
+  :global(body.upside-down .csepp-dropdown) {
+    background: #150a0a;
+    border-color: #4a0808;
+  }
+
+  :global(body.upside-down .csepp-toggle) {
+    background: #1a0c0c;
+    color: #ff8c00;
+  }
+
+  :global(body.upside-down .csepp-toggle:hover) {
+    background: #1f0c0c;
+  }
+
+  :global(body.upside-down .csepp-chevron) {
+    color: #cc4444;
+  }
+
+  :global(body.upside-down .csepp-content) {
+    color: #d4b0b0;
+  }
+
+  :global(body.upside-down .csepp-content h4) {
+    color: #ff2d2d;
+  }
+
+  :global(body.upside-down .csepp-personal) {
+    border-top-color: #4a0808;
+    color: #886060;
   }
 </style>
