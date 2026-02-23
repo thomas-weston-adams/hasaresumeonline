@@ -313,7 +313,7 @@
         </ul>
       {/if}
       {#if teachingPhotos.length > 0}
-        <div class="thumb-row">
+        <div class="thumb-row teaching-thumb-row">
           {#each teachingPhotos as photo}
             <div class="thumb-cell" on:click={() => openLightbox('./images/' + encodeURIComponent(photo.file), photo.alt || 'Teaching')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/' + encodeURIComponent(photo.file), photo.alt || 'Teaching')}>
               <img src="./images/{encodeURIComponent(photo.file)}" alt={photo.alt || 'Teaching'} loading="lazy" />
@@ -1120,6 +1120,10 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
     margin-top: 20px;
+  }
+
+  .teaching-thumb-row {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .thumb-cell {
