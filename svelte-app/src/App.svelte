@@ -36,6 +36,9 @@
   let cseppOpen = false;
   function toggleCsepp() { cseppOpen = !cseppOpen; }
 
+  let institutionsOpen = false;
+  function toggleInstitutions() { institutionsOpen = !institutionsOpen; }
+
   // Use local calendar dates (not UTC) so the count rolls over at local midnight
   const streakStart = new Date(2018, 9, 15); // Oct 15, 2018 in local time (months are 0-indexed)
   const _now = new Date();
@@ -238,11 +241,24 @@
         <p>{para}</p>
       {/each}
       {#if teachingInstitutions.length > 0}
-        <div class="teaching-grid-label">Institutions taught at</div>
-        <div class="teaching-grid">
-          {#each teachingInstitutions as inst}
-            <div class="teaching-card">{inst}</div>
-          {/each}
+        <div class="csepp-dropdown">
+          <button class="csepp-toggle" on:click={toggleInstitutions} aria-expanded={institutionsOpen}>
+            <span class="csepp-toggle-label">Institutions taught at</span>
+            <span class="csepp-chevron" class:open={institutionsOpen}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          {#if institutionsOpen}
+            <div class="csepp-content">
+              <div class="teaching-grid">
+                {#each teachingInstitutions as inst}
+                  <div class="teaching-card">{inst}</div>
+                {/each}
+              </div>
+            </div>
+          {/if}
         </div>
       {/if}
       {#if educationDegreesList.length > 0}
@@ -789,16 +805,6 @@
   }
 
   /* Teaching grid */
-  .teaching-grid-label {
-    font-size: 0.75em;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: #4a7c6b;
-    margin-top: 22px;
-    margin-bottom: 10px;
-  }
-
   .teaching-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -1414,8 +1420,7 @@
     color: #cc5555;
   }
 
-  :global(body.upside-down .degrees-label),
-  :global(body.upside-down .teaching-grid-label) {
+  :global(body.upside-down .degrees-label) {
     color: #cc5555;
   }
 
