@@ -277,8 +277,8 @@
     </ResumeSection>
 
     <ResumeSection icon="🎓" title="Teaching & Communication">
-      <div class="classroom-banner" on:click={() => openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')}>
-        <img src="./images/10-classroom-professor.png" alt="Tommy Adams in the classroom" loading="lazy" />
+      <div class="classroom-banner" on:click={() => openLightbox('./images/tommy-with-class.jpg', 'Tommy Adams teaching with students')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/tommy-with-class.jpg', 'Tommy Adams teaching with students')}>
+        <img src="./images/tommy-with-class.jpg" alt="Tommy Adams teaching with students" loading="lazy" />
         <div class="classroom-banner-caption">17+ years shaping communicators — across 10+ universities</div>
       </div>
       {#each paragraphs(data.educationContent) as para}
@@ -347,20 +347,23 @@
         {/each}
 
         {#if educationDegreesList.length > 0}
-          {#each educationDegreesList as d}
-            <div class="degree-card">
-              <span class="degree-label">{d.degree}</span>
-              <span class="degree-field">{d.field}</span>
-              <span class="degree-inst">{d.institution}</span>
-            </div>
-          {/each}
+          <div class="ed-section-label">Academic Degrees</div>
+          <div class="degrees-grid">
+            {#each educationDegreesList as d}
+              <div class="degree-card">
+                <span class="degree-label">{d.degree}</span>
+                <span class="degree-field">{d.field}</span>
+                <span class="degree-inst">{d.institution}</span>
+              </div>
+            {/each}
+          </div>
         {/if}
 
         {#if highSchool}
-          <div class="degree-card">
+          <div class="degree-card-hs">
             <span class="degree-label">{highSchool.credential}</span>
-            <span class="degree-field">{highSchool.note}</span>
-            <span class="degree-inst">{highSchool.name} · {highSchool.location} · {highSchool.dates}</span>
+            <span class="degree-field-hs">{highSchool.note}</span>
+            <span class="degree-inst-hs">{highSchool.name}</span>
           </div>
         {/if}
       </div>
@@ -886,35 +889,79 @@
     color: #4a7c6b;
   }
 
+  .ed-section-label {
+    font-size: 0.72em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #7a8a84;
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+
+  .degrees-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
   .degree-card {
     display: flex;
-    align-items: baseline;
-    gap: 10px;
-    background: #f5f2ec;
-    border-left: 3px solid #4a7c6b;
-    padding: 10px 16px;
-    border-radius: 0 4px 4px 0;
+    flex-direction: column;
+    gap: 4px;
+    background: #f0f6f3;
+    border: 1px solid #c8ddd6;
+    border-top: 3px solid #4a7c6b;
+    padding: 14px 16px;
+    border-radius: 0 0 4px 4px;
   }
 
   .degree-label {
     font-weight: 700;
     color: #1e3a2f;
-    font-size: 0.9em;
-    min-width: 120px;
-    flex-shrink: 0;
+    font-size: 0.95em;
+    line-height: 1.3;
   }
 
   .degree-field {
+    color: #34403b;
+    font-size: 0.87em;
+    line-height: 1.45;
+    flex: 1;
+  }
+
+  .degree-inst {
+    font-size: 0.82em;
+    color: #4a7c6b;
+    font-weight: 600;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid #d4e8e0;
+  }
+
+  /* High school — compact inline card */
+  .degree-card-hs {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #faf8f5;
+    border: 1px solid #e0d9cf;
+    padding: 9px 16px;
+    border-radius: 4px;
+    flex-wrap: wrap;
+  }
+
+  .degree-field-hs {
     color: #34403b;
     font-size: 0.9em;
     flex: 1;
   }
 
-  .degree-inst {
-    font-size: 0.85em;
-    color: #4a7c6b;
-    font-weight: 600;
-    white-space: nowrap;
+  .degree-inst-hs {
+    font-size: 0.88em;
+    color: #7a8a84;
+    font-weight: 500;
   }
 
   /* Classroom banner */
@@ -1250,9 +1297,8 @@
   @media (max-width: 768px) {
     .job-header { flex-direction: column; gap: 4px; }
     .job-dates { font-size: 0.82em; }
-    .degree-card { flex-direction: column; gap: 4px; }
-    .degree-label { min-width: unset; }
-    .degree-inst { white-space: normal; }
+    .degrees-grid { grid-template-columns: 1fr; }
+    .degree-card-hs { flex-direction: column; align-items: flex-start; gap: 4px; }
     .exec-ed-photo { height: auto; object-position: center center; }
   }
 
@@ -1568,7 +1614,8 @@
   /* ── Education & degrees ───────────────────────── */
   :global(body.upside-down .degree-card) {
     background: #150a0a;
-    border-left-color: #cc2200;
+    border-color: #4a0808;
+    border-top-color: #cc2200;
   }
 
   :global(body.upside-down .degree-label) {
@@ -1581,6 +1628,20 @@
 
   :global(body.upside-down .degree-inst) {
     color: #cc5555;
+    border-top-color: #4a0808;
+  }
+
+  :global(body.upside-down .degree-card-hs) {
+    background: #150a0a;
+    border-color: #4a0808;
+  }
+
+  :global(body.upside-down .degree-field-hs) {
+    color: #d4b0b0;
+  }
+
+  :global(body.upside-down .degree-inst-hs) {
+    color: #886060;
   }
 
   :global(body.upside-down .teaching-card) {
