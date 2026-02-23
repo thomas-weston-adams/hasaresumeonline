@@ -278,7 +278,106 @@
     "credential": "Honors Diploma",
     "note": "2x National Qualifier — Competitive Speech & Debate"
   },
-  "additionalWorkHistory": [],
+  "additionalWorkHistory": [
+    {
+      "title": "Section Supervisor — Chemical Stockpile Emergency Preparedness Program",
+      "org": "Kentucky Emergency Management",
+      "dates": "May 2023 – Present",
+      "bullets": [
+        "Stewardship and drawdown of CSEPP; FEMA-funded position",
+        "State EOC team during activations: Planning Section Chief, Field Operations, Logistics, Public Safety Branch, ESF5 Emergency Management Support Function"
+      ]
+    },
+    {
+      "title": "Officer, Treasurer & Finance Officer",
+      "org": "Wolfe County Search & Rescue (501c3)",
+      "dates": "January 2021 – Present",
+      "bullets": [
+        "Wilderness First Responder, Rope Rescue Technician, Swift Water / Moving Water Rescue Technician",
+        "FEMA National Incident Management System (ICS) Certified; Search & Rescue; Lost Person Behavior; Active Team Member"
+      ]
+    },
+    {
+      "title": "Visiting Assistant Professor — Communication Studies",
+      "org": "Ohio Northern University",
+      "dates": "August 2021 – August 2022",
+      "bullets": []
+    },
+    {
+      "title": "Communications Area Faculty, Lecturer/Instructor, Technology Mentor",
+      "org": "Bluegrass Community & Technical College",
+      "dates": "August 2014 – December 2022",
+      "bullets": []
+    },
+    {
+      "title": "Lecturer, Full-time Faculty, Course Developer, Mentor",
+      "org": "Texas A&M University — Department of Communication",
+      "dates": "August 2017 – August 2019",
+      "bullets": []
+    },
+    {
+      "title": "Faculty Advisor/Recruiter, Technology Advocate, Education Technology Specialist and Trainer",
+      "org": "Pearson Higher Ed / Publishing — REVEL, My Communication Lab, MediaShare",
+      "dates": "June 2015 – May 2016",
+      "bullets": []
+    },
+    {
+      "title": "Instructor, Communication",
+      "org": "Eastern Kentucky University — Department of Communication",
+      "dates": "August 2014 – June 2015",
+      "bullets": []
+    },
+    {
+      "title": "Visiting Faculty, Instructor, Communication",
+      "org": "Midway College/University — Communication, Humanities & Arts",
+      "dates": "August 2014 – May 2015",
+      "bullets": []
+    },
+    {
+      "title": "Instructor, Lecturer, Faculty Mentor",
+      "org": "University of Kentucky — Instructional Communication & Research / College of Communication",
+      "dates": "January 2012 – August 2014",
+      "bullets": []
+    },
+    {
+      "title": "Visiting Professor for Communication",
+      "org": "Shanghai University — Confucius Institute & University of Kentucky",
+      "dates": "June 2013 – July 2013",
+      "bullets": []
+    },
+    {
+      "title": "Instructor, Oral Communication",
+      "org": "College of Southern Nevada",
+      "dates": "August 2009 – December 2011",
+      "bullets": []
+    },
+    {
+      "title": "Instructor, Grad Lecturer, Grad Intern, Grad Research Associate",
+      "org": "The Pennsylvania State University",
+      "dates": "August 2007 – August 2009",
+      "bullets": []
+    },
+    {
+      "title": "Graduate Teaching Associate Instructor, Course Developer, Special Assistant",
+      "org": "San Diego State University",
+      "dates": "August 2005 – June 2007",
+      "bullets": []
+    },
+    {
+      "title": "Executive Director, Interim President",
+      "org": "Friends of Hemp",
+      "dates": "October 2019 – December 2020",
+      "bullets": [
+        "Nonprofit communication, outreach, and development"
+      ]
+    },
+    {
+      "title": "Communication Director, Tech Liaison",
+      "org": "Hemp Feed Coalition",
+      "dates": "October 2019 – December 2020",
+      "bullets": []
+    }
+  ],
   "teachingInstitutions": [
     "Ohio Northern University",
     "Texas A&M University",
