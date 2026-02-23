@@ -422,8 +422,22 @@
       <div class="pub-list">
         {#each publications as pub}
           <div class="pub-item">
-            <div class="pub-title">"{pub.title}"</div>
-            <div class="pub-meta">{pub.role} · {pub.publisher} · {pub.year}</div>
+            <div class="pub-title">
+              {#if pub.book}
+                {@html `"${pub.title}", a chapter in <em>${pub.book}</em>`}
+              {:else if pub.italicTitle}
+                <em>{pub.title}</em>
+              {:else}
+                "{pub.title}"
+              {/if}
+            </div>
+            <div class="pub-meta">
+              {#if pub.book}
+                {pub.role} · {pub.year}
+              {:else}
+                {pub.role} · {pub.publisher} · {pub.year}
+              {/if}
+            </div>
             {#if pub.award}
               <div class="pub-award">🏆 {pub.award}</div>
             {/if}

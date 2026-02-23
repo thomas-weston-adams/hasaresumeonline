@@ -189,7 +189,7 @@
   "publications": [
     {
       "title": "Memes as a Communicative Act",
-      "publisher": "Meme Life",
+      "book": "Meme Life",
       "year": "2021",
       "role": "Chapter Author",
       "award": "National Communication Association Book Award Winner (2023)"
@@ -198,7 +198,8 @@
       "title": "Towers of Rhetoric: Memory and Reinvention",
       "publisher": "Penn State University Press",
       "year": "2018",
-      "role": "Research Partner"
+      "role": "Research Partner",
+      "italicTitle": true
     }
   ],
   "awards": [
