@@ -277,8 +277,8 @@
     </ResumeSection>
 
     <ResumeSection icon="🎓" title="Teaching & Communication">
-      <div class="classroom-banner" on:click={() => openLightbox('./images/tommy-with-class.jpg', 'Tommy Adams teaching with students')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/tommy-with-class.jpg', 'Tommy Adams teaching with students')}>
-        <img src="./images/tommy-with-class.jpg" alt="Tommy Adams teaching with students" loading="lazy" />
+      <div class="classroom-banner" on:click={() => openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')}>
+        <img src="./images/10-classroom-professor.png" alt="Tommy Adams in the classroom" loading="lazy" />
         <div class="classroom-banner-caption">17+ years shaping communicators — across 10+ universities</div>
       </div>
       {#each paragraphs(data.educationContent) as para}
@@ -322,6 +322,9 @@
           {/each}
         </div>
       {/if}
+      <div class="classroom-banner" on:click={() => openLightbox('./images/tommy-with-class.jpg', 'Tommy Adams with students')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/tommy-with-class.jpg', 'Tommy Adams with students')}>
+        <img src="./images/tommy-with-class.jpg" alt="Tommy Adams with students" loading="lazy" />
+      </div>
     </ResumeSection>
 
     <ResumeSection icon="🎓" title="School / Education">
