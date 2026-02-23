@@ -1171,7 +1171,8 @@
   }
 
   @media (max-width: 500px) {
-    .thumb-row { grid-template-columns: 1fr; }
+    .thumb-row { grid-template-columns: repeat(2, 1fr); }
+    .teaching-thumb-row { grid-template-columns: repeat(3, 1fr); }
   }
 
   /* Full-width running photo banner */
