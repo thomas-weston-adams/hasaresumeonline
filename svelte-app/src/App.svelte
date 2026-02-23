@@ -29,6 +29,7 @@
   const educationDegreesList = data.educationDegreesList || [];
   const executiveEducation = data.executiveEducation || [];
   const teachingInstitutions = data.teachingInstitutions || [];
+  const teachingPhotos = data.teachingPhotos || [];
   const runningStartPhotos = data.runningStartPhotos || [];
   const runningPhotos = data.runningPhotos || [];
   const cseppExplainer = data.cseppExplainer || null;
@@ -310,6 +311,16 @@
             <li>{item}</li>
           {/each}
         </ul>
+      {/if}
+      {#if teachingPhotos.length > 0}
+        <div class="thumb-row">
+          {#each teachingPhotos as photo}
+            <div class="thumb-cell" on:click={() => openLightbox('./images/' + encodeURIComponent(photo.file), photo.alt || 'Teaching')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/' + encodeURIComponent(photo.file), photo.alt || 'Teaching')}>
+              <img src="./images/{encodeURIComponent(photo.file)}" alt={photo.alt || 'Teaching'} loading="lazy" />
+              {#if photo.caption}<div class="thumb-caption">{photo.caption}</div>{/if}
+            </div>
+          {/each}
+        </div>
       {/if}
     </ResumeSection>
 

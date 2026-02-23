@@ -379,6 +379,18 @@
       "bullets": []
     }
   ],
+  "teachingPhotos": [
+    {
+      "file": "10-classroom-professor.png",
+      "alt": "Tommy Adams teaching in the classroom",
+      "caption": "In the classroom"
+    },
+    {
+      "file": "06-ohio-northern-campus.jpg",
+      "alt": "Ohio Northern University campus",
+      "caption": "Ohio Northern University"
+    }
+  ],
   "teachingInstitutions": [
     "Ohio Northern University",
     "Texas A&M University",
