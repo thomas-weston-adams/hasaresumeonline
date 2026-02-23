@@ -279,7 +279,7 @@
     <ResumeSection icon="🎓" title="Teaching & Communication">
       <div class="classroom-banner" on:click={() => openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')}>
         <img src="./images/10-classroom-professor.png" alt="Tommy Adams in the classroom" loading="lazy" />
-        <div class="classroom-banner-caption">17+ years shaping communicators — across 10+ universities</div>
+        <div class="classroom-banner-caption">17 years shaping communicators</div>
       </div>
       {#each paragraphs(data.educationContent) as para}
         <p>{para}</p>
@@ -476,7 +476,7 @@
 
     <ResumeSection icon="🏃" title="Personal Excellence & Global Perspective">
       <p><strong>Running Every Single Day Since October 2018:</strong> <span class="streak-count">{dayStreak.toLocaleString()}</span> consecutive days without missing a single one. This daily commitment reflects the discipline, resilience, and iterative refinement process I bring to every aspect of my life and work. {#if strava}<a class="strava-link" href={strava} target="_blank" rel="noopener noreferrer">Follow on Strava →</a>{/if}</p>
-      <p><strong>Globally-Minded Traveler:</strong> Visited 30+ countries across six continents including Italy, UK, Germany, France, China, Japan, Thailand, Australia, Brazil, New Zealand, and many others. Studied abroad in Florence, Italy (Pepperdine University International Programs) and taught in Shanghai, China as Visiting Professor.</p>
+      <p><strong>Globally-Minded Traveler:</strong> Visited 30+ countries across six continents including Italy, UK, Germany, France, China, Japan, Thailand, Australia, Brazil, New Zealand, and many others. Studied abroad in Florence, Italy and taught in Shanghai, China as Visiting Professor.</p>
       {#if runningPhotos.length > 0}
         <div class="running-banner-list">
           {#each runningPhotos as photo}
@@ -492,7 +492,7 @@
     </ResumeSection>
 
     <ResumeSection icon="🌱" title="Community Service & Volunteer Work">
-      <p>Active volunteer and mentor with <strong>A Running Start</strong> (2021–Present), a Lexington, KY-based nonprofit that supports men in recovery from addiction through running. The program provides structure, accountability, and community for participants — primarily men at the <strong>Hope Center</strong> and <strong>Privett Center</strong> in Lexington — who train together for 5Ks and other races. Running becomes more than exercise: it's a new coping mechanism, a daily discipline, and a pathway back to confidence and community. Coaches are often in long-term recovery themselves, and the program has supported participants in navigating early recovery, rebuilding self-worth, and reintegrating into daily life. Founder of campus run clubs at multiple institutions. Advisor to student organizations, judge for business pitch competitions, and extensive committee service across academic and community organizations.</p>
+      <p>Active volunteer and mentor with <strong>A Running Start</strong> (2021–Present), a Lexington, KY-based nonprofit that supports men in recovery from addiction through running. The program provides structure, accountability, and community for participants — primarily men at the <strong>Hope Center</strong> and <strong>Privett Center</strong> in Lexington — who train together for 5Ks and other races. Running becomes more than exercise: it's a new coping mechanism, a daily discipline, and a pathway back to confidence and community. Coaches are often in long-term recovery themselves, and the program has supported participants in navigating early recovery, rebuilding self-worth, and reintegrating into daily life. Also a founder of campus run clubs at multiple institutions. Advisor to student organizations, judge for business pitch competitions, and extensive committee service across academic and community organizations.</p>
       <p>Member of Wolfe County Search & Rescue since 2021 — contributing not only as a field responder but as an officer, treasurer, and finance officer supporting the organizational health of the team.</p>
       {#if runningStartPhotos.length > 0}
         <div class="running-start-label">A Running Start</div>
@@ -826,8 +826,8 @@
 
   /* Work experience */
   .job {
-    margin-bottom: 28px;
-    padding-bottom: 24px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
     border-bottom: 1px solid #e8e2d8;
   }
 
