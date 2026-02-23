@@ -322,6 +322,9 @@
           {/each}
         </div>
       {/if}
+      <div class="classroom-banner" on:click={() => openLightbox('./images/tommy-with-class.jpg', 'Tommy Adams with students')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/tommy-with-class.jpg', 'Tommy Adams with students')}>
+        <img src="./images/tommy-with-class.jpg" alt="Tommy Adams with students" loading="lazy" />
+      </div>
     </ResumeSection>
 
     <ResumeSection icon="🎓" title="School / Education">
