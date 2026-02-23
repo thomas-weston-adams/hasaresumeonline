@@ -47,7 +47,24 @@
       "Infrastructure Upgrades: Funded alert systems, emergency operations centers, protective equipment (PPE), and medical countermeasures like atropine autoinjectors for hospitals.",
       "Planning and Exercises: Created measurable protection benchmarks, NIMS-compliant plans, risk assessments, and annual full-scale drills across 10 states, 40 counties, and one tribal nation. These efforts ensured \"maximum protection\" for offsite populations and left lasting all-hazards emergency capabilities in host communities."
     ],
-    "personalNote": "I chose to stay with the program until the final funding ended — and it ended with me in my state. The final weapons were destroyed in 2023. The final pieces of agent-contaminated secondary waste were destroyed in 2025. March 31, 2026 marks the end of the program."
+    "personalNote": "I chose to stay with the program until the final funding ended — and it ended with me in my state. The final weapons were destroyed in 2023. The final pieces of agent-contaminated secondary waste were destroyed in 2025. March 31, 2026 marks the end of the program.",
+    "kentuckyImpactIntro": "For many of the ten Kentucky counties in this program, CSEPP wasn't just a federal preparedness initiative — it was access to infrastructure their local tax bases could never have supported on their own. Rural counties like Estill, Jackson, and Rockcastle operate with lean budgets and limited government capacity. Without CSEPP, there would have been no modern Emergency Operations Centers, no upgraded 911 dispatch facilities, no countywide warning siren networks. The program placed these communities on equal footing — and in some cases ahead — of far larger and better-resourced jurisdictions. That transformation doesn't happen by accident. It happens through years of sustained investment, coordination, and trust built between partners at every level.",
+    "kentuckyBenefits": [
+      "Public Warning Systems: Funded and maintained outdoor warning sirens, tone-alert radios for homes and businesses, and the Integrated Public Alert and Warning System (IPAWS) — giving rural communities the same notification infrastructure as major metropolitan areas.",
+      "Infrastructure Upgrades: Built and upgraded state-of-the-art Emergency Operations Centers (EOCs) and 911 dispatch facilities that now serve as the backbone of emergency response for the entire region.",
+      "First Responder Support: Provided specialized training and protective equipment for local police, fire, and medical personnel who would otherwise lack access to this level of preparation.",
+      "Public Education: Gave residents the tools to develop family emergency plans, build emergency kits — including supplies for those with functional needs — and understand shelter-in-place procedures.",
+      "School Safety: Funded over-pressurization of school buildings to protect children during a potential chemical incident, and supported the development and coordination of school-specific emergency response plans.",
+      "Medical Preparedness: Trained physicians and nurses to recognize and treat chemical exposure injuries, and provided decontamination equipment and services to local hospitals that serve these communities year-round."
+    ],
+    "affectedCountiesIntro": "CSEPP was active in 10 Kentucky counties, organized into zones based on proximity to Blue Grass Army Depot.",
+    "affectedCounties": [
+      { "county": "Madison, Estill", "zone": "Immediate Response Zone (IRZ)" },
+      { "county": "Fayette, Garrard, Jackson, Jessamine, Rockcastle", "zone": "Protective Action Zone (PAZ)" },
+      { "county": "Clark, Powell, Woodford", "zone": "Host / Potentially Affected Zone" }
+    ],
+    "transitionNote": "As the program winds down following the destruction of the stockpile, these communities keep what CSEPP built. The facilities are theirs. The equipment is theirs. The institutional knowledge and trained personnel are theirs. Current efforts focus on sustaining these capabilities through local and state support — ensuring that what took decades to build doesn't erode in the transition away from federal funding.",
+    "partnershipNote": "Throughout this process, my role has been to manage the relationships that kept the program running: local emergency managers, county officials, federal agency representatives, U.S. Army and National Guard personnel, and the contractors responsible for delivery, documentation, and closeout. Being the person who bridges those relationships — who understands what each partner needs and how to move everyone toward the same goal — has defined this work."
   },
   "educationHighlights": [
     "17 years in the classroom across 10+ universities — from Pepperdine to Penn State to Shanghai University",
@@ -65,7 +82,7 @@
     "Ran for Kentucky State Representative (2022) — carried a campaign on public service, not politics",
     "Built working relationships across law enforcement, fire, public health, military, and volunteer organizations that hold up under pressure"
   ],
-  "publicServiceContent": "Federal Grants Management Certificate: Completed comprehensive training in Subawarding for Pass-through Entities, Cost Principles (2 CFR 200 and FAR 31.2), Writing Successful Federal Grants, and Uniform Administrative Requirements for Federal Grants.\n\nNonprofit Leadership Experience: Currently serve as Treasurer & Finance Officer for Wolfe County Search & Rescue (501c3). Previously Executive Director and Interim President of Friends of Hemp (2019–2020), and Communication Director for Hemp Feed Coalition (2019–2020). Candidate for State Representative, Kentucky House District 73 (2022).",
+  "publicServiceContent": "Nonprofit Leadership Experience: Currently serve as Treasurer & Finance Officer for Wolfe County Search & Rescue (501c3). Previously Executive Director and Interim President of Friends of Hemp (2019–2020), and Communication Director for Hemp Feed Coalition (2019–2020).\n\nCandidate for State Representative: Ran for Kentucky House District 73 in 2022, carrying a campaign grounded in public service and community engagement.",
   "coreSkills": [
     "Emergency Operations",
     "Incident Command (ICS)",
@@ -80,7 +97,7 @@
     "Technical Rescue Operations",
     "Strategic Communications"
   ],
-  "certificationsContent": "FEMA/Emergency Management Training: ICS 100, 200, 300, 305, 400, 700, 800; IS 2200 Basic EOC Functions; G 2300 Intermediate Emergency Operations; IS 29 Public Information Officer; IS 120 Introduction to Exercises; G-191 EOC Interface; IS 235 Emergency Planning; IS 240 Leadership and Influence; IS 241 Decision Making and Problem Solving; IS 242 Effective Communication; IS 244 Developing and Managing Volunteers; Chemical Incident Response (CHEMKPF AWR-947-W); WebPuff; IPAWS Alert System; WEB EOC Communication System\n\nSearch & Rescue Certifications: NOLS Wilderness First Responder; Swift Water Rescue; Technical Rope Rescue; B-Search and Rescue; Land Navigation, GPS & GAIA; Lost Person Behavior; Search Management\n\nExecutive Education: Radiological Emergency Preparedness Executive Education Program, Center for Homeland Defense and Security, Naval Postgraduate School (2025)",
+  "certificationsContent": "Federal Grants Management Certificate: Completed comprehensive training in Subawarding for Pass-through Entities, Cost Principles (2 CFR 200 and FAR 31.2), Writing Successful Federal Grants, and Uniform Administrative Requirements for Federal Grants.\n\nFEMA/Emergency Management Training: ICS 100, 200, 300, 305, 400, 700, 800; IS 2200 Basic EOC Functions; G 2300 Intermediate Emergency Operations; IS 29 Public Information Officer; IS 120 Introduction to Exercises; G-191 EOC Interface; IS 235 Emergency Planning; IS 240 Leadership and Influence; IS 241 Decision Making and Problem Solving; IS 242 Effective Communication; IS 244 Developing and Managing Volunteers; Chemical Incident Response (CHEMKPF AWR-947-W); WebPuff; IPAWS Alert System; WEB EOC Communication System\n\nSearch & Rescue Certifications: NOLS Wilderness First Responder; Swift Water Rescue; Technical Rope Rescue; B-Search and Rescue; Land Navigation, GPS & GAIA; Lost Person Behavior; Search Management\n\nExecutive Education: Radiological Emergency Preparedness Executive Education Program, Center for Homeland Defense and Security, Naval Postgraduate School (2025)",
   "affiliations": [
     "Kentucky Emergency Management",
     "Wolfe County Search & Rescue",
@@ -174,7 +191,7 @@
       "title": "Memes as a Communicative Act",
       "publisher": "Meme Life",
       "year": "2021",
-      "role": "Author",
+      "role": "Chapter Author",
       "award": "National Communication Association Book Award Winner (2023)"
     },
     {
@@ -254,6 +271,14 @@
       ]
     }
   ],
+  "highSchool": {
+    "name": "Chaparral High School",
+    "location": "Las Vegas, NV",
+    "dates": "1997 – 2001",
+    "credential": "Honors Diploma",
+    "note": "2x National Qualifier — Competitive Speech & Debate"
+  },
+  "additionalWorkHistory": [],
   "teachingInstitutions": [
     "Ohio Northern University",
     "Texas A&M University",

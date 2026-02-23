@@ -32,12 +32,17 @@
   const runningStartPhotos = data.runningStartPhotos || [];
   const runningPhotos = data.runningPhotos || [];
   const cseppExplainer = data.cseppExplainer || null;
+  const highSchool = data.highSchool || null;
+  const additionalWorkHistory = data.additionalWorkHistory || [];
 
   let cseppOpen = false;
   function toggleCsepp() { cseppOpen = !cseppOpen; }
 
   let institutionsOpen = false;
   function toggleInstitutions() { institutionsOpen = !institutionsOpen; }
+
+  let additionalWorkOpen = false;
+  function toggleAdditionalWork() { additionalWorkOpen = !additionalWorkOpen; }
 
   // Use local calendar dates (not UTC) so the count rolls over at local midnight
   const streakStart = new Date(2018, 9, 15); // Oct 15, 2018 in local time (months are 0-indexed)
@@ -207,6 +212,44 @@
                 {/each}
               </ul>
               <p class="csepp-personal">{cseppExplainer.personalNote}</p>
+
+              {#if cseppExplainer.kentuckyImpactIntro}
+                <h4>What This Meant for Kentucky Communities</h4>
+                <p>{cseppExplainer.kentuckyImpactIntro}</p>
+                {#if cseppExplainer.kentuckyBenefits}
+                  <ul>
+                    {#each cseppExplainer.kentuckyBenefits as benefit}
+                      <li>{benefit}</li>
+                    {/each}
+                  </ul>
+                {/if}
+              {/if}
+
+              {#if cseppExplainer.affectedCountiesIntro}
+                <h4>Affected Counties</h4>
+                <p>{cseppExplainer.affectedCountiesIntro}</p>
+                {#if cseppExplainer.affectedCounties}
+                  <div class="csepp-county-table">
+                    <div class="csepp-county-header">
+                      <span>County</span><span>Zone</span>
+                    </div>
+                    {#each cseppExplainer.affectedCounties as row}
+                      <div class="csepp-county-row">
+                        <span>{row.county}</span><span>{row.zone}</span>
+                      </div>
+                    {/each}
+                  </div>
+                {/if}
+              {/if}
+
+              {#if cseppExplainer.transitionNote}
+                <h4>Transition & Future</h4>
+                <p>{cseppExplainer.transitionNote}</p>
+              {/if}
+
+              {#if cseppExplainer.partnershipNote}
+                <p class="csepp-partnership">{cseppExplainer.partnershipNote}</p>
+              {/if}
             </div>
           {/if}
         </div>
@@ -232,7 +275,7 @@
       </div>
     </ResumeSection>
 
-    <ResumeSection icon="🎓" title="Teaching & Communication" highlights={educationHighlights}>
+    <ResumeSection icon="🎓" title="Teaching & Communication">
       <div class="classroom-banner" on:click={() => openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')}>
         <img src="./images/10-classroom-professor.png" alt="Tommy Adams in the classroom" loading="lazy" />
         <div class="classroom-banner-caption">17+ years shaping communicators — across 10+ universities</div>
@@ -261,23 +304,17 @@
           {/if}
         </div>
       {/if}
-      {#if educationDegreesList.length > 0}
-        <div class="degrees-label">Academic Degrees</div>
-        <div class="degrees">
-          {#each educationDegreesList as d}
-            <div class="degree-card">
-              <span class="degree-label">{d.degree}</span>
-              <span class="degree-field">{d.field}</span>
-              <span class="degree-inst">{d.institution}</span>
-            </div>
+      {#if educationHighlights.length > 0}
+        <ul class="teaching-highlights">
+          {#each educationHighlights as item}
+            <li>{item}</li>
           {/each}
-        </div>
+        </ul>
       {/if}
     </ResumeSection>
 
-    {#if executiveEducation.length > 0}
-    <ResumeSection icon="📋" title="Recent & Upcoming Training, Certification & Continuing Education">
-      <div class="exec-ed-list">
+    <ResumeSection icon="🎓" title="School / Education">
+      <div class="school-ed-list">
         {#each executiveEducation as ed}
           <div class="exec-ed-card" class:upcoming={ed.status === 'upcoming'}>
             {#if ed.status === 'upcoming'}
@@ -297,9 +334,26 @@
             {/if}
           </div>
         {/each}
+
+        {#if educationDegreesList.length > 0}
+          {#each educationDegreesList as d}
+            <div class="degree-card">
+              <span class="degree-label">{d.degree}</span>
+              <span class="degree-field">{d.field}</span>
+              <span class="degree-inst">{d.institution}</span>
+            </div>
+          {/each}
+        {/if}
+
+        {#if highSchool}
+          <div class="degree-card">
+            <span class="degree-label">{highSchool.credential}</span>
+            <span class="degree-field">{highSchool.note}</span>
+            <span class="degree-inst">{highSchool.name} · {highSchool.location} · {highSchool.dates}</span>
+          </div>
+        {/if}
       </div>
     </ResumeSection>
-    {/if}
 
     <ResumeSection icon="🤝" title="Nonprofit & Public Service Leadership" highlights={publicServiceHighlights}>
       {#each paragraphs(data.publicServiceContent) as para}
@@ -324,6 +378,43 @@
           </ul>
         </div>
       {/each}
+
+      <div class="csepp-dropdown" style="margin-top: 12px;">
+        <button class="csepp-toggle" on:click={toggleAdditionalWork} aria-expanded={additionalWorkOpen}>
+          <span class="csepp-toggle-label">Additional Work History</span>
+          <span class="csepp-chevron" class:open={additionalWorkOpen}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </span>
+        </button>
+        {#if additionalWorkOpen}
+          <div class="csepp-content">
+            {#if additionalWorkHistory.length > 0}
+              {#each additionalWorkHistory as job}
+                <div class="job" style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #e8e2d8;">
+                  <div class="job-header">
+                    <div class="job-title-wrap">
+                      <span class="job-title">{job.title}</span>
+                      <span class="job-org">{job.org}</span>
+                    </div>
+                    <span class="job-dates">{job.dates}</span>
+                  </div>
+                  {#if job.bullets}
+                    <ul class="job-bullets">
+                      {#each job.bullets as bullet}
+                        <li>{bullet}</li>
+                      {/each}
+                    </ul>
+                  {/if}
+                </div>
+              {/each}
+            {:else}
+              <p style="font-style: italic; color: #7a8a84;">Full work history available upon request.</p>
+            {/if}
+          </div>
+        {/if}
+      </div>
     </ResumeSection>
 
     {#if publications.length > 0}
@@ -370,7 +461,7 @@
     </ResumeSection>
 
     <ResumeSection icon="🌱" title="Community Service & Volunteer Work">
-      <p>Active volunteer and mentor with <strong>A Running Start</strong> (2021–Present), a nonprofit supporting young runners. Founder of campus run clubs at multiple institutions. Advisor to student organizations, judge for business pitch competitions, and extensive committee service across academic and community organizations.</p>
+      <p>Active volunteer and mentor with <strong>A Running Start</strong> (2021–Present), a Lexington, KY-based nonprofit that supports men in recovery from addiction through running. The program provides structure, accountability, and community for participants — primarily men at the <strong>Hope Center</strong> and <strong>Privett Center</strong> in Lexington — who train together for 5Ks and other races. Running becomes more than exercise: it's a new coping mechanism, a daily discipline, and a pathway back to confidence and community. Coaches are often in long-term recovery themselves, and the program has supported participants in navigating early recovery, rebuilding self-worth, and reintegrating into daily life. Founder of campus run clubs at multiple institutions. Advisor to student organizations, judge for business pitch competitions, and extensive committee service across academic and community organizations.</p>
       <p>Member of Wolfe County Search & Rescue since 2021 — contributing not only as a field responder but as an officer, treasurer, and finance officer supporting the organizational health of the team.</p>
       {#if runningStartPhotos.length > 0}
         <div class="running-start-label">A Running Start</div>
@@ -643,6 +734,50 @@
     color: #4a5c54;
   }
 
+  .csepp-county-table {
+    margin: 10px 0 14px;
+    border: 1px solid #d4cdc2;
+    border-radius: 4px;
+    overflow: hidden;
+    font-size: 0.9em;
+  }
+
+  .csepp-county-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #e8e2d8;
+    padding: 7px 12px;
+    font-weight: 700;
+    color: #1e3a2f;
+    font-size: 0.82em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .csepp-county-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 7px 12px;
+    color: #34403b;
+    border-top: 1px solid #e8e2d8;
+  }
+
+  .csepp-county-row:nth-child(odd) {
+    background: #f5f2ec;
+  }
+
+  .csepp-partnership {
+    margin-top: 16px !important;
+    padding: 12px 16px;
+    background: #f0f6f3;
+    border-left: 3px solid #4a7c6b;
+    border-radius: 0 4px 4px 0;
+    font-style: italic;
+    color: #2d5a47;
+    font-size: 0.93em;
+    line-height: 1.7;
+  }
+
   @media (max-width: 768px) {
     .content { padding: 25px 18px; }
     .profile { padding: 25px 18px; }
@@ -724,14 +859,6 @@
     position: absolute;
     left: 6px;
     color: #4a7c6b;
-  }
-
-  /* Degrees */
-  .degrees {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 22px;
   }
 
   .degree-card {
@@ -822,19 +949,8 @@
     border-radius: 0 4px 4px 0;
   }
 
-  /* Degrees sub-section */
-  .degrees-label {
-    font-size: 0.75em;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: #4a7c6b;
-    margin-top: 24px;
-    margin-bottom: 10px;
-  }
-
-  /* Executive Education */
-  .exec-ed-list {
+  /* School / Education */
+  .school-ed-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -1027,7 +1143,7 @@
   .streak-count {
     font-size: 1.15em;
     font-weight: 700;
-    color: #1e3a2f;
+    color: #fc4c02;
   }
 
   .strava-link {
@@ -1166,6 +1282,28 @@
 
   .lightbox-close:hover {
     opacity: 1;
+  }
+
+  /* Teaching highlights — rendered below institutions dropdown */
+  .teaching-highlights {
+    list-style: none;
+    margin-top: 16px;
+    padding: 0;
+  }
+
+  .teaching-highlights li {
+    padding: 10px 0 10px 30px;
+    position: relative;
+    color: #2d3a35;
+    font-size: 1em;
+  }
+
+  .teaching-highlights li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: #4a7c6b;
+    font-weight: 700;
   }
 
   /* Running Start group label */
@@ -1420,10 +1558,6 @@
     color: #cc5555;
   }
 
-  :global(body.upside-down .degrees-label) {
-    color: #cc5555;
-  }
-
   :global(body.upside-down .teaching-card) {
     background: #150a0a;
     border-left-color: #cc2200;
@@ -1530,5 +1664,37 @@
   :global(body.upside-down .csepp-personal) {
     border-top-color: #4a0808;
     color: #886060;
+  }
+
+  :global(body.upside-down .csepp-county-table) {
+    border-color: #4a0808;
+  }
+
+  :global(body.upside-down .csepp-county-header) {
+    background: #2a0a0a;
+    color: #ff8c00;
+  }
+
+  :global(body.upside-down .csepp-county-row) {
+    color: #d4b0b0;
+    border-top-color: #4a0808;
+  }
+
+  :global(body.upside-down .csepp-county-row:nth-child(odd)) {
+    background: #1a0c0c;
+  }
+
+  :global(body.upside-down .csepp-partnership) {
+    background: #150a0a;
+    border-left-color: #cc2200;
+    color: #d4b0b0;
+  }
+
+  :global(body.upside-down .teaching-highlights li) {
+    color: #d4b0b0;
+  }
+
+  :global(body.upside-down .teaching-highlights li::before) {
+    color: #ff2d2d;
   }
 </style>
