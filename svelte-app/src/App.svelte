@@ -243,7 +243,7 @@
       {#if teachingInstitutions.length > 0}
         <div class="csepp-dropdown">
           <button class="csepp-toggle" on:click={toggleInstitutions} aria-expanded={institutionsOpen}>
-            <span class="csepp-toggle-label">Institutions taught at</span>
+            <span class="csepp-toggle-label">Institutions Where I Taught</span>
             <span class="csepp-chevron" class:open={institutionsOpen}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polyline points="6 9 12 15 18 9"></polyline>
@@ -807,7 +807,7 @@
   /* Teaching grid */
   .teaching-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 8px;
     margin-bottom: 28px;
   }
