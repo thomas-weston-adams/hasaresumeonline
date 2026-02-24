@@ -1171,6 +1171,9 @@
 
   @media (max-width: 500px) {
     .thumb-row { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
     .teaching-thumb-row { grid-template-columns: repeat(6, 1fr); }
     .teaching-thumb-row .thumb-cell { grid-column: span 2; }
     .teaching-thumb-row .teaching-wide { grid-column: span 3; }
