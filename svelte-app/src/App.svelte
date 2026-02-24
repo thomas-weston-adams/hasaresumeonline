@@ -59,19 +59,58 @@
 
   let lightboxSrc = '';
   let lightboxAlt = '';
+  let lightboxItems = [];
+  let lightboxIndex = -1;
+
+  $: teachingGallery = teachingPhotos.map((photo) => ({
+    src: './images/' + encodeURIComponent(photo.file),
+    alt: photo.alt || 'Teaching'
+  }));
+
+  $: runningGallery = runningPhotos.map((photo) => ({
+    src: './images/' + encodeURIComponent(photo.file),
+    alt: photo.alt
+  }));
+
+  $: runningStartGallery = runningStartPhotos.map((photo) => ({
+    src: './images/' + encodeURIComponent(photo.file),
+    alt: photo.alt || 'A Running Start'
+  }));
 
   function openLightbox(src, alt) {
+    lightboxItems = [];
+    lightboxIndex = -1;
     lightboxSrc = src;
     lightboxAlt = alt;
+  }
+
+  function openGallery(items, index) {
+    if (!items?.length || index < 0 || index >= items.length) return;
+    lightboxItems = items;
+    lightboxIndex = index;
+    lightboxSrc = items[index].src;
+    lightboxAlt = items[index].alt;
+  }
+
+  function navigateLightbox(direction) {
+    if (lightboxItems.length < 2 || lightboxIndex < 0) return;
+    const nextIndex = (lightboxIndex + direction + lightboxItems.length) % lightboxItems.length;
+    lightboxIndex = nextIndex;
+    lightboxSrc = lightboxItems[nextIndex].src;
+    lightboxAlt = lightboxItems[nextIndex].alt;
   }
 
   function closeLightbox() {
     lightboxSrc = '';
     lightboxAlt = '';
+    lightboxItems = [];
+    lightboxIndex = -1;
   }
 
   function handleLightboxKey(e) {
     if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+    if (e.key === 'ArrowRight') navigateLightbox(1);
   }
 
   function paragraphs(text) {
@@ -167,8 +206,8 @@
   <Stats {stats} />
 
   <div class="photo-mosaic">
-    {#each photos as photo}
-      <div class="photo-cell" on:click={() => openLightbox(photo.src, photo.alt)} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox(photo.src, photo.alt)}>
+    {#each photos as photo, i}
+      <div class="photo-cell" on:click={() => openGallery(photos, i)} role="button" tabindex="0" on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && openGallery(photos, i)}>
         <img src={photo.src} alt={photo.alt} loading="lazy" style={photo.objectPosition ? `object-position: ${photo.objectPosition}` : ''} />
         <div class="photo-caption">{photo.caption}</div>
       </div>
@@ -177,8 +216,15 @@
 
   {#if lightboxSrc}
     <div class="lightbox" on:click={closeLightbox} on:keydown={handleLightboxKey} role="dialog" aria-modal="true" tabindex="-1">
+      {#if lightboxItems.length > 1}
+        <button class="lightbox-nav lightbox-prev" on:click|stopPropagation={() => navigateLightbox(-1)} aria-label="Previous photo">‹</button>
+        <button class="lightbox-nav lightbox-next" on:click|stopPropagation={() => navigateLightbox(1)} aria-label="Next photo">›</button>
+      {/if}
       <button class="lightbox-close" on:click={closeLightbox} aria-label="Close">✕</button>
       <img src={lightboxSrc} alt={lightboxAlt} on:click|stopPropagation />
+      {#if lightboxItems.length > 1 && lightboxIndex >= 0}
+        <div class="lightbox-counter">{lightboxIndex + 1} / {lightboxItems.length}</div>
+      {/if}
     </div>
   {/if}
 
@@ -324,7 +370,7 @@
       {#if teachingPhotos.length > 0}
         <div class="thumb-row teaching-thumb-row">
           {#each teachingPhotos as photo, i}
-            <div class="thumb-cell" class:teaching-wide={i >= teachingPhotos.length - 2} on:click={() => openLightbox('./images/' + encodeURIComponent(photo.file), photo.alt || 'Teaching')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/' + encodeURIComponent(photo.file), photo.alt || 'Teaching')}>
+            <div class="thumb-cell" class:teaching-wide={i >= teachingPhotos.length - 2} on:click={() => openGallery(teachingGallery, i)} role="button" tabindex="0" on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && openGallery(teachingGallery, i)}>
               <img src="./images/{encodeURIComponent(photo.file)}" alt={photo.alt || 'Teaching'} loading="lazy" />
             </div>
           {/each}
@@ -487,8 +533,8 @@
       <p><strong>Globally-Minded Traveler:</strong> Visited 30+ countries across six continents including Italy, UK, Germany, France, China, Japan, Thailand, Australia, Brazil, New Zealand, and many others. Studied abroad in Florence, Italy and taught in Shanghai, China as Visiting Professor.</p>
       {#if runningPhotos.length > 0}
         <div class="running-banner-list">
-          {#each runningPhotos as photo}
-            <div class="running-banner-item" on:click={() => openLightbox('./images/' + encodeURIComponent(photo.file), photo.alt)} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/' + encodeURIComponent(photo.file), photo.alt)}>
+          {#each runningPhotos as photo, i}
+            <div class="running-banner-item" on:click={() => openGallery(runningGallery, i)} role="button" tabindex="0" on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && openGallery(runningGallery, i)}>
               <img src="./images/{encodeURIComponent(photo.file)}" alt={photo.alt} loading="lazy" />
               {#if photo.caption}
                 <div class="running-banner-caption">{photo.caption}</div>
@@ -505,8 +551,8 @@
       {#if runningStartPhotos.length > 0}
         <div class="running-start-label">A Running Start</div>
         <div class="thumb-row">
-          {#each runningStartPhotos as photo}
-            <div class="thumb-cell" on:click={() => openLightbox('./images/' + encodeURIComponent(photo.file), photo.alt || 'A Running Start')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/' + encodeURIComponent(photo.file), photo.alt || 'A Running Start')}>
+          {#each runningStartPhotos as photo, i}
+            <div class="thumb-cell" on:click={() => openGallery(runningStartGallery, i)} role="button" tabindex="0" on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && openGallery(runningStartGallery, i)}>
               <img src="./images/{encodeURIComponent(photo.file)}" alt={photo.alt || 'A Running Start'} loading="lazy" />
               {#if photo.caption}<div class="thumb-caption">{photo.caption}</div>{/if}
             </div>
@@ -1469,6 +1515,41 @@
 
   .lightbox-close:hover {
     opacity: 1;
+  }
+
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-prev { left: 16px; }
+  .lightbox-next { right: 16px; }
+
+  .lightbox-counter {
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    padding: 4px 10px;
   }
 
   /* Teaching highlights — rendered below institutions dropdown */
