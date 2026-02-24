@@ -282,7 +282,7 @@
         <div class="classroom-banner-caption">17 years shaping communicators</div>
       </div>
       {#each paragraphs(data.educationContent) as para}
-        <p>{para}</p>
+        <p>{@html para}</p>
       {/each}
       {#if teachingInstitutions.length > 0}
         <div class="csepp-dropdown">
