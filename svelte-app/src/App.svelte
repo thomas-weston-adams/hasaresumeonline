@@ -20,7 +20,8 @@
   const emergencyHighlights = data.emergencyHighlights;
   const educationHighlights = data.educationHighlights;
   const publicServiceHighlights = data.publicServiceHighlights;
-  const coreSkills = data.coreSkills;
+  const coreSkills = data.coreSkills || [];
+  const coreSkillCategories = data.coreSkillCategories || [];
   const affiliations = data.affiliations;
   const strava = data.strava || '';
   const publications = data.publications || [];
@@ -514,7 +515,7 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection icon="⚡" title="Core Competencies & Certifications" skillCategories={coreSkills} collapsible={true}>
+    <ResumeSection icon="⚡" title="Core Competencies & Certifications" skillCategories={coreSkillCategories} skills={coreSkills} collapsible={true}>
       {#if data.certifications}
         <div class="cert-section">
           <h4>Federal Grants Management Certificate</h4>
