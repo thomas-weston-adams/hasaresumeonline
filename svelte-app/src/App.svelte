@@ -1170,7 +1170,7 @@
   }
 
   @media (max-width: 500px) {
-    .thumb-row { grid-template-columns: repeat(2, 1fr); }
+    .thumb-row { grid-template-columns: repeat(3, 1fr); }
   }
 
   @media (max-width: 768px) {
