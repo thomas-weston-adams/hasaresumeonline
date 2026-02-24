@@ -98,6 +98,20 @@
   ],
   "publicServiceContent": "Nonprofit Leadership Experience: Currently serve as Treasurer & Finance Officer for Wolfe County Search & Rescue (501c3). Previously Executive Director and Interim President of Friends of Hemp (2019–2020), and Communication Director for Hemp Feed Coalition (2019–2020).\n\nCandidate for State Representative: Ran for Kentucky House District 73 in 2022, carrying a campaign grounded in public service and community engagement.",
   "coreSkills": [
+    "Emergency Management Leadership & Program Oversight",
+    "Incident Planning & Operations (ICS, IAP, EOC, Exercises)",
+    "Search & Rescue Operations & Field Leadership",
+    "Multi-Agency Coordination & Stakeholder Engagement",
+    "Strategic Communication & Public Messaging",
+    "Crisis Communication & High-Stakes Briefing",
+    "Public Speaking, Facilitation & Training",
+    "Team Leadership, Supervision & Mentoring",
+    "Federal Grants Management & Compliance (2 CFR 200, FAR 31.2)",
+    "Budget & Resource Management",
+    "Risk, Resilience & Continuity Planning",
+    "Data-Informed Planning & Reporting"
+  ],
+  "coreSkillCategories": [
     {
       "category": "Leadership & Emergency Operations",
       "items": [
@@ -162,6 +176,7 @@
     ],
     "sarCertifications": [
       "NOLS Wilderness First Responder",
+      "Narcan/Naloxone Administration (Suspected Opioid Overdose)",
       "Swift Water Rescue",
       "Technical Rope Rescue",
       "B-Search and Rescue",
