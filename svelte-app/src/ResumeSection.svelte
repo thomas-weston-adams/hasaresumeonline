@@ -3,6 +3,7 @@
   export let title = '';
   export let highlights = [];  // array of strings
   export let skills = [];      // array of strings (rendered as badge pills)
+  export let skillCategories = [];  // array of {category, items} (rendered as categorized badge groups)
   export let orgs = [];        // array of strings (rendered as org badges)
   export let collapsible = false;
 
@@ -45,7 +46,18 @@
         </ul>
       {/if}
 
-      {#if skills.length > 0}
+      {#if skillCategories.length > 0}
+        {#each skillCategories as group}
+          <div class="skill-category-group">
+            <h4 class="skill-cat-label">{group.category}</h4>
+            <div class="skills-grid">
+              {#each group.items as skill}
+                <div class="skill-badge">{skill}</div>
+              {/each}
+            </div>
+          </div>
+        {/each}
+      {:else if skills.length > 0}
         <div class="skills-grid">
           {#each skills as skill}
             <div class="skill-badge">{skill}</div>
@@ -174,6 +186,24 @@
     font-weight: 700;
   }
 
+  /* Skill categories */
+  .skill-category-group {
+    margin-top: 22px;
+  }
+
+  .skill-category-group:first-child {
+    margin-top: 18px;
+  }
+
+  .skill-cat-label {
+    font-size: 0.78em;
+    font-weight: 700;
+    color: #4a7c6b;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin: 0 0 10px;
+  }
+
   /* Skills */
   .skills-grid {
     display: grid;
@@ -262,6 +292,11 @@
 
   :global(body.upside-down .highlights li::before) {
     color: #ff2d2d;
+  }
+
+  :global(body.upside-down .skill-cat-label) {
+    color: #cc4444;
+    font-family: 'Courier New', Courier, monospace;
   }
 
   :global(body.upside-down .skill-badge) {
