@@ -390,11 +390,6 @@
   ],
   "teachingPhotos": [
     {
-      "file": "IMG_20180307_153042.jpg",
-      "alt": "Tommy Adams pointing at dumpster fire slide on projected screen",
-      "caption": "Guest lecture — memes presentation"
-    },
-    {
       "file": "20160804_122956~2.jpg",
       "alt": "Tommy Adams with students",
       "caption": "With students"
@@ -483,6 +478,11 @@
       "file": "PXL_20221213_161856962.MP.jpg",
       "alt": "Tommy Adams with students",
       "caption": "With students"
+    },
+    {
+      "file": "IMG_20180307_153042.jpg",
+      "alt": "Tommy Adams pointing at dumpster fire slide on projected screen",
+      "caption": "Guest lecture — memes presentation"
     },
     {
       "file": "IMG_20180307_150227.jpg",

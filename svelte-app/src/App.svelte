@@ -314,10 +314,9 @@
       {/if}
       {#if teachingPhotos.length > 0}
         <div class="thumb-row teaching-thumb-row">
-          {#each teachingPhotos as photo}
-            <div class="thumb-cell" on:click={() => openLightbox('./images/' + encodeURIComponent(photo.file), photo.alt || 'Teaching')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/' + encodeURIComponent(photo.file), photo.alt || 'Teaching')}>
+          {#each teachingPhotos as photo, i}
+            <div class="thumb-cell" class:teaching-wide={i >= teachingPhotos.length - 2} on:click={() => openLightbox('./images/' + encodeURIComponent(photo.file), photo.alt || 'Teaching')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/' + encodeURIComponent(photo.file), photo.alt || 'Teaching')}>
               <img src="./images/{encodeURIComponent(photo.file)}" alt={photo.alt || 'Teaching'} loading="lazy" />
-              {#if photo.caption}<div class="thumb-caption">{photo.caption}</div>{/if}
             </div>
           {/each}
         </div>
@@ -1172,7 +1171,12 @@
 
   @media (max-width: 500px) {
     .thumb-row { grid-template-columns: repeat(2, 1fr); }
-    .teaching-thumb-row { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .teaching-thumb-row { grid-template-columns: repeat(6, 1fr); }
+    .teaching-thumb-row .thumb-cell { grid-column: span 2; }
+    .teaching-thumb-row .teaching-wide { grid-column: span 3; }
   }
 
   /* Full-width running photo banner */
