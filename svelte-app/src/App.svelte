@@ -252,6 +252,13 @@
               {#if cseppExplainer.partnershipNote}
                 <p class="csepp-partnership">{cseppExplainer.partnershipNote}</p>
               {/if}
+
+              {#if cseppExplainer.newsReference}
+                <div class="csepp-news-ref">
+                  <span>{cseppExplainer.newsReference.intro} </span>
+                  <a href={cseppExplainer.newsReference.url} target="_blank" rel="noopener noreferrer">{cseppExplainer.newsReference.label}</a>
+                </div>
+              {/if}
             </div>
           {/if}
         </div>
@@ -507,10 +514,33 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection icon="⚡" title="Core Competencies & Certifications" skills={coreSkills} collapsible={true}>
-      {#each paragraphs(data.certificationsContent) as para}
-        <p>{para}</p>
-      {/each}
+    <ResumeSection icon="⚡" title="Core Competencies & Certifications" skillCategories={coreSkills} collapsible={true}>
+      {#if data.certifications}
+        <div class="cert-section">
+          <h4>Federal Grants Management Certificate</h4>
+          <p>{data.certifications.grantsManagement}</p>
+        </div>
+        <div class="cert-section">
+          <h4>FEMA / Emergency Management Training</h4>
+          <ul class="course-list">
+            {#each data.certifications.femaTraining as course}
+              <li><strong>{course.code}</strong> — {course.name}</li>
+            {/each}
+          </ul>
+        </div>
+        <div class="cert-section">
+          <h4>Search & Rescue Certifications</h4>
+          <ul class="cert-list">
+            {#each data.certifications.sarCertifications as cert}
+              <li>{cert}</li>
+            {/each}
+          </ul>
+        </div>
+        <div class="cert-section">
+          <h4>Executive Education</h4>
+          <p>{data.certifications.executiveEducation}</p>
+        </div>
+      {/if}
     </ResumeSection>
 
     <ResumeSection icon="🏢" title="Professional Affiliations" orgs={affiliations} collapsible={true}>
@@ -815,6 +845,70 @@
     color: #2d5a47;
     font-size: 0.93em;
     line-height: 1.7;
+  }
+
+  .csepp-news-ref {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid #e8e2d8;
+    font-size: 0.88em;
+    color: #4a5c54;
+  }
+
+  .csepp-news-ref a {
+    color: #2d5a47;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .csepp-news-ref a:hover {
+    color: #1e3a2f;
+  }
+
+  /* Certifications section */
+  .content :global(.cert-section) {
+    margin-top: 20px;
+  }
+
+  .content :global(.cert-section:first-child) {
+    margin-top: 0;
+  }
+
+  .content :global(.cert-section h4) {
+    font-size: 0.82em;
+    font-weight: 700;
+    color: #2d5a47;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin: 0 0 10px;
+  }
+
+  .content :global(.course-list),
+  .content :global(.cert-list) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .content :global(.course-list li),
+  .content :global(.cert-list li) {
+    padding: 5px 0;
+    font-size: 0.93em;
+    color: #34403b;
+    border-bottom: 1px solid #f0ede8;
+    line-height: 1.5;
+  }
+
+  .content :global(.course-list li:last-child),
+  .content :global(.cert-list li:last-child) {
+    border-bottom: none;
+  }
+
+  .content :global(.course-list strong) {
+    color: #1e3a2f;
+    font-variant-numeric: tabular-nums;
+    min-width: 80px;
+    display: inline-block;
   }
 
   @media (max-width: 768px) {

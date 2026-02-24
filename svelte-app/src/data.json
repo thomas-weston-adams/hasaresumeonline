@@ -73,7 +73,12 @@
       }
     ],
     "transitionNote": "As the program winds down following the destruction of the stockpile, these communities keep what CSEPP built. The facilities are theirs. The equipment is theirs. The institutional knowledge and trained personnel are theirs. Current efforts focus on sustaining these capabilities through local and state support — ensuring that what took decades to build doesn't erode in the transition away from federal funding.",
-    "partnershipNote": "Throughout this process, my role has been to manage the relationships that kept the program running: local emergency managers, county officials, federal agency representatives, U.S. Army and National Guard personnel, and the contractors responsible for delivery, documentation, and closeout. Being the person who bridges those relationships — who understands what each partner needs and how to move everyone toward the same goal — has defined this work."
+    "partnershipNote": "Throughout this process, my role has been to manage the relationships that kept the program running: local emergency managers, county officials, federal agency representatives, U.S. Army and National Guard personnel, and the contractors responsible for delivery, documentation, and closeout. Being the person who bridges those relationships — who understands what each partner needs and how to move everyone toward the same goal — has defined this work.",
+    "newsReference": {
+      "intro": "For a closer look at what counties like Madison stand to lose when the program ends:",
+      "label": "A Deep Dive into Life in Madison County After CSEPP Funds Are Gone — How Much Will It Cost?",
+      "url": "https://wbontv.com/a-deep-dive-into-life-in-madison-county-after-csepp-funds-are-gone-how-much-will-it-cost/"
+    }
   },
   "educationHighlights": [
     "17 years in the classroom — from Ohio Northern University to Shanghai University",
@@ -93,20 +98,79 @@
   ],
   "publicServiceContent": "Nonprofit Leadership Experience: Currently serve as Treasurer & Finance Officer for Wolfe County Search & Rescue (501c3). Previously Executive Director and Interim President of Friends of Hemp (2019–2020), and Communication Director for Hemp Feed Coalition (2019–2020).\n\nCandidate for State Representative: Ran for Kentucky House District 73 in 2022, carrying a campaign grounded in public service and community engagement.",
   "coreSkills": [
-    "Emergency Operations",
-    "Incident Command (ICS)",
-    "Staff Supervision",
-    "Policy Development",
-    "Federal Grants Management",
-    "Budget & Resource Management",
-    "De-escalation & Conflict Resolution",
-    "Training & Curriculum Design",
-    "Multi-Agency Coordination",
-    "Public Speaking",
-    "Technical Rescue Operations",
-    "Strategic Communications"
+    {
+      "category": "Leadership & Emergency Operations",
+      "items": [
+        "Emergency Management Leadership & Program Oversight",
+        "Incident Planning & Operations (ICS, IAP, EOC, Exercises)",
+        "Search & Rescue Operations & Field Leadership",
+        "Multi-Agency Coordination & Stakeholder Engagement",
+        "Risk, Resilience & Continuity Planning"
+      ]
+    },
+    {
+      "category": "Communication",
+      "items": [
+        "Strategic Communication & Public Messaging",
+        "Crisis Communication & High-Stakes Briefing",
+        "Public Speaking, Facilitation & Training",
+        "Writing & Content Development"
+      ]
+    },
+    {
+      "category": "Team & Community",
+      "items": [
+        "Team Leadership, Supervision & Mentoring",
+        "Community Outreach & Public Education",
+        "Cross-Functional Collaboration & Relationship-Building"
+      ]
+    },
+    {
+      "category": "Planning, Grants & Analysis",
+      "items": [
+        "Federal Grants Management & Compliance (2 CFR 200, FAR 31.2)",
+        "Budget & Resource Management",
+        "Policy & Regulatory Awareness in Emergency Management",
+        "Data-Informed Planning & Reporting"
+      ]
+    }
   ],
-  "certificationsContent": "Federal Grants Management Certificate: Completed comprehensive training in Subawarding for Pass-through Entities, Cost Principles (2 CFR 200 and FAR 31.2), Writing Successful Federal Grants, and Uniform Administrative Requirements for Federal Grants.\n\nFEMA/Emergency Management Training: ICS 100, 200, 300, 305, 400, 700, 800; IS 2200 Basic EOC Functions; G 2300 Intermediate Emergency Operations; IS 29 Public Information Officer; IS 120 Introduction to Exercises; G-191 EOC Interface; IS 235 Emergency Planning; IS 240 Leadership and Influence; IS 241 Decision Making and Problem Solving; IS 242 Effective Communication; IS 244 Developing and Managing Volunteers; Chemical Incident Response (CHEMKPF AWR-947-W); WebPuff; IPAWS Alert System; WEB EOC Communication System\n\nSearch & Rescue Certifications: NOLS Wilderness First Responder; Swift Water Rescue; Technical Rope Rescue; B-Search and Rescue; Land Navigation, GPS & GAIA; Lost Person Behavior; Search Management\n\nExecutive Education: Radiological Emergency Preparedness Executive Education Program, Center for Homeland Defense and Security, Naval Postgraduate School (2025)",
+  "certifications": {
+    "grantsManagement": "Completed comprehensive training in Subawarding for Pass-through Entities, Cost Principles (2 CFR 200 and FAR 31.2), Writing Successful Federal Grants, and Uniform Administrative Requirements for Federal Grants.",
+    "femaTraining": [
+      {"code": "ICS-100", "name": "Introduction to the Incident Command System"},
+      {"code": "ICS-200", "name": "Basic Incident Command System for Initial Response"},
+      {"code": "ICS-300", "name": "Intermediate ICS for Expanding Incidents"},
+      {"code": "IS-305", "name": "Radiological Emergency Management"},
+      {"code": "ICS-400", "name": "Advanced ICS Command and General Staff – Complex Incidents"},
+      {"code": "IS-700", "name": "National Incident Management System: An Introduction"},
+      {"code": "IS-800", "name": "National Response Framework: An Introduction"},
+      {"code": "IS-2200", "name": "Basic EOC Functions"},
+      {"code": "G-2300", "name": "Intermediate Emergency Operations"},
+      {"code": "IS-29", "name": "Public Information Officer Awareness"},
+      {"code": "IS-120", "name": "An Introduction to Exercises"},
+      {"code": "G-191", "name": "ICS/EOC Interface"},
+      {"code": "IS-235", "name": "Emergency Planning"},
+      {"code": "IS-240", "name": "Leadership and Influence"},
+      {"code": "IS-241", "name": "Decision Making and Problem Solving"},
+      {"code": "IS-242", "name": "Effective Communication"},
+      {"code": "IS-244", "name": "Developing and Managing Volunteers"},
+      {"code": "AWR-947-W", "name": "Chemical Incident Response (CHEMKPF)"},
+      {"code": "WebPuff", "name": "Web-Based Chemical Plume Modeling"},
+      {"code": "IPAWS", "name": "Integrated Public Alert & Warning System"},
+      {"code": "WEB EOC", "name": "Web Emergency Operations Center Communication System"}
+    ],
+    "sarCertifications": [
+      "NOLS Wilderness First Responder",
+      "Swift Water Rescue",
+      "Technical Rope Rescue",
+      "B-Search and Rescue",
+      "Land Navigation, GPS & GAIA",
+      "Lost Person Behavior",
+      "Search Management"
+    ],
+    "executiveEducation": "Radiological Emergency Preparedness Executive Education Program, Center for Homeland Defense and Security, Naval Postgraduate School (2025)"
+  },
   "affiliations": [
     "Kentucky Emergency Management",
     "Wolfe County Search & Rescue",
