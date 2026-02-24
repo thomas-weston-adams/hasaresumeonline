@@ -6,13 +6,18 @@
   export let photoAlt;
   export let linkedin = '';
   export let cvLink = '';
+  export let onPhotoClick = null;
 </script>
 
 <div class="header">
   <div class="topo-overlay"></div>
   <div class="header-content">
     {#if photoSrc}
-      <div class="profile-photo">
+      <div class="profile-photo" class:clickable={!!onPhotoClick}
+        on:click={() => onPhotoClick && onPhotoClick()}
+        on:keydown={(e) => e.key === 'Enter' && onPhotoClick && onPhotoClick()}
+        role={onPhotoClick ? 'button' : null}
+        tabindex={onPhotoClick ? 0 : null}>
         <img src={photoSrc} alt={photoAlt} />
       </div>
     {/if}
@@ -79,6 +84,10 @@
     overflow: hidden;
     border: 3px solid rgba(200, 164, 92, 0.7);
     box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+  }
+
+  .profile-photo.clickable {
+    cursor: zoom-in;
   }
 
   .profile-photo img {

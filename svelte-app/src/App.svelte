@@ -154,6 +154,7 @@
     cvLink={profile.cvLink}
     photoSrc={profile.photoSrc}
     photoAlt={profile.photoAlt}
+    onPhotoClick={() => openLightbox(profile.photoSrc, profile.photoAlt)}
   />
 
   <div class="profile">
@@ -610,6 +611,14 @@
 
   .photo-cell:hover img {
     transform: scale(1.04);
+  }
+
+  .photo-caption,
+  .thumb-caption,
+  .sar-banner-caption,
+  .classroom-banner-caption,
+  .running-banner-caption {
+    display: none;
   }
 
   .photo-caption {
