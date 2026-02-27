@@ -704,14 +704,15 @@
     bottom: 0;
     left: 0;
     width: 50%;
-    padding: 16px 20px 18px 22px;
+    padding: 14px 20px 16px 22px;
     background: linear-gradient(to top left, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.68) 55%, transparent 100%);
     pointer-events: none;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    gap: 10px;
+    justify-content: space-between;
+    gap: 8px;
     box-sizing: border-box;
+    overflow: hidden;
   }
 
   @media (max-width: 600px) {
@@ -729,15 +730,17 @@
   .footer-quote-text {
     display: block;
     font-style: italic;
-    font-size: 0.82rem;
-    line-height: 1.55;
+    font-size: 1.05rem;
+    line-height: 1.45;
     color: rgba(255, 248, 235, 0.92);
     text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    flex: 1;
+    overflow: hidden;
   }
 
   .footer-quote-attribution {
     display: block;
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     font-style: normal;
     font-weight: 600;
     letter-spacing: 0.03em;
@@ -745,6 +748,7 @@
     text-shadow: 0 1px 3px rgba(0,0,0,0.6);
     text-align: right;
     padding-right: 4px;
+    flex-shrink: 0;
   }
 
   /* Photo mosaic — 2 photos side by side */
