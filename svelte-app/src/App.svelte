@@ -703,12 +703,23 @@
     bottom: 0;
     left: 0;
     width: 52%;
-    padding: 24px 20px 20px 22px;
-    background: linear-gradient(145deg, rgba(0,0,0,0.76) 0%, rgba(0,0,0,0.65) 55%, transparent 100%);
+    padding: 80px 20px 20px 22px;
+    background: linear-gradient(to top left, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.60) 50%, transparent 100%);
     pointer-events: none;
     display: flex;
     flex-direction: column;
     gap: 10px;
+  }
+
+  @media (max-width: 600px) {
+    .footer-quote {
+      width: 100%;
+      padding: 60px 18px 18px 18px;
+      background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.55) 60%, transparent 100%);
+    }
+    .footer-quote-attribution {
+      text-align: left;
+    }
   }
 
   .footer-quote-text {
