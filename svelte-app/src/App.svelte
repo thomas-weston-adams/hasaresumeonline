@@ -349,6 +349,9 @@
               {/if}
             </div>
             <div class="exec-ed-inst">{ed.institution}{ed.status === 'upcoming' ? ` — ${ed.year}` : ''}</div>
+            {#if ed.location}
+              <div class="exec-ed-location">{ed.location}</div>
+            {/if}
             {#if ed.photo}
               <div class="exec-ed-photo-wrap" on:click={() => openLightbox('./images/' + ed.photo, ed.photoAlt || ed.program)} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/' + ed.photo, ed.photoAlt || ed.program)}>
                 <img class="exec-ed-photo" src="./images/{ed.photo}" alt={ed.photoAlt || ed.program} loading="lazy" />
@@ -1193,6 +1196,12 @@
 
   .exec-ed-card.upcoming .exec-ed-inst {
     color: #8a6a1a;
+  }
+
+  .exec-ed-location {
+    font-size: 0.8em;
+    color: #7a7a7a;
+    margin-top: 2px;
   }
 
   .exec-ed-photo-wrap {
