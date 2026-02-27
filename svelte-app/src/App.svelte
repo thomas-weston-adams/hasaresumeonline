@@ -373,6 +373,9 @@
               <div class="csepp-news-ref" style="margin-top: 12px;">
                 <a href={data.wcsarExplainer.websiteUrl} target="_blank" rel="noopener noreferrer">{data.wcsarExplainer.websiteLabel}</a>
               </div>
+              <div style="margin-top: 16px;">
+                <img src="./images/SAR-IMAGE-1C" alt="Wolfe County SAR" loading="lazy" style="width: 100%; border-radius: 6px;" />
+              </div>
             </div>
           {/if}
         </div>
@@ -385,26 +388,26 @@
             <div class="thumb-caption">{data.sarTeamPhotoAlt || 'WCSAR Water Rescue'}</div>
           </div>
         {/if}
+        <div class="thumb-cell" on:click={() => openLightbox('./images/SAR-IMAGE-1B.jpg', 'Wolfe County SAR')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/SAR-IMAGE-1B.jpg', 'Wolfe County SAR')}>
+          <img src="./images/SAR-IMAGE-1B.jpg" alt="Wolfe County SAR" loading="lazy" />
+          <div class="thumb-caption">Wolfe County SAR</div>
+        </div>
         {#if data.wolfeCountySarPhoto}
           <div class="thumb-cell" on:click={() => openLightbox('./images/' + data.wolfeCountySarPhoto, data.wolfeCountySarPhotoAlt || 'Wolfe County SAR')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/' + data.wolfeCountySarPhoto, data.wolfeCountySarPhotoAlt || 'Wolfe County SAR')}>
             <img src="./images/{data.wolfeCountySarPhoto}" alt={data.wolfeCountySarPhotoAlt || 'Wolfe County SAR'} loading="lazy" />
             <div class="thumb-caption">{data.wolfeCountySarPhotoAlt || 'Wolfe County SAR'}</div>
           </div>
         {/if}
-        <div class="thumb-cell" on:click={() => openLightbox('./images/12-sar-rappel-sandstone.jpg', 'Tommy Adams rappelling sandstone cliff')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/12-sar-rappel-sandstone.jpg', 'Tommy Adams rappelling sandstone cliff')}>
-          <img src="./images/12-sar-rappel-sandstone.jpg" alt="Tommy Adams rappelling sandstone cliff" loading="lazy" />
-          <div class="thumb-caption">Technical Rope Rescue</div>
-        </div>
       </div>
 
       <div class="thumb-row">
-        <div class="thumb-cell" on:click={() => openLightbox('./images/13-sar-highline-valley.jpg', 'Tommy Adams in tripod highline rescue system above Red River Gorge')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/13-sar-highline-valley.jpg', 'Tommy Adams in tripod highline rescue system above Red River Gorge')}>
-          <img src="./images/13-sar-highline-valley.jpg" alt="Tommy Adams in tripod highline rescue system above Red River Gorge" loading="lazy" />
-          <div class="thumb-caption">Highline Rescue System Training</div>
-        </div>
         <div class="thumb-cell" on:click={() => openLightbox('./images/14-sar-team-rock-climb.jpg', 'WCSAR team members on sandstone cliff during rescue training')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/14-sar-team-rock-climb.jpg', 'WCSAR team members on sandstone cliff during rescue training')}>
           <img src="./images/14-sar-team-rock-climb.jpg" alt="WCSAR team members on sandstone cliff during rescue training" loading="lazy" />
           <div class="thumb-caption">Cliff Rescue Operations</div>
+        </div>
+        <div class="thumb-cell" on:click={() => openLightbox('./images/SAR-IMAGE-1A', 'Wolfe County SAR')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/SAR-IMAGE-1A', 'Wolfe County SAR')}>
+          <img src="./images/SAR-IMAGE-1A" alt="Wolfe County SAR" loading="lazy" />
+          <div class="thumb-caption">Wolfe County SAR</div>
         </div>
         <div class="thumb-cell" on:click={() => openLightbox('./images/15-sar-cliff-rope-rescue.jpg', 'Wolfe County SAR technical rope rescue on vertical sandstone cliff')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/15-sar-cliff-rope-rescue.jpg', 'Wolfe County SAR technical rope rescue on vertical sandstone cliff')}>
           <img src="./images/15-sar-cliff-rope-rescue.jpg" alt="Wolfe County SAR technical rope rescue on vertical sandstone cliff" loading="lazy" />
