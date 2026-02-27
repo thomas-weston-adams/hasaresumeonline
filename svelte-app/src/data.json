@@ -41,11 +41,12 @@
     "Amassed significant wilderness rescue experience in the Red River Gorge, Daniel Boone National Forest, and surrounding jurisdictions",
     "Deployed during 2025 winter weather federally declared disaster",
     "Deployed to the devastating Eastern Kentucky floods of 2022 as a field responder before and after the federal disaster declaration",
-    "Certified in technical rope rescue, swift water rescue, and as a Wilderness First Responder \u2014 trained to operate where helicopters can't"
+    "Certified in technical rope rescue, swift water rescue, and as a Wilderness First Responder \u2014 trained to operate where helicopters can't",
+    "Officially recognized and commended for service in the field by both the Kentucky House of Representatives and the Kentucky State Senate"
   ],
   "emergencyContent": "Kentucky Emergency Management (May 2023 \u2013 Present): Section Supervisor overseeing Chemical Stockpile Emergency Preparedness Program (CSEPP) stewardship and drawdown. Serve on State EOC team during activations in multiple roles: Planning Section Chief, Field Operations, Logistics, Public Safety Branch, and ESF5 Emergency Management Support Function. FEMA-funded position requiring high-level coordination with federal, state, and local partners including U.S. Army and National Guard.\n\nWolfe County Search & Rescue (January 2021 \u2013 Present): Officer, Treasurer, and Finance Officer for 501(c)(3) nonprofit. Active team member with certifications as Wilderness First Responder, Rope Rescue Technician, and Swift Water/Moving Water Rescue Technician. FEMA National Incident Management System (ICS) certified. Responded to Eastern Kentucky floods (2022) and numerous search operations.",
   "cseppExplainer": {
-    "title": "What is CSEPP?",
+    "title": "More information about CSEPP",
     "overview": "The Chemical Stockpile Emergency Preparedness Program (CSEPP) was a joint federal initiative by the U.S. Army, FEMA, states, and local governments to prepare communities near Army chemical weapons stockpiles for potential accidents. Created in 1985 following congressional mandates to destroy aging chemical stockpiles while prioritizing public and environmental safety, it focused on sites like Blue Grass Army Depot in Kentucky. At Blue Grass alone, the stockpile consisted of 101,712 M55 rockets filled with GB (sarin) and VX nerve agents — one of the most chemically hazardous storage sites in the nation.",
     "programOverview": "CSEPP enhanced emergency capabilities around eight U.S. chemical stockpile sites, including Blue Grass Army Depot (Kentucky), Pueblo Chemical Depot (Colorado), and others. It involved partnerships across federal, state, local, and tribal levels to develop plans, conduct exercises, and distribute resources. The program operated until stockpiles were fully destroyed, transitioning to closeout phases by the early 2020s. The Army's destruction effort at Blue Grass was carried out by BGCAPP (Blue Grass Chemical Agent-Destruction Pilot Plant), operated by Bechtel National Inc. under PEO ACWA (Program Executive Office for Assembled Chemical Weapons Alternatives). The plant used a hybrid system combining Explosive Destruction Technology (EDT) with chemical hydrolysis and Supercritical Water Oxidation — a fully closed process designed to eliminate air emissions. Both the Blue Grass and Pueblo, Colorado sites completed destruction in 2023, fulfilling the United States' obligations under the Chemical Weapons Convention.",
     "accomplishments": [
@@ -95,6 +96,15 @@
         "url": "./images/Facts_ Program Executive Office, Assembled Chemical Weapons Alternatives Closure Overview - Program Executive Office Assembled Chemical Weapons Alternatives.pdf"
       }
     ]
+  },
+  "wcsarExplainer": {
+    "title": "More information about WCSAR",
+    "mission": "\"So that others might live\"",
+    "overview": "Wolfe County Search & Rescue (WCSART) is an all-volunteer 501(c)(3) nonprofit based in Campton, Kentucky. With 50+ trained members and more than 1,600 rescues to its name, the team serves as the primary emergency rescue resource for a 1,000+ square mile service area that includes the Red River Gorge — one of the most visited outdoor recreation destinations in the eastern United States.",
+    "operations": "WCSART specializes in lost-person searches, high-angle rope rescues on cliff faces, swift water and moving water rescues, and underwater recovery operations with trained divers. The team responds to hikers, climbers, and outdoor enthusiasts in need across some of the most technically demanding terrain in the region. Beyond emergency response, WCSART is active in community safety education and prevention outreach — helping protect both residents and visitors.",
+    "notableRescue": "In July 2024, the team located and rescued Scott Hern after 14 days missing in the Gorge — including 12 days without food or water. The operation drew international media attention and highlighted the team's sustained search capability and woodland survival expertise.",
+    "websiteUrl": "https://wcsart.com/",
+    "websiteLabel": "Visit the WCSART website"
   },
   "educationHighlights": [
     "17 years in the classroom \u2014 from Ohio Northern University to Shanghai University",
