@@ -320,6 +320,18 @@
                   <a href={cseppExplainer.newsReference.url} target="_blank" rel="noopener noreferrer">{cseppExplainer.newsReference.label}</a>
                 </div>
               {/if}
+
+              {#if cseppExplainer.pdfDocuments && cseppExplainer.pdfDocuments.length}
+                <div class="csepp-pdf-docs">
+                  <h4>Program Documents</h4>
+                  {#each cseppExplainer.pdfDocuments as doc}
+                    <a href={doc.url} target="_blank" rel="noopener noreferrer" class="csepp-pdf-link">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                      {doc.label}
+                    </a>
+                  {/each}
+                </div>
+              {/if}
             </div>
           {/if}
         </div>
@@ -614,6 +626,12 @@
 
   <div class="footer-photo" class:footer-upside-down={easterEggMode} on:click={activateEasterEgg} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && activateEasterEgg()} title={easterEggMode ? 'You found the Upside Down' : ''}>
     <img src="./images/08-ridge-run-sunset.jpg" alt="Tommy Adams looking off into the distance at sunset on a Kentucky ridge" loading="lazy" />
+    {#if data.closingQuote}
+      <div class="footer-quote" aria-hidden="true">
+        <span class="footer-quote-text">"{data.closingQuote.text}"</span>
+        <span class="footer-quote-attribution">{data.closingQuote.attribution}</span>
+      </div>
+    {/if}
     {#if easterEggMode}
       <div class="footer-found-label">// you found it //</div>
     {/if}
@@ -664,6 +682,7 @@
 
   /* Footer panoramic photo */
   .footer-photo {
+    position: relative;
     overflow: hidden;
     cursor: zoom-in;
   }
@@ -677,6 +696,40 @@
 
   .footer-photo:hover img {
     transform: scale(1.02);
+  }
+
+  .footer-quote {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 52%;
+    padding: 24px 20px 20px 22px;
+    background: linear-gradient(145deg, rgba(0,0,0,0.76) 0%, rgba(0,0,0,0.65) 55%, transparent 100%);
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-quote-text {
+    display: block;
+    font-style: italic;
+    font-size: 0.68rem;
+    line-height: 1.6;
+    color: rgba(255, 248, 235, 0.92);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  }
+
+  .footer-quote-attribution {
+    display: block;
+    font-size: 0.6rem;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: rgba(255, 220, 160, 0.88);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    text-align: right;
+    padding-right: 4px;
   }
 
   /* Photo mosaic — 2 photos side by side */
@@ -927,6 +980,30 @@
 
   .csepp-news-ref a:hover {
     color: #1e3a2f;
+  }
+
+  .csepp-pdf-docs {
+    margin-top: 16px;
+  }
+
+  .csepp-pdf-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #2d6a4f;
+    text-decoration: none;
+    font-size: 0.875rem;
+    margin-top: 8px;
+    transition: color 0.2s;
+  }
+
+  .csepp-pdf-link:hover {
+    color: #1e3a2f;
+    text-decoration: underline;
+  }
+
+  .csepp-pdf-link svg {
+    flex-shrink: 0;
   }
 
   /* Certifications section */
@@ -1806,6 +1883,14 @@
     cursor: default;
   }
 
+  :global(body.upside-down .footer-quote-text) {
+    color: rgba(200, 150, 150, 0.88);
+  }
+
+  :global(body.upside-down .footer-quote-attribution) {
+    color: rgba(255, 100, 100, 0.78);
+  }
+
   /* ── Work experience ───────────────────────────── */
   :global(body.upside-down .job) {
     border-bottom-color: #4a0808;
@@ -1994,6 +2079,14 @@
     background: #150a0a;
     border-left-color: #cc2200;
     color: #d4b0b0;
+  }
+
+  :global(body.upside-down .csepp-pdf-link) {
+    color: #ff6b6b;
+  }
+
+  :global(body.upside-down .csepp-pdf-link:hover) {
+    color: #ff9999;
   }
 
   :global(body.upside-down .teaching-highlights li) {
