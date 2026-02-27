@@ -801,8 +801,8 @@
       overflow: visible;
     }
     .footer-quote-text {
-      font-size: 0.78rem;
-      line-height: 1.38;
+      font-size: 0.72rem;
+      line-height: 1.32;
       flex: 0 1 auto;
       overflow: visible;
     }
