@@ -396,6 +396,21 @@
           <div class="thumb-caption">Technical Rope Rescue</div>
         </div>
       </div>
+
+      <div class="thumb-row">
+        <div class="thumb-cell" on:click={() => openLightbox('./images/13-sar-highline-valley.jpg', 'Tommy Adams in tripod highline rescue system above Red River Gorge')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/13-sar-highline-valley.jpg', 'Tommy Adams in tripod highline rescue system above Red River Gorge')}>
+          <img src="./images/13-sar-highline-valley.jpg" alt="Tommy Adams in tripod highline rescue system above Red River Gorge" loading="lazy" />
+          <div class="thumb-caption">Highline Rescue System Training</div>
+        </div>
+        <div class="thumb-cell" on:click={() => openLightbox('./images/14-sar-team-rock-climb.jpg', 'WCSAR team members on sandstone cliff during rescue training')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/14-sar-team-rock-climb.jpg', 'WCSAR team members on sandstone cliff during rescue training')}>
+          <img src="./images/14-sar-team-rock-climb.jpg" alt="WCSAR team members on sandstone cliff during rescue training" loading="lazy" />
+          <div class="thumb-caption">Cliff Rescue Operations</div>
+        </div>
+        <div class="thumb-cell" on:click={() => openLightbox('./images/15-sar-cliff-rope-rescue.jpg', 'Wolfe County SAR technical rope rescue on vertical sandstone cliff')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/15-sar-cliff-rope-rescue.jpg', 'Wolfe County SAR technical rope rescue on vertical sandstone cliff')}>
+          <img src="./images/15-sar-cliff-rope-rescue.jpg" alt="Wolfe County SAR technical rope rescue on vertical sandstone cliff" loading="lazy" />
+          <div class="thumb-caption">Technical Rope Rescue — Red River Gorge</div>
+        </div>
+      </div>
     </ResumeSection>
 
     <div class="sar-banner" on:click={() => openLightbox('./images/07-sar-cliff-edge-fog.jpg', 'Tommy Adams at cliff edge overlooking fog-filled valley during SAR operation')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/07-sar-cliff-edge-fog.jpg', 'Tommy Adams at cliff edge overlooking fog-filled valley during SAR operation')}>
