@@ -81,6 +81,17 @@
     alt: photo.alt || 'A Running Start'
   }));
 
+  $: sarGallery = (() => {
+    const items = [];
+    if (data.sarTeamPhoto) items.push({ src: './images/' + data.sarTeamPhoto, alt: data.sarTeamPhotoAlt || 'WCSAR Water Rescue' });
+    items.push({ src: './images/SAR-IMAGE-1B.jpg', alt: 'Wolfe County SAR' });
+    if (data.wolfeCountySarPhoto) items.push({ src: './images/' + data.wolfeCountySarPhoto, alt: data.wolfeCountySarPhotoAlt || 'Wolfe County SAR' });
+    items.push({ src: './images/14-sar-team-rock-climb.jpg', alt: 'WCSAR team members on sandstone cliff during rescue training' });
+    items.push({ src: './images/SAR-IMAGE-1A.jpg', alt: 'Wolfe County SAR' });
+    items.push({ src: './images/15-sar-cliff-rope-rescue.jpg', alt: 'Wolfe County SAR technical rope rescue on vertical sandstone cliff' });
+    return items;
+  })();
+
   function openLightbox(src, alt) {
     lightboxItems = [];
     lightboxIndex = -1;
@@ -383,17 +394,17 @@
 
       <div class="thumb-row">
         {#if data.sarTeamPhoto}
-          <div class="thumb-cell" on:click={() => openLightbox('./images/' + data.sarTeamPhoto, data.sarTeamPhotoAlt || 'WCSAR Water Rescue')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/' + data.sarTeamPhoto, data.sarTeamPhotoAlt || 'WCSAR Water Rescue')}>
+          <div class="thumb-cell" on:click={() => openGallery(sarGallery, sarGallery.findIndex(x => x.src === './images/' + data.sarTeamPhoto))} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openGallery(sarGallery, sarGallery.findIndex(x => x.src === './images/' + data.sarTeamPhoto))}>
             <img src="./images/{data.sarTeamPhoto}" alt={data.sarTeamPhotoAlt || 'WCSAR Water Rescue'} loading="lazy" style="object-position: center 30%" />
             <div class="thumb-caption">{data.sarTeamPhotoAlt || 'WCSAR Water Rescue'}</div>
           </div>
         {/if}
-        <div class="thumb-cell" on:click={() => openLightbox('./images/SAR-IMAGE-1B.jpg', 'Wolfe County SAR')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/SAR-IMAGE-1B.jpg', 'Wolfe County SAR')}>
+        <div class="thumb-cell" on:click={() => openGallery(sarGallery, sarGallery.findIndex(x => x.src === './images/SAR-IMAGE-1B.jpg'))} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openGallery(sarGallery, sarGallery.findIndex(x => x.src === './images/SAR-IMAGE-1B.jpg'))}>
           <img src="./images/SAR-IMAGE-1B.jpg" alt="Wolfe County SAR" loading="lazy" />
           <div class="thumb-caption">Wolfe County SAR</div>
         </div>
         {#if data.wolfeCountySarPhoto}
-          <div class="thumb-cell" on:click={() => openLightbox('./images/' + data.wolfeCountySarPhoto, data.wolfeCountySarPhotoAlt || 'Wolfe County SAR')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/' + data.wolfeCountySarPhoto, data.wolfeCountySarPhotoAlt || 'Wolfe County SAR')}>
+          <div class="thumb-cell" on:click={() => openGallery(sarGallery, sarGallery.findIndex(x => x.src === './images/' + data.wolfeCountySarPhoto))} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openGallery(sarGallery, sarGallery.findIndex(x => x.src === './images/' + data.wolfeCountySarPhoto))}>
             <img src="./images/{data.wolfeCountySarPhoto}" alt={data.wolfeCountySarPhotoAlt || 'Wolfe County SAR'} loading="lazy" />
             <div class="thumb-caption">{data.wolfeCountySarPhotoAlt || 'Wolfe County SAR'}</div>
           </div>
@@ -401,15 +412,15 @@
       </div>
 
       <div class="thumb-row">
-        <div class="thumb-cell" on:click={() => openLightbox('./images/14-sar-team-rock-climb.jpg', 'WCSAR team members on sandstone cliff during rescue training')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/14-sar-team-rock-climb.jpg', 'WCSAR team members on sandstone cliff during rescue training')}>
+        <div class="thumb-cell" on:click={() => openGallery(sarGallery, sarGallery.findIndex(x => x.src === './images/14-sar-team-rock-climb.jpg'))} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openGallery(sarGallery, sarGallery.findIndex(x => x.src === './images/14-sar-team-rock-climb.jpg'))}>
           <img src="./images/14-sar-team-rock-climb.jpg" alt="WCSAR team members on sandstone cliff during rescue training" loading="lazy" />
           <div class="thumb-caption">Cliff Rescue Operations</div>
         </div>
-        <div class="thumb-cell" on:click={() => openLightbox('./images/SAR-IMAGE-1A.jpg', 'Wolfe County SAR')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/SAR-IMAGE-1A.jpg', 'Wolfe County SAR')}>
+        <div class="thumb-cell" on:click={() => openGallery(sarGallery, sarGallery.findIndex(x => x.src === './images/SAR-IMAGE-1A.jpg'))} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openGallery(sarGallery, sarGallery.findIndex(x => x.src === './images/SAR-IMAGE-1A.jpg'))}>
           <img src="./images/SAR-IMAGE-1A.jpg" alt="Wolfe County SAR" loading="lazy" />
           <div class="thumb-caption">Wolfe County SAR</div>
         </div>
-        <div class="thumb-cell" on:click={() => openLightbox('./images/15-sar-cliff-rope-rescue.jpg', 'Wolfe County SAR technical rope rescue on vertical sandstone cliff')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/15-sar-cliff-rope-rescue.jpg', 'Wolfe County SAR technical rope rescue on vertical sandstone cliff')}>
+        <div class="thumb-cell" on:click={() => openGallery(sarGallery, sarGallery.findIndex(x => x.src === './images/15-sar-cliff-rope-rescue.jpg'))} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openGallery(sarGallery, sarGallery.findIndex(x => x.src === './images/15-sar-cliff-rope-rescue.jpg'))}>
           <img src="./images/15-sar-cliff-rope-rescue.jpg" alt="Wolfe County SAR technical rope rescue on vertical sandstone cliff" loading="lazy" />
           <div class="thumb-caption">Technical Rope Rescue — Red River Gorge</div>
         </div>
