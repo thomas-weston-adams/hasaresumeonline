@@ -219,15 +219,6 @@
 
   <Stats {stats} />
 
-  <div class="photo-mosaic">
-    {#each photos as photo, i}
-      <div class="photo-cell" on:click={() => openGallery(photos, i)} role="button" tabindex="0" on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && openGallery(photos, i)}>
-        <img src={photo.src} alt={photo.alt} loading="lazy" style={photo.objectPosition ? `object-position: ${photo.objectPosition}` : ''} />
-        <div class="photo-caption">{photo.caption}</div>
-      </div>
-    {/each}
-  </div>
-
   {#if lightboxSrc}
     <div class="lightbox" on:click={closeLightbox} on:keydown={handleLightboxKey} on:touchstart|passive={handleTouchStart} on:touchend={handleTouchEnd} role="dialog" aria-modal="true" tabindex="-1">
       {#if lightboxItems.length > 1}
@@ -245,13 +236,16 @@
   <div class="content">
 
     <ResumeSection icon="🚨" title="Emergency Management / Search & Rescue" highlights={emergencyHighlights}>
-      <div class="sar-banner" on:click={() => openLightbox('./images/07-sar-cliff-edge-fog.jpg', 'Tommy Adams at cliff edge overlooking fog-filled valley during SAR operation')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/07-sar-cliff-edge-fog.jpg', 'Tommy Adams at cliff edge overlooking fog-filled valley during SAR operation')}>
-        <img src="./images/07-sar-cliff-edge-fog.jpg" alt="Tommy Adams at cliff edge overlooking fog-filled valley during SAR operation" loading="lazy" />
-        <div class="sar-banner-caption">Cliff rescue operations — Red River Gorge area</div>
+      <div class="photo-mosaic">
+        {#each photos as photo, i}
+          <div class="photo-cell" on:click={() => openGallery(photos, i)} role="button" tabindex="0" on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && openGallery(photos, i)}>
+            <img src={photo.src} alt={photo.alt} loading="lazy" style={photo.objectPosition ? `object-position: ${photo.objectPosition}` : ''} />
+            <div class="photo-caption">{photo.caption}</div>
+          </div>
+        {/each}
       </div>
-      {#each paragraphs(data.emergencyContent) as para}
-        <p>{para}</p>
-      {/each}
+
+      <p>{paragraphs(data.emergencyContent)[0]}</p>
 
       {#if cseppExplainer}
         <div class="csepp-dropdown">
@@ -337,6 +331,8 @@
         </div>
       {/if}
 
+      <p>{paragraphs(data.emergencyContent)[1]}</p>
+
       <div class="thumb-row">
         {#if data.sarTeamPhoto}
           <div class="thumb-cell" on:click={() => openLightbox('./images/' + data.sarTeamPhoto, data.sarTeamPhotoAlt || 'WCSAR Water Rescue')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/' + data.sarTeamPhoto, data.sarTeamPhotoAlt || 'WCSAR Water Rescue')}>
@@ -354,6 +350,11 @@
           <img src="./images/12-sar-rappel-sandstone.jpg" alt="Tommy Adams rappelling sandstone cliff" loading="lazy" />
           <div class="thumb-caption">Technical Rope Rescue</div>
         </div>
+      </div>
+
+      <div class="sar-banner" on:click={() => openLightbox('./images/07-sar-cliff-edge-fog.jpg', 'Tommy Adams at cliff edge overlooking fog-filled valley during SAR operation')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/07-sar-cliff-edge-fog.jpg', 'Tommy Adams at cliff edge overlooking fog-filled valley during SAR operation')}>
+        <img src="./images/07-sar-cliff-edge-fog.jpg" alt="Tommy Adams at cliff edge overlooking fog-filled valley during SAR operation" loading="lazy" />
+        <div class="sar-banner-caption">Cliff rescue operations — Red River Gorge area</div>
       </div>
     </ResumeSection>
 
