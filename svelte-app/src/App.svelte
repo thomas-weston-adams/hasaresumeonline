@@ -739,6 +739,13 @@
     overflow: hidden;
   }
 
+  @media (min-width: 601px) {
+    .footer-quote-text {
+      font-size: 1.28rem;
+      line-height: 1.42;
+    }
+  }
+
   .footer-quote-attribution {
     display: block;
     font-size: 0.78rem;
