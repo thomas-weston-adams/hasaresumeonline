@@ -17,7 +17,8 @@
   };
 
   const stats = data.stats;
-  const emergencyHighlights = data.emergencyHighlights;
+  const emHighlights = data.emHighlights || [];
+  const sarHighlights = data.sarHighlights || [];
   const educationHighlights = data.educationHighlights;
   const publicServiceHighlights = data.publicServiceHighlights;
   const coreSkills = data.coreSkills || [];
@@ -235,7 +236,7 @@
 
   <div class="content">
 
-    <ResumeSection icon="🚨" title="Emergency Management / Search & Rescue" highlights={emergencyHighlights}>
+    <ResumeSection icon="🚨" title="Emergency Management / Search & Rescue">
       <div class="photo-mosaic">
         {#each photos as photo, i}
           <div class="photo-cell" on:click={() => openGallery(photos, i)} role="button" tabindex="0" on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && openGallery(photos, i)}>
@@ -246,6 +247,14 @@
       </div>
 
       <p>{paragraphs(data.emergencyContent)[0]}</p>
+
+      {#if emHighlights.length > 0}
+        <ul class="em-bullets">
+          {#each emHighlights as item}
+            <li>{item}</li>
+          {/each}
+        </ul>
+      {/if}
 
       {#if cseppExplainer}
         <div class="csepp-dropdown">
@@ -332,6 +341,14 @@
       {/if}
 
       <p>{paragraphs(data.emergencyContent)[1]}</p>
+
+      {#if sarHighlights.length > 0}
+        <ul class="em-bullets">
+          {#each sarHighlights as item}
+            <li>{item}</li>
+          {/each}
+        </ul>
+      {/if}
 
       <div class="thumb-row">
         {#if data.sarTeamPhoto}
@@ -868,6 +885,29 @@
     letter-spacing: 0.3px;
   }
 
+
+  /* Inline highlights lists (EM / SAR) */
+  .em-bullets {
+    list-style: none;
+    margin: 12px 0 18px;
+    padding: 0;
+  }
+
+  .em-bullets li {
+    padding: 10px 0 10px 30px;
+    position: relative;
+    color: #2d3a35;
+    font-size: 1em;
+    line-height: 1.7;
+  }
+
+  .em-bullets li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: #4a7c6b;
+    font-weight: 700;
+  }
 
   /* CSEPP dropdown */
   .csepp-dropdown {
