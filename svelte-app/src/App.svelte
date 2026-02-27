@@ -351,12 +351,12 @@
           <div class="thumb-caption">Technical Rope Rescue</div>
         </div>
       </div>
-
-      <div class="sar-banner" on:click={() => openLightbox('./images/07-sar-cliff-edge-fog.jpg', 'Tommy Adams at cliff edge overlooking fog-filled valley during SAR operation')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/07-sar-cliff-edge-fog.jpg', 'Tommy Adams at cliff edge overlooking fog-filled valley during SAR operation')}>
-        <img src="./images/07-sar-cliff-edge-fog.jpg" alt="Tommy Adams at cliff edge overlooking fog-filled valley during SAR operation" loading="lazy" />
-        <div class="sar-banner-caption">Cliff rescue operations — Red River Gorge area</div>
-      </div>
     </ResumeSection>
+
+    <div class="sar-banner" on:click={() => openLightbox('./images/07-sar-cliff-edge-fog.jpg', 'Tommy Adams at cliff edge overlooking fog-filled valley during SAR operation')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/07-sar-cliff-edge-fog.jpg', 'Tommy Adams at cliff edge overlooking fog-filled valley during SAR operation')}>
+      <img src="./images/07-sar-cliff-edge-fog.jpg" alt="Tommy Adams at cliff edge overlooking fog-filled valley during SAR operation" loading="lazy" />
+      <div class="sar-banner-caption">Cliff rescue operations — Red River Gorge area</div>
+    </div>
 
     <ResumeSection icon="🎓" title="Teaching & Communication">
       <div class="classroom-banner" on:click={() => openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')}>
