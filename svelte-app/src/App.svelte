@@ -44,6 +44,9 @@
   let institutionsOpen = false;
   function toggleInstitutions() { institutionsOpen = !institutionsOpen; }
 
+  let wcsarOpen = false;
+  function toggleWcsar() { wcsarOpen = !wcsarOpen; }
+
   let additionalWorkOpen = false;
   function toggleAdditionalWork() { additionalWorkOpen = !additionalWorkOpen; }
 
@@ -348,6 +351,31 @@
             <li>{item}</li>
           {/each}
         </ul>
+      {/if}
+
+      {#if data.wcsarExplainer}
+        <div class="csepp-dropdown" style="margin-top: 12px;">
+          <button class="csepp-toggle" on:click={toggleWcsar} aria-expanded={wcsarOpen}>
+            <span class="csepp-toggle-label">{data.wcsarExplainer.title}</span>
+            <span class="csepp-chevron" class:open={wcsarOpen}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          {#if wcsarOpen}
+            <div class="csepp-content">
+              <p class="csepp-personal" style="font-style: italic; font-size: 1.05em;">{data.wcsarExplainer.mission}</p>
+              <p>{data.wcsarExplainer.overview}</p>
+              <p>{data.wcsarExplainer.operations}</p>
+              <h4>Notable Rescue</h4>
+              <p>{data.wcsarExplainer.notableRescue}</p>
+              <div class="csepp-news-ref" style="margin-top: 12px;">
+                <a href={data.wcsarExplainer.websiteUrl} target="_blank" rel="noopener noreferrer">{data.wcsarExplainer.websiteLabel}</a>
+              </div>
+            </div>
+          {/if}
+        </div>
       {/if}
 
       <div class="thumb-row">
