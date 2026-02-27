@@ -626,6 +626,12 @@
 
   <div class="footer-photo" class:footer-upside-down={easterEggMode} on:click={activateEasterEgg} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && activateEasterEgg()} title={easterEggMode ? 'You found the Upside Down' : ''}>
     <img src="./images/08-ridge-run-sunset.jpg" alt="Tommy Adams looking off into the distance at sunset on a Kentucky ridge" loading="lazy" />
+    {#if data.closingQuote}
+      <div class="footer-quote" aria-hidden="true">
+        <span class="footer-quote-text">"{data.closingQuote.text}"</span>
+        <span class="footer-quote-attribution">{data.closingQuote.attribution}</span>
+      </div>
+    {/if}
     {#if easterEggMode}
       <div class="footer-found-label">// you found it //</div>
     {/if}
@@ -676,6 +682,7 @@
 
   /* Footer panoramic photo */
   .footer-photo {
+    position: relative;
     overflow: hidden;
     cursor: zoom-in;
   }
@@ -689,6 +696,40 @@
 
   .footer-photo:hover img {
     transform: scale(1.02);
+  }
+
+  .footer-quote {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 52%;
+    padding: 24px 20px 20px 22px;
+    background: linear-gradient(145deg, rgba(0,0,0,0.76) 0%, rgba(0,0,0,0.65) 55%, transparent 100%);
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-quote-text {
+    display: block;
+    font-style: italic;
+    font-size: 0.68rem;
+    line-height: 1.6;
+    color: rgba(255, 248, 235, 0.92);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  }
+
+  .footer-quote-attribution {
+    display: block;
+    font-size: 0.6rem;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: rgba(255, 220, 160, 0.88);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    text-align: right;
+    padding-right: 4px;
   }
 
   /* Photo mosaic — 2 photos side by side */
@@ -1840,6 +1881,14 @@
 
   :global(body.upside-down .footer-upside-down) {
     cursor: default;
+  }
+
+  :global(body.upside-down .footer-quote-text) {
+    color: rgba(200, 150, 150, 0.88);
+  }
+
+  :global(body.upside-down .footer-quote-attribution) {
+    color: rgba(255, 100, 100, 0.78);
   }
 
   /* ── Work experience ───────────────────────────── */
