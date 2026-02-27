@@ -795,12 +795,14 @@
       top: 0;
       bottom: 0;
       width: 100%;
-      padding: 60px 18px 18px 18px;
+      padding: 0 16px 20px 16px;
       background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.62) 38%, rgba(0,0,0,0.18) 68%, transparent 100%);
+      justify-content: flex-end;
     }
     .footer-quote-text {
       font-size: 0.78rem;
       line-height: 1.38;
+      flex: 0 1 auto;
     }
     .footer-quote-attribution {
       text-align: left;
