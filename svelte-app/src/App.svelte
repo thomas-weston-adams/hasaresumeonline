@@ -741,8 +741,8 @@
 
   @media (min-width: 601px) {
     .footer-quote-text {
-      font-size: 1.28rem;
-      line-height: 1.42;
+      font-size: 1.13rem;
+      line-height: 1.44;
     }
   }
 
