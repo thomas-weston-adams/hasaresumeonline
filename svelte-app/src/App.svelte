@@ -700,19 +700,23 @@
 
   .footer-quote {
     position: absolute;
+    top: 50%;
     bottom: 0;
     left: 0;
-    width: 52%;
-    padding: 80px 20px 20px 22px;
-    background: linear-gradient(to top left, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.60) 50%, transparent 100%);
+    width: 50%;
+    padding: 16px 20px 18px 22px;
+    background: linear-gradient(to top left, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.68) 55%, transparent 100%);
     pointer-events: none;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     gap: 10px;
+    box-sizing: border-box;
   }
 
   @media (max-width: 600px) {
     .footer-quote {
+      top: auto;
       width: 100%;
       padding: 60px 18px 18px 18px;
       background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.55) 60%, transparent 100%);
@@ -725,15 +729,15 @@
   .footer-quote-text {
     display: block;
     font-style: italic;
-    font-size: 0.68rem;
-    line-height: 1.6;
+    font-size: 0.82rem;
+    line-height: 1.55;
     color: rgba(255, 248, 235, 0.92);
     text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   }
 
   .footer-quote-attribution {
     display: block;
-    font-size: 0.6rem;
+    font-size: 0.72rem;
     font-style: normal;
     font-weight: 600;
     letter-spacing: 0.03em;
