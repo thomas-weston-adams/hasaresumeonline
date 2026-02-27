@@ -113,6 +113,20 @@
     if (e.key === 'ArrowRight') navigateLightbox(1);
   }
 
+  let touchStartX = null;
+
+  function handleTouchStart(e) {
+    touchStartX = e.touches[0].clientX;
+  }
+
+  function handleTouchEnd(e) {
+    if (touchStartX === null) return;
+    const delta = e.changedTouches[0].clientX - touchStartX;
+    touchStartX = null;
+    if (Math.abs(delta) < 40) return;
+    navigateLightbox(delta < 0 ? 1 : -1);
+  }
+
   function paragraphs(text) {
     return text.split('\n\n');
   }
@@ -215,7 +229,7 @@
   </div>
 
   {#if lightboxSrc}
-    <div class="lightbox" on:click={closeLightbox} on:keydown={handleLightboxKey} role="dialog" aria-modal="true" tabindex="-1">
+    <div class="lightbox" on:click={closeLightbox} on:keydown={handleLightboxKey} on:touchstart|passive={handleTouchStart} on:touchend={handleTouchEnd} role="dialog" aria-modal="true" tabindex="-1">
       {#if lightboxItems.length > 1}
         <button class="lightbox-nav lightbox-prev" on:click|stopPropagation={() => navigateLightbox(-1)} aria-label="Previous photo">‹</button>
         <button class="lightbox-nav lightbox-next" on:click|stopPropagation={() => navigateLightbox(1)} aria-label="Next photo">›</button>
@@ -395,6 +409,9 @@
               {/if}
             </div>
             <div class="exec-ed-inst">{ed.institution}{ed.status === 'upcoming' ? ` — ${ed.year}` : ''}</div>
+            {#if ed.location}
+              <div class="exec-ed-location">{ed.location}</div>
+            {/if}
             {#if ed.photo}
               <div class="exec-ed-photo-wrap" on:click={() => openLightbox('./images/' + ed.photo, ed.photoAlt || ed.program)} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/' + ed.photo, ed.photoAlt || ed.program)}>
                 <img class="exec-ed-photo" src="./images/{ed.photo}" alt={ed.photoAlt || ed.program} loading="lazy" />
@@ -1239,6 +1256,12 @@
 
   .exec-ed-card.upcoming .exec-ed-inst {
     color: #8a6a1a;
+  }
+
+  .exec-ed-location {
+    font-size: 0.8em;
+    color: #7a7a7a;
+    margin-top: 2px;
   }
 
   .exec-ed-photo-wrap {

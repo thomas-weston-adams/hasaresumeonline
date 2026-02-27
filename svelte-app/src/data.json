@@ -320,10 +320,12 @@
       "status": "upcoming"
     },
     {
-      "institution": "Naval Postgraduate School \u2014 Center for Homeland Defense and Security (CHDS)",
-      "program": "Executive Education Program (REP) \u2014 Washington, DC, and Monterey, CA",
+      "institution": "Naval Postgraduate School — Center for Homeland Defense and Security (CHDS)",
+      "program": "Executive Education Program (REP)",
       "year": "2026",
-      "status": "upcoming"
+      "status": "upcoming",
+      "location": "Washington, DC & Monterey, CA",
+      "url": "https://www.chds.us/c/academic-programs/rep/"
     }
   ],
   "educationDegreesList": [
