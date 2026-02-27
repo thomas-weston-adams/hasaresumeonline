@@ -781,10 +781,15 @@
 
   @media (max-width: 600px) {
     .footer-quote {
-      top: auto;
+      top: 0;
+      bottom: 0;
       width: 100%;
       padding: 60px 18px 18px 18px;
-      background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.55) 60%, transparent 100%);
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.62) 38%, rgba(0,0,0,0.18) 68%, transparent 100%);
+    }
+    .footer-quote-text {
+      font-size: 0.78rem;
+      line-height: 1.38;
     }
     .footer-quote-attribution {
       text-align: left;
