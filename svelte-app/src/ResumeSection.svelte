@@ -6,6 +6,7 @@
   export let skillCategories = [];  // array of {category, items} (rendered as categorized badge groups)
   export let orgs = [];        // array of strings (rendered as org badges)
   export let collapsible = false;
+  export let sectionId = '';
 
   let open = !collapsible;
 
@@ -14,7 +15,7 @@
   }
 </script>
 
-<div class="section">
+<div class="section" id={sectionId || undefined}>
   <div class="section-header" class:clickable={collapsible} on:click={toggle} role={collapsible ? 'button' : undefined} tabindex={collapsible ? 0 : undefined} on:keydown={e => (e.key === 'Enter' || e.key === ' ') && toggle()}>
     {#if icon}
       <span class="section-icon">{icon}</span>

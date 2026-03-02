@@ -232,6 +232,53 @@
     {/each}
   </div>
 
+  <nav class="roadmap" aria-label="Page sections">
+    <a class="roadmap-item" href="#emergency-management">
+      <span class="roadmap-icon">🚨</span>
+      <span class="roadmap-label">Emergency Management</span>
+    </a>
+    <a class="roadmap-item" href="#teaching-communication">
+      <span class="roadmap-icon">🎓</span>
+      <span class="roadmap-label">Teaching</span>
+    </a>
+    <a class="roadmap-item" href="#school-education">
+      <span class="roadmap-icon">🎓</span>
+      <span class="roadmap-label">Education</span>
+    </a>
+    <a class="roadmap-item" href="#nonprofit-service">
+      <span class="roadmap-icon">🤝</span>
+      <span class="roadmap-label">Public Service</span>
+    </a>
+    <a class="roadmap-item" href="#work-experience">
+      <span class="roadmap-icon">💼</span>
+      <span class="roadmap-label">Work Experience</span>
+    </a>
+    <a class="roadmap-item" href="#publications">
+      <span class="roadmap-icon">📚</span>
+      <span class="roadmap-label">Publications</span>
+    </a>
+    <a class="roadmap-item" href="#awards">
+      <span class="roadmap-icon">🏆</span>
+      <span class="roadmap-label">Awards</span>
+    </a>
+    <a class="roadmap-item" href="#personal-excellence">
+      <span class="roadmap-icon">🏃</span>
+      <span class="roadmap-label">Personal Excellence</span>
+    </a>
+    <a class="roadmap-item" href="#community-service">
+      <span class="roadmap-icon">🌱</span>
+      <span class="roadmap-label">Community Service</span>
+    </a>
+    <a class="roadmap-item" href="#competencies">
+      <span class="roadmap-icon">⚡</span>
+      <span class="roadmap-label">Competencies</span>
+    </a>
+    <a class="roadmap-item" href="#affiliations">
+      <span class="roadmap-icon">🏢</span>
+      <span class="roadmap-label">Affiliations</span>
+    </a>
+  </nav>
+
   <Stats {stats} />
 
   {#if lightboxSrc}
@@ -250,7 +297,7 @@
 
   <div class="content">
 
-    <ResumeSection icon="🚨" title="Emergency Management / Search & Rescue">
+    <ResumeSection sectionId="emergency-management" icon="🚨" title="Emergency Management / Search & Rescue">
       <div class="photo-mosaic">
         {#each photos as photo, i}
           <div class="photo-cell" on:click={() => openGallery(photos, i)} role="button" tabindex="0" on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && openGallery(photos, i)}>
@@ -432,7 +479,7 @@
       <div class="sar-banner-caption">Cliff rescue operations — Red River Gorge area</div>
     </div>
 
-    <ResumeSection icon="🎓" title="Teaching & Communication">
+    <ResumeSection sectionId="teaching-communication" icon="🎓" title="Teaching & Communication">
       <div class="classroom-banner" on:click={() => openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')}>
         <img src="./images/10-classroom-professor.png" alt="Tommy Adams in the classroom" loading="lazy" />
         <div class="classroom-banner-caption">17 years shaping communicators</div>
@@ -482,7 +529,7 @@
       </div>
     </ResumeSection>
 
-    <ResumeSection icon="🎓" title="School / Education">
+    <ResumeSection sectionId="school-education" icon="🎓" title="School / Education">
       <div class="school-ed-list">
         {#each executiveEducation as ed}
           <div class="exec-ed-card" class:upcoming={ed.status === 'upcoming'}>
@@ -530,13 +577,13 @@
       </div>
     </ResumeSection>
 
-    <ResumeSection icon="🤝" title="Nonprofit & Public Service Leadership" highlights={publicServiceHighlights}>
+    <ResumeSection sectionId="nonprofit-service" icon="🤝" title="Nonprofit & Public Service Leadership" highlights={publicServiceHighlights}>
       {#each paragraphs(data.publicServiceContent) as para}
         <p>{para}</p>
       {/each}
     </ResumeSection>
 
-    <ResumeSection icon="💼" title="Work Experience">
+    <ResumeSection sectionId="work-experience" icon="💼" title="Work Experience">
       {#each workExperience as job}
         <div class="job">
           <div class="job-header">
@@ -593,7 +640,7 @@
     </ResumeSection>
 
     {#if publications.length > 0}
-    <ResumeSection icon="📚" title="Publications & Scholarship">
+    <ResumeSection sectionId="publications" icon="📚" title="Publications & Scholarship">
       <div class="pub-list">
         {#each publications as pub}
           <div class="pub-item">
@@ -623,7 +670,7 @@
     {/if}
 
     {#if awards.length > 0}
-    <ResumeSection icon="🏆" title="Awards & Recognition">
+    <ResumeSection sectionId="awards" icon="🏆" title="Awards & Recognition">
       <ul class="awards-list">
         {#each awards as award}
           <li>{award}</li>
@@ -632,7 +679,7 @@
     </ResumeSection>
     {/if}
 
-    <ResumeSection icon="🏃" title="Personal Excellence & Global Perspective">
+    <ResumeSection sectionId="personal-excellence" icon="🏃" title="Personal Excellence & Global Perspective">
       <p><strong>Running Every Single Day Since October 2018:</strong> <span class="streak-count">{dayStreak.toLocaleString()}</span> consecutive days without missing a single one. This daily commitment reflects the discipline, resilience, and iterative refinement process I bring to every aspect of my life and work. {#if strava}<a class="strava-link" href={strava} target="_blank" rel="noopener noreferrer">Follow on Strava →</a>{/if}</p>
       <p><strong>Globally-Minded Traveler:</strong> Visited 30+ countries across six continents including Italy, UK, Germany, France, China, Japan, Thailand, Australia, Brazil, New Zealand, and many others. Studied abroad in Florence, Italy and taught in Shanghai, China as Visiting Professor.</p>
       {#if runningPhotos.length > 0}
@@ -649,7 +696,7 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection icon="🌱" title="Community Service & Volunteer Work">
+    <ResumeSection sectionId="community-service" icon="🌱" title="Community Service & Volunteer Work">
       <p>Active volunteer and mentor with <strong>A Running Start</strong> (2021–Present), a Lexington, KY-based nonprofit that supports men in recovery from addiction through running. The program provides structure, accountability, and community for participants — primarily men at the <strong>Hope Center</strong> and <strong>Privett Center</strong> in Lexington — who train together for 5Ks and other races. Running becomes more than exercise: it's a new coping mechanism, a daily discipline, and a pathway back to confidence and community. Coaches are often in long-term recovery themselves, and the program has supported participants in navigating early recovery, rebuilding self-worth, and reintegrating into daily life. Also a founder of campus run clubs at multiple institutions. Advisor to student organizations, judge for business pitch competitions, and extensive committee service across academic and community organizations.</p>
       <p>Member of Wolfe County Search & Rescue since 2021 — contributing not only as a field responder but as an officer, treasurer, and finance officer supporting the organizational health of the team.</p>
       {#if runningStartPhotos.length > 0}
@@ -665,7 +712,7 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection icon="⚡" title="Core Competencies & Certifications" skillCategories={coreSkillCategories} skills={coreSkills} collapsible={true}>
+    <ResumeSection sectionId="competencies" icon="⚡" title="Core Competencies & Certifications" skillCategories={coreSkillCategories} skills={coreSkills} collapsible={true}>
       {#if data.certifications}
         <div class="cert-section">
           <h4>Federal Grants Management Certificate</h4>
@@ -694,7 +741,7 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection icon="🏢" title="Professional Affiliations" orgs={affiliations} collapsible={true}>
+    <ResumeSection sectionId="affiliations" icon="🏢" title="Professional Affiliations" orgs={affiliations} collapsible={true}>
     </ResumeSection>
 
   </div>
@@ -755,6 +802,60 @@
     margin-bottom: 0;
   }
 
+  /* ── ROADMAP NAVIGATION ────────────────────────── */
+  .roadmap {
+    background: #1e3a2f;
+    padding: 18px 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    border-bottom: 3px solid #4a7c6b;
+  }
+
+  .roadmap-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: rgba(255, 248, 235, 0.88);
+    padding: 7px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.82em;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    white-space: nowrap;
+  }
+
+  .roadmap-item:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.32);
+    color: #fff;
+  }
+
+  .roadmap-icon {
+    font-size: 1em;
+    line-height: 1;
+  }
+
+  .roadmap-label {
+    line-height: 1;
+  }
+
+  @media (max-width: 600px) {
+    .roadmap {
+      padding: 14px 16px;
+      gap: 6px;
+    }
+    .roadmap-item {
+      font-size: 0.76em;
+      padding: 6px 10px;
+    }
+  }
+
   /* Footer panoramic photo */
   .footer-photo {
     position: relative;
@@ -775,17 +876,17 @@
 
   .footer-quote {
     position: absolute;
-    top: 36%;
+    top: 0;
     bottom: 0;
     left: 0;
-    width: 50%;
-    padding: 14px 20px 16px 22px;
-    background: linear-gradient(to top left, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.68) 55%, transparent 100%);
+    width: 54%;
+    padding: 28px 24px 20px 24px;
+    background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.72) 38%, rgba(0,0,0,0.42) 62%, transparent 100%);
     pointer-events: none;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 8px;
+    justify-content: flex-end;
+    gap: 10px;
     box-sizing: border-box;
     overflow: hidden;
   }
@@ -796,13 +897,13 @@
       bottom: 0;
       width: 100%;
       padding: 0 16px 20px 16px;
-      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.62) 38%, rgba(0,0,0,0.18) 68%, transparent 100%);
+      background: linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.72) 38%, rgba(0,0,0,0.30) 65%, transparent 100%);
       justify-content: flex-end;
       overflow: visible;
     }
     .footer-quote-text {
-      font-size: 0.64rem;
-      line-height: 1.28;
+      font-size: 0.72rem;
+      line-height: 1.35;
       flex: 0 1 auto;
       overflow: visible;
     }
@@ -816,10 +917,10 @@
     font-style: italic;
     font-size: 1.05rem;
     line-height: 1.45;
-    color: rgba(255, 248, 235, 0.92);
-    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-    flex: 1;
-    overflow: hidden;
+    color: rgba(255, 248, 235, 0.96);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.7);
+    flex: 0 1 auto;
+    overflow: visible;
   }
 
   @media (min-width: 601px) {
@@ -835,8 +936,8 @@
     font-style: normal;
     font-weight: 600;
     letter-spacing: 0.03em;
-    color: rgba(255, 220, 160, 0.88);
-    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    color: rgba(255, 220, 160, 0.95);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.7);
     text-align: right;
     padding-right: 4px;
     flex-shrink: 0;
