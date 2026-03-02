@@ -11,8 +11,319 @@
 	<link rel='stylesheet' href='./build/bundle.css'>
 
 	<script defer src='./build/bundle.js'></script>
+
+	<style>
+		/* ── Suppress Google Translate banner ─────────────────── */
+		.goog-te-banner-frame.skiptranslate { display: none !important; }
+		body { top: 0 !important; }
+		.goog-te-gadget-simple {
+			background: transparent !important;
+			border: none !important;
+			font-size: 0.82rem !important;
+			padding: 0 !important;
+		}
+		.goog-te-gadget-simple .goog-te-menu-value span:first-child { display: none; }
+
+		/* ── Accessibility Widget ─────────────────────────────── */
+		#a11y-widget {
+			position: fixed;
+			bottom: 24px;
+			right: 16px;
+			z-index: 10000;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+		}
+
+		#a11y-toggle {
+			width: 48px;
+			height: 48px;
+			border-radius: 50%;
+			background: #2d5a47;
+			color: white;
+			border: 2px solid rgba(255,255,255,0.35);
+			cursor: pointer;
+			font-size: 1.3rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-shadow: 0 4px 18px rgba(0,0,0,0.32);
+			transition: background 0.2s, transform 0.15s;
+			flex-shrink: 0;
+			margin-top: 10px;
+		}
+		#a11y-toggle:hover { background: #1e3a2f; transform: scale(1.06); }
+		#a11y-toggle:focus-visible { outline: 3px solid #c8a45c; outline-offset: 3px; }
+
+		#a11y-panel {
+			display: none;
+			background: #fff;
+			border-radius: 12px;
+			padding: 16px;
+			width: 250px;
+			box-shadow: 0 8px 36px rgba(0,0,0,0.22);
+			border: 1px solid #ddd;
+		}
+		#a11y-panel.open { display: block; }
+
+		.a11y-section { margin-bottom: 14px; }
+		.a11y-section:last-child { margin-bottom: 0; }
+
+		.a11y-section-label {
+			font-size: 0.68rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.09em;
+			color: #777;
+			margin-bottom: 7px;
+		}
+
+		.a11y-row { display: flex; gap: 6px; align-items: center; }
+
+		.a11y-btn {
+			flex: 1;
+			padding: 7px 6px;
+			border: 1px solid #ccc;
+			border-radius: 6px;
+			background: #f5f5f5;
+			cursor: pointer;
+			font-size: 0.8rem;
+			transition: background 0.15s, border-color 0.15s;
+			text-align: center;
+			font-family: inherit;
+			color: #333;
+		}
+		.a11y-btn:hover { background: #e8e8e8; }
+		.a11y-btn.active { background: #2d5a47; color: #fff; border-color: #2d5a47; }
+		.a11y-btn:focus-visible { outline: 2px solid #c8a45c; }
+
+		.a11y-audio-btn {
+			width: 100%;
+			padding: 9px 10px;
+			border: 1.5px solid #2d5a47;
+			border-radius: 6px;
+			background: #f0f7f4;
+			cursor: pointer;
+			font-size: 0.83rem;
+			color: #2d5a47;
+			font-weight: 600;
+			transition: background 0.15s;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 7px;
+			font-family: inherit;
+		}
+		.a11y-audio-btn:hover { background: #d4eddf; }
+		.a11y-audio-btn.playing { background: #2d5a47; color: #fff; border-color: #2d5a47; }
+		.a11y-audio-btn:focus-visible { outline: 2px solid #c8a45c; }
+
+		.a11y-divider { border: none; border-top: 1px solid #eee; margin: 12px 0; }
+
+		.a11y-translate-wrap { width: 100%; }
+		.a11y-translate-wrap .goog-te-gadget { margin: 0; font-size: 0.82rem !important; }
+		#google_translate_element select {
+			width: 100%;
+			padding: 7px 8px;
+			border: 1px solid #ccc;
+			border-radius: 6px;
+			font-size: 0.82rem;
+			font-family: inherit;
+			background: #fff;
+			cursor: pointer;
+		}
+
+		/* ── High Contrast Mode ───────────────────────────────── */
+		body.high-contrast { filter: contrast(1.5); }
+
+		/* ── Font Size Overrides ──────────────────────────────── */
+		body.font-lg  { font-size: 18px; }
+		body.font-xl  { font-size: 22px; }
+	</style>
 </head>
 
 <body>
+
+<!-- ── Accessibility & Translate Widget ──────────────────── -->
+<div id="a11y-widget" role="region" aria-label="Accessibility and translation options">
+	<div id="a11y-panel" aria-hidden="true">
+
+		<!-- Translate -->
+		<div class="a11y-section">
+			<div class="a11y-section-label">Translate Page</div>
+			<div class="a11y-translate-wrap">
+				<div id="google_translate_element"></div>
+			</div>
+		</div>
+
+		<hr class="a11y-divider">
+
+		<!-- Font Size -->
+		<div class="a11y-section">
+			<div class="a11y-section-label">Text Size</div>
+			<div class="a11y-row">
+				<button class="a11y-btn active" id="font-btn-normal" onclick="setFontSize('normal')" aria-label="Normal text size" style="font-size:0.78rem">A</button>
+				<button class="a11y-btn" id="font-btn-lg" onclick="setFontSize('lg')" aria-label="Large text size" style="font-size:1rem;font-weight:600">A</button>
+				<button class="a11y-btn" id="font-btn-xl" onclick="setFontSize('xl')" aria-label="Extra large text size" style="font-size:1.2rem;font-weight:700">A</button>
+			</div>
+		</div>
+
+		<!-- Contrast -->
+		<div class="a11y-section">
+			<div class="a11y-section-label">Contrast</div>
+			<div class="a11y-row">
+				<button class="a11y-btn active" id="contrast-btn-normal" onclick="setContrast('normal')" aria-label="Normal contrast">Normal</button>
+				<button class="a11y-btn" id="contrast-btn-high" onclick="setContrast('high')" aria-label="High contrast mode">High Contrast</button>
+			</div>
+		</div>
+
+		<hr class="a11y-divider">
+
+		<!-- Audio Introduction -->
+		<div class="a11y-section">
+			<div class="a11y-section-label">Audio Introduction</div>
+			<button class="a11y-audio-btn" id="audio-intro-btn" onclick="toggleAudioIntro()" aria-label="Listen to audio introduction">
+				<span id="audio-intro-icon">▶</span>
+				<span id="audio-intro-label">Listen to Intro</span>
+			</button>
+		</div>
+
+	</div>
+
+	<button id="a11y-toggle"
+		onclick="toggleA11yPanel()"
+		aria-label="Open accessibility options"
+		aria-expanded="false"
+		aria-controls="a11y-panel"
+		title="Accessibility & Translation">
+		&#9855;
+	</button>
+</div>
+
+<script>
+	/* ── Google Translate init ────────────────────────────── */
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: 'en',
+			layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+			autoDisplay: false
+		}, 'google_translate_element');
+	}
+
+	/* ── Accessibility panel toggle ──────────────────────── */
+	var _a11yPanelOpen = false;
+
+	function toggleA11yPanel() {
+		_a11yPanelOpen = !_a11yPanelOpen;
+		var panel = document.getElementById('a11y-panel');
+		var btn   = document.getElementById('a11y-toggle');
+		panel.classList.toggle('open', _a11yPanelOpen);
+		panel.setAttribute('aria-hidden', _a11yPanelOpen ? 'false' : 'true');
+		btn.setAttribute('aria-expanded', _a11yPanelOpen ? 'true' : 'false');
+		btn.setAttribute('aria-label', _a11yPanelOpen ? 'Close accessibility options' : 'Open accessibility options');
+	}
+
+	/* ── Font size ───────────────────────────────────────── */
+	function setFontSize(size) {
+		document.body.classList.remove('font-lg', 'font-xl');
+		if (size === 'lg') document.body.classList.add('font-lg');
+		if (size === 'xl') document.body.classList.add('font-xl');
+		['normal','lg','xl'].forEach(function(s) {
+			document.getElementById('font-btn-' + s).classList.toggle('active', s === size);
+		});
+		try { localStorage.setItem('a11y-font', size); } catch(e) {}
+	}
+
+	/* ── Contrast ────────────────────────────────────────── */
+	function setContrast(mode) {
+		document.body.classList.toggle('high-contrast', mode === 'high');
+		document.getElementById('contrast-btn-normal').classList.toggle('active', mode === 'normal');
+		document.getElementById('contrast-btn-high').classList.toggle('active', mode === 'high');
+		try { localStorage.setItem('a11y-contrast', mode); } catch(e) {}
+	}
+
+	/* ── Audio introduction ──────────────────────────────── */
+	/*
+	 * To use your own recorded audio, place the file at:
+	 *   docs/audio/intro.mp3
+	 * If no file is found, the browser's built-in text-to-speech
+	 * will read the introduction automatically.
+	 */
+	var _introAudio   = null;
+	var _introUtter   = null;
+	var _introPlaying = false;
+
+	var _introText = 'Some careers are built in one place. Mine has been built in the space between \u2014 the classroom, the operations center, the disaster field, the community meeting room. I work at the intersection of emergency management, communication, and community service, and I bring the full weight of each world to everything I do. As Section Supervisor at Kentucky Emergency Management, I lead the drawdown of the FEMA-funded Chemical Stockpile Emergency Preparedness Program, one of the nation\u2019s most complex federal program transitions, and serve in the State Emergency Operations Center during emergencies in five distinct roles. I also serve with Wolfe County Search and Rescue as an officer, Wilderness First Responder, and certified rope and swiftwater rescue technician, answering calls across some of Kentucky\u2019s most demanding terrain. Over 17 years in higher education, I\u2019ve prepared thousands of communication students to think critically, speak with confidence, and lead with purpose \u2014 across universities and colleges from Kentucky to Shanghai. My nonprofit leadership roots keep my work grounded in public service and audience-centered communication. I go where I\u2019m needed, stay until the work is done, and bring everything I have.';
+
+	function _setAudioBtnState(playing) {
+		_introPlaying = playing;
+		var btn   = document.getElementById('audio-intro-btn');
+		var icon  = document.getElementById('audio-intro-icon');
+		var label = document.getElementById('audio-intro-label');
+		if (!btn) return;
+		btn.classList.toggle('playing', playing);
+		btn.setAttribute('aria-label', playing ? 'Stop audio introduction' : 'Listen to audio introduction');
+		if (icon)  icon.textContent  = playing ? '\u25a0' : '\u25b6';
+		if (label) label.textContent = playing ? 'Stop' : 'Listen to Intro';
+	}
+
+	function _stopAll() {
+		if (_introAudio) { _introAudio.pause(); _introAudio.currentTime = 0; _introAudio = null; }
+		if (_introUtter && 'speechSynthesis' in window) { window.speechSynthesis.cancel(); _introUtter = null; }
+		_setAudioBtnState(false);
+	}
+
+	function _speakWithTTS() {
+		if (!('speechSynthesis' in window)) { _stopAll(); return; }
+		var u = new SpeechSynthesisUtterance(_introText);
+		u.rate  = 0.93;
+		u.pitch = 1;
+		u.onend   = function() { _stopAll(); };
+		u.onerror = function() { _stopAll(); };
+		_introUtter = u;
+		window.speechSynthesis.speak(u);
+	}
+
+	function toggleAudioIntro() {
+		if (_introPlaying) { _stopAll(); return; }
+
+		_setAudioBtnState(true);
+
+		/* Try recorded file first; fall back to TTS if missing or error */
+		var audio = new Audio('./audio/intro.mp3');
+		audio.preload = 'auto';
+
+		var _loaded = false;
+		audio.oncanplaythrough = function() {
+			if (_loaded) return;
+			_loaded = true;
+			_introAudio = audio;
+			audio.play().catch(function() { _stopAll(); _speakWithTTS(); });
+			audio.onended = function() { _stopAll(); };
+		};
+		audio.onerror = function() {
+			_introAudio = null;
+			_speakWithTTS();
+		};
+
+		/* If file doesn't exist it fires onerror almost immediately */
+		audio.load();
+	}
+
+	/* ── Restore saved preferences on load ───────────────── */
+	document.addEventListener('DOMContentLoaded', function() {
+		try {
+			var f = localStorage.getItem('a11y-font');
+			if (f) setFontSize(f);
+			var c = localStorage.getItem('a11y-contrast');
+			if (c) setContrast(c);
+		} catch(e) {}
+	});
+</script>
+
+<!-- Google Translate — loaded last so it doesn't block page render -->
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+
 </body>
 </html>
