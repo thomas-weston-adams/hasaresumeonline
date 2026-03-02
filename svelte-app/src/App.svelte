@@ -845,6 +845,17 @@
     line-height: 1;
   }
 
+  @media (max-width: 768px) and (min-width: 601px) {
+    .roadmap {
+      padding: 14px 20px;
+      gap: 7px;
+    }
+    .roadmap-item {
+      font-size: 0.78em;
+      padding: 6px 12px;
+    }
+  }
+
   @media (max-width: 600px) {
     .roadmap {
       padding: 14px 16px;
@@ -881,7 +892,7 @@
     left: 0;
     width: 54%;
     padding: 28px 24px 20px 24px;
-    background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.72) 38%, rgba(0,0,0,0.42) 62%, transparent 100%);
+    background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.80) 32%, rgba(0,0,0,0.58) 58%, rgba(0,0,0,0.28) 78%, transparent 100%);
     pointer-events: none;
     display: flex;
     flex-direction: column;
@@ -896,19 +907,20 @@
       top: 0;
       bottom: 0;
       width: 100%;
-      padding: 0 16px 20px 16px;
-      background: linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.72) 38%, rgba(0,0,0,0.30) 65%, transparent 100%);
+      padding: 0 14px 20px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.84) 35%, rgba(0,0,0,0.62) 60%, rgba(0,0,0,0.35) 78%, transparent 100%);
       justify-content: flex-end;
       overflow: visible;
     }
     .footer-quote-text {
-      font-size: 0.72rem;
-      line-height: 1.35;
+      font-size: 0.74rem;
+      line-height: 1.38;
       flex: 0 1 auto;
       overflow: visible;
     }
     .footer-quote-attribution {
       text-align: left;
+      font-size: 0.74rem;
     }
   }
 
