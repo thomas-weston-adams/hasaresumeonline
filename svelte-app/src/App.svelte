@@ -232,6 +232,8 @@
     {/each}
   </div>
 
+  <Stats {stats} />
+
   <nav class="roadmap" aria-label="Page sections">
     <a class="roadmap-item" href="#emergency-management">
       <span class="roadmap-icon">🚨</span>
@@ -278,8 +280,6 @@
       <span class="roadmap-label">Affiliations</span>
     </a>
   </nav>
-
-  <Stats {stats} />
 
   {#if lightboxSrc}
     <div class="lightbox" on:click={closeLightbox} on:keydown={handleLightboxKey} on:touchstart|passive={handleTouchStart} on:touchend={handleTouchEnd} role="dialog" aria-modal="true" tabindex="-1">
@@ -805,7 +805,7 @@
   /* ── ROADMAP NAVIGATION ────────────────────────── */
   .roadmap {
     background: #1e3a2f;
-    padding: 18px 28px;
+    padding: 16px 24px;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -820,10 +820,10 @@
     background: rgba(255, 255, 255, 0.07);
     border: 1px solid rgba(255, 255, 255, 0.14);
     color: rgba(255, 248, 235, 0.88);
-    padding: 7px 14px;
+    padding: 6px 10px;
     border-radius: 4px;
     text-decoration: none;
-    font-size: 0.82em;
+    font-size: 0.76em;
     font-weight: 600;
     letter-spacing: 0.3px;
     transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
@@ -845,25 +845,45 @@
     line-height: 1;
   }
 
+  /* Tablet: 3-per-row fixed grid — last 2 items auto-center */
   @media (max-width: 768px) and (min-width: 601px) {
     .roadmap {
       padding: 14px 20px;
       gap: 7px;
     }
     .roadmap-item {
+      flex: 0 0 calc(33.333% - 4.667px);
+      justify-content: center;
       font-size: 0.78em;
-      padding: 6px 12px;
+      padding: 7px 10px;
     }
   }
 
+  /* Mobile: 3-per-row icon-above-label grid — last 2 items auto-center */
   @media (max-width: 600px) {
     .roadmap {
-      padding: 14px 16px;
+      padding: 12px 14px;
       gap: 6px;
     }
     .roadmap-item {
-      font-size: 0.76em;
-      padding: 6px 10px;
+      flex: 0 0 calc(33.333% - 4px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      font-size: 0.72em;
+      padding: 8px 6px;
+      text-align: center;
+      white-space: normal;
+      min-height: 46px;
+    }
+    .roadmap-icon {
+      font-size: 1.15em;
+      line-height: 1;
+    }
+    .roadmap-label {
+      line-height: 1.25;
+      white-space: normal;
     }
   }
 
