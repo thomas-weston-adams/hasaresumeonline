@@ -232,6 +232,8 @@
     {/each}
   </div>
 
+  <Stats {stats} />
+
   <nav class="roadmap" aria-label="Page sections">
     <a class="roadmap-item" href="#emergency-management">
       <span class="roadmap-icon">🚨</span>
@@ -278,8 +280,6 @@
       <span class="roadmap-label">Affiliations</span>
     </a>
   </nav>
-
-  <Stats {stats} />
 
   {#if lightboxSrc}
     <div class="lightbox" on:click={closeLightbox} on:keydown={handleLightboxKey} on:touchstart|passive={handleTouchStart} on:touchend={handleTouchEnd} role="dialog" aria-modal="true" tabindex="-1">
