@@ -158,8 +158,13 @@
   @media (max-width: 768px) {
     .header { padding: 30px 24px; }
     .header-content { gap: 24px; }
+    .header-text { min-width: 0; }
     .profile-photo { width: 140px; height: 180px; }
     .title { font-size: 0.78em; letter-spacing: 1px; }
+    h1 {
+      font-size: clamp(0.9rem, 3.2vw, 1.7em);
+      white-space: normal;
+    }
   }
 
   @media (max-width: 500px) {
@@ -169,6 +174,7 @@
       gap: 20px;
     }
     .profile-photo { width: 120px; height: 155px; }
+    h1 { font-size: clamp(1rem, 5.5vw, 1.8em); }
   }
 
   /* ── Upside Down theme overrides ─────────────── */
