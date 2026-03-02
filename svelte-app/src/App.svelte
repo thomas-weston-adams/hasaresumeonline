@@ -922,28 +922,7 @@
     overflow: hidden;
   }
 
-  @media (max-width: 600px) {
-    .footer-quote {
-      top: 0;
-      bottom: 0;
-      width: 100%;
-      padding: 0 14px 20px 14px;
-      background: linear-gradient(to top, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.84) 35%, rgba(0,0,0,0.62) 60%, rgba(0,0,0,0.35) 78%, transparent 100%);
-      justify-content: flex-end;
-      overflow: visible;
-    }
-    .footer-quote-text {
-      font-size: 0.74rem;
-      line-height: 1.38;
-      flex: 0 1 auto;
-      overflow: visible;
-    }
-    .footer-quote-attribution {
-      text-align: left;
-      font-size: 0.74rem;
-    }
-  }
-
+  /* Defaults declared first so the mobile @media block below can override */
   .footer-quote-text {
     display: block;
     font-style: italic;
@@ -973,6 +952,24 @@
     text-align: right;
     padding-right: 4px;
     flex-shrink: 0;
+  }
+
+  /* Mobile override — must come AFTER defaults so it wins the cascade */
+  @media (max-width: 600px) {
+    .footer-quote {
+      width: 100%;
+      padding: 0 14px 18px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.84) 35%, rgba(0,0,0,0.62) 60%, rgba(0,0,0,0.35) 78%, transparent 100%);
+      overflow: visible;
+    }
+    .footer-quote-text {
+      font-size: 0.69rem;
+      line-height: 1.38;
+    }
+    .footer-quote-attribution {
+      font-size: 0.69rem;
+      text-align: left;
+    }
   }
 
   /* Photo mosaic — 2 photos side by side */
