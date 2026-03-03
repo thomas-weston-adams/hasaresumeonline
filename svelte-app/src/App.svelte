@@ -911,6 +911,7 @@
     position: relative;
     overflow: hidden;
     cursor: zoom-in;
+    margin-bottom: 60px;
   }
 
   .footer-photo img {
