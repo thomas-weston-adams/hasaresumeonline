@@ -134,35 +134,6 @@
 			cursor: pointer;
 		}
 
-		/* ── Recording button ────────────────────────────────── */
-		.a11y-record-btn {
-			width: 100%;
-			padding: 9px 10px;
-			border: 1.5px solid #b03020;
-			border-radius: 6px;
-			background: #fdf0ef;
-			cursor: pointer;
-			font-size: 0.83rem;
-			color: #b03020;
-			font-weight: 600;
-			transition: background 0.15s;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 7px;
-			font-family: inherit;
-			margin-top: 6px;
-		}
-		.a11y-record-btn:hover { background: #f9d9d7; }
-		.a11y-record-btn.recording { background: #b03020; color: #fff; border-color: #b03020; animation: a11y-pulse 1s infinite; }
-		.a11y-record-btn:focus-visible { outline: 2px solid #c8a45c; }
-		@keyframes a11y-pulse { 0%,100% { opacity:1; } 50% { opacity:0.65; } }
-
-		.a11y-record-status { font-size: 0.72rem; color: #777; margin-top: 5px; text-align: center; min-height: 1.1em; }
-		.a11y-record-delete { background: none; border: none; font-size: 0.72rem; color: #aaa; cursor: pointer; padding: 0; text-decoration: underline; font-family: inherit; }
-		.a11y-record-delete:hover { color: #b03020; }
-		.a11y-record-download { background: none; border: none; font-size: 0.72rem; color: #2d5a47; cursor: pointer; padding: 0; text-decoration: underline; font-family: inherit; }
-		.a11y-record-download:hover { color: #1e3a2f; }
 
 		/* ── High Contrast Mode ───────────────────────────────── */
 		body.high-contrast { filter: contrast(1.5); }
@@ -217,11 +188,6 @@
 				<span id="audio-intro-icon">▶</span>
 				<span id="audio-intro-label">Listen to Intro</span>
 			</button>
-			<button class="a11y-record-btn" id="record-intro-btn" onclick="toggleRecording()" aria-label="Record your own introduction">
-				<span id="record-intro-icon">⏺</span>
-				<span id="record-intro-label">Record Your Voice</span>
-			</button>
-			<div class="a11y-record-status" id="record-status"></div>
 		</div>
 
 	</div>
@@ -330,161 +296,25 @@
 		if (_introPlaying) { _stopAll(); return; }
 		_setAudioBtnState(true);
 
-		/* 1. Check IndexedDB for user-recorded voice */
-		_getRecording(function(blob) {
-			if (blob) {
-				var url = URL.createObjectURL(blob);
-				var audio = new Audio(url);
-				audio.oncanplaythrough = function() {
-					_introAudio = audio;
-					audio.play().catch(function() { _stopAll(); _speakWithTTS(); });
-					audio.onended = function() { URL.revokeObjectURL(url); _stopAll(); };
-				};
-				audio.onerror = function() { URL.revokeObjectURL(url); _stopAll(); _speakWithTTS(); };
-				audio.load();
-				return;
-			}
-
-			/* 2. Try static files (.webm → .mp4 → .mp3); fall back to TTS */
-			var _staticExts = ['webm', 'mp4', 'mp3'];
-			var _extIdx = 0;
-			function _tryNextExt() {
-				if (_extIdx >= _staticExts.length) { _speakWithTTS(); return; }
-				var ext = _staticExts[_extIdx++];
-				var audio2 = new Audio('./audio/intro.' + ext);
-				audio2.preload = 'auto';
-				var _loaded = false;
-				audio2.oncanplaythrough = function() {
-					if (_loaded) return; _loaded = true;
-					_introAudio = audio2;
-					audio2.play().catch(function() { _stopAll(); _speakWithTTS(); });
-					audio2.onended = function() { _stopAll(); };
-				};
-				audio2.onerror = function() { _tryNextExt(); };
-				audio2.load();
-			}
-			_tryNextExt();
-		});
-	}
-
-	/* ── IndexedDB helpers ───────────────────────────────── */
-	var _idb = null;
-
-	function _openDB(cb) {
-		if (_idb) { cb(_idb); return; }
-		var req = indexedDB.open('a11y-audio', 1);
-		req.onupgradeneeded = function(e) { e.target.result.createObjectStore('audio'); };
-		req.onsuccess = function(e) { _idb = e.target.result; cb(_idb); };
-		req.onerror = function() { cb(null); };
-	}
-
-	function _saveRecording(blob) {
-		_openDB(function(db) {
-			if (!db) return;
-			db.transaction('audio', 'readwrite').objectStore('audio').put(blob, 'intro');
-		});
-	}
-
-	function _getRecording(cb) {
-		_openDB(function(db) {
-			if (!db) { cb(null); return; }
-			var req = db.transaction('audio', 'readonly').objectStore('audio').get('intro');
-			req.onsuccess = function() { cb(req.result || null); };
-			req.onerror = function() { cb(null); };
-		});
-	}
-
-	function _deleteRecording(cb) {
-		_openDB(function(db) {
-			if (!db) { if (cb) cb(); return; }
-			var tx = db.transaction('audio', 'readwrite');
-			tx.objectStore('audio').delete('intro');
-			tx.oncomplete = function() { if (cb) cb(); };
-		});
-	}
-
-	/* ── Voice recorder ──────────────────────────────────── */
-	var _mediaRecorder = null;
-	var _recordChunks  = [];
-	var _isRecording   = false;
-
-	function _setRecordStatus(text, showDelete) {
-		var s = document.getElementById('record-status');
-		if (!s) return;
-		s.innerHTML = text + (showDelete
-			? ' &nbsp;<button class="a11y-record-download" onclick="downloadRecording()" aria-label="Download recording">download</button>'
-			  + ' <button class="a11y-record-delete" onclick="deleteRecording()" aria-label="Delete recording">delete</button>'
-			: '');
-	}
-
-	function downloadRecording() {
-		_getRecording(function(blob) {
-			if (!blob) return;
-			var ext = blob.type && blob.type.includes('mp4') ? 'mp4'
-			        : blob.type && blob.type.includes('ogg') ? 'ogg'
-			        : 'webm';
-			var url = URL.createObjectURL(blob);
-			var a = document.createElement('a');
-			a.href = url;
-			a.download = 'intro.' + ext;
-			document.body.appendChild(a);
-			a.click();
-			document.body.removeChild(a);
-			setTimeout(function() { URL.revokeObjectURL(url); }, 5000);
-		});
-	}
-
-	function _setRecordBtnState(recording) {
-		_isRecording = recording;
-		var btn   = document.getElementById('record-intro-btn');
-		var icon  = document.getElementById('record-intro-icon');
-		var label = document.getElementById('record-intro-label');
-		if (!btn) return;
-		btn.classList.toggle('recording', recording);
-		btn.setAttribute('aria-label', recording ? 'Stop recording' : 'Record your own introduction');
-		if (icon)  icon.textContent  = recording ? '⏹' : '⏺';
-		if (label) label.textContent = recording ? 'Stop Recording' : 'Record Your Voice';
-	}
-
-	function toggleRecording() {
-		if (_isRecording) {
-			/* Stop */
-			if (_mediaRecorder && _mediaRecorder.state !== 'inactive') _mediaRecorder.stop();
-			return;
-		}
-
-		if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-			_setRecordStatus('Microphone not supported in this browser.', false);
-			return;
-		}
-
-		navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream) {
-			_recordChunks = [];
-			_mediaRecorder = new MediaRecorder(stream);
-
-			_mediaRecorder.ondataavailable = function(e) {
-				if (e.data && e.data.size > 0) _recordChunks.push(e.data);
+		/* Try static files in order; fall back to TTS */
+		var _staticFiles = ['accessibilityaudio.m4a', 'intro.m4a', 'intro.webm', 'intro.mp4', 'intro.mp3'];
+		var _extIdx = 0;
+		function _tryNextExt() {
+			if (_extIdx >= _staticFiles.length) { _speakWithTTS(); return; }
+			var file = _staticFiles[_extIdx++];
+			var audio2 = new Audio('./audio/' + file);
+			audio2.preload = 'auto';
+			var _loaded = false;
+			audio2.oncanplaythrough = function() {
+				if (_loaded) return; _loaded = true;
+				_introAudio = audio2;
+				audio2.play().catch(function() { _stopAll(); _speakWithTTS(); });
+				audio2.onended = function() { _stopAll(); };
 			};
-
-			_mediaRecorder.onstop = function() {
-				stream.getTracks().forEach(function(t) { t.stop(); });
-				_setRecordBtnState(false);
-				if (_recordChunks.length === 0) { _setRecordStatus('', false); return; }
-				var blob = new Blob(_recordChunks, { type: _recordChunks[0].type || 'audio/webm' });
-				_saveRecording(blob);
-				_setRecordStatus('Recording saved.', true);
-			};
-
-			_mediaRecorder.start();
-			_setRecordBtnState(true);
-			_setRecordStatus('Recording\u2026', false);
-		}).catch(function() {
-			_setRecordStatus('Microphone access denied.', false);
-		});
-	}
-
-	function deleteRecording() {
-		_deleteRecording(function() { _setRecordStatus('', false); });
+			audio2.onerror = function() { _tryNextExt(); };
+			audio2.load();
+		}
+		_tryNextExt();
 	}
 
 	/* ── Restore saved preferences on load ───────────────── */
@@ -495,9 +325,6 @@
 			var c = localStorage.getItem('a11y-contrast');
 			if (c) setContrast(c);
 		} catch(e) {}
-		_getRecording(function(blob) {
-			if (blob) _setRecordStatus('Recording saved.', true);
-		});
 	});
 </script>
 
