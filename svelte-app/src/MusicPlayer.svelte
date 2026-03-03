@@ -141,7 +141,7 @@
     align-items: center;
     gap: 12px;
     padding: 9px 20px;
-    background: rgba(18, 36, 26, 0.96);
+    background: rgba(18, 36, 26, 0.75);
     border-top: 1px solid rgba(200, 164, 92, 0.25);
     backdrop-filter: blur(8px);
     color: #e8dfc8;
