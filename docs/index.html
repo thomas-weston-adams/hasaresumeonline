@@ -161,6 +161,8 @@
 		.a11y-record-status { font-size: 0.72rem; color: #777; margin-top: 5px; text-align: center; min-height: 1.1em; }
 		.a11y-record-delete { background: none; border: none; font-size: 0.72rem; color: #aaa; cursor: pointer; padding: 0; text-decoration: underline; font-family: inherit; }
 		.a11y-record-delete:hover { color: #b03020; }
+		.a11y-record-download { background: none; border: none; font-size: 0.72rem; color: #2d5a47; cursor: pointer; padding: 0; text-decoration: underline; font-family: inherit; }
+		.a11y-record-download:hover { color: #1e3a2f; }
 
 		/* ── High Contrast Mode ───────────────────────────────── */
 		body.high-contrast { filter: contrast(1.5); }
@@ -343,18 +345,25 @@
 				return;
 			}
 
-			/* 2. Try static file; fall back to TTS */
-			var audio2 = new Audio('./audio/intro.mp3');
-			audio2.preload = 'auto';
-			var _loaded = false;
-			audio2.oncanplaythrough = function() {
-				if (_loaded) return; _loaded = true;
-				_introAudio = audio2;
-				audio2.play().catch(function() { _stopAll(); _speakWithTTS(); });
-				audio2.onended = function() { _stopAll(); };
-			};
-			audio2.onerror = function() { _introAudio = null; _speakWithTTS(); };
-			audio2.load();
+			/* 2. Try static files (.webm → .mp4 → .mp3); fall back to TTS */
+			var _staticExts = ['webm', 'mp4', 'mp3'];
+			var _extIdx = 0;
+			function _tryNextExt() {
+				if (_extIdx >= _staticExts.length) { _speakWithTTS(); return; }
+				var ext = _staticExts[_extIdx++];
+				var audio2 = new Audio('./audio/intro.' + ext);
+				audio2.preload = 'auto';
+				var _loaded = false;
+				audio2.oncanplaythrough = function() {
+					if (_loaded) return; _loaded = true;
+					_introAudio = audio2;
+					audio2.play().catch(function() { _stopAll(); _speakWithTTS(); });
+					audio2.onended = function() { _stopAll(); };
+				};
+				audio2.onerror = function() { _tryNextExt(); };
+				audio2.load();
+			}
+			_tryNextExt();
 		});
 	}
 
@@ -402,7 +411,27 @@
 	function _setRecordStatus(text, showDelete) {
 		var s = document.getElementById('record-status');
 		if (!s) return;
-		s.innerHTML = text + (showDelete ? ' &nbsp;<button class="a11y-record-delete" onclick="deleteRecording()" aria-label="Delete recording">delete</button>' : '');
+		s.innerHTML = text + (showDelete
+			? ' &nbsp;<button class="a11y-record-download" onclick="downloadRecording()" aria-label="Download recording">download</button>'
+			  + ' <button class="a11y-record-delete" onclick="deleteRecording()" aria-label="Delete recording">delete</button>'
+			: '');
+	}
+
+	function downloadRecording() {
+		_getRecording(function(blob) {
+			if (!blob) return;
+			var ext = blob.type && blob.type.includes('mp4') ? 'mp4'
+			        : blob.type && blob.type.includes('ogg') ? 'ogg'
+			        : 'webm';
+			var url = URL.createObjectURL(blob);
+			var a = document.createElement('a');
+			a.href = url;
+			a.download = 'intro.' + ext;
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
+			setTimeout(function() { URL.revokeObjectURL(url); }, 5000);
+		});
 	}
 
 	function _setRecordBtnState(recording) {
