@@ -806,16 +806,16 @@
   .roadmap {
     background: #1e3a2f;
     padding: 16px 24px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     gap: 8px;
-    justify-content: center;
     border-bottom: 3px solid #4a7c6b;
   }
 
   .roadmap-item {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
     background: rgba(255, 255, 255, 0.07);
     border: 1px solid rgba(255, 255, 255, 0.14);
@@ -827,7 +827,7 @@
     font-weight: 600;
     letter-spacing: 0.3px;
     transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
-    white-space: nowrap;
+    text-align: center;
   }
 
   .roadmap-item:hover {
@@ -845,36 +845,45 @@
     line-height: 1;
   }
 
-  /* Tablet: 3-per-row fixed grid — last 2 items auto-center */
-  @media (max-width: 768px) and (min-width: 601px) {
+  /* Medium desktop: 4-per-row */
+  @media (max-width: 1100px) and (min-width: 769px) {
     .roadmap {
+      grid-template-columns: repeat(4, 1fr);
       padding: 14px 20px;
       gap: 7px;
     }
     .roadmap-item {
-      flex: 0 0 calc(33.333% - 4.667px);
-      justify-content: center;
       font-size: 0.78em;
       padding: 7px 10px;
     }
   }
 
-  /* Mobile: 3-per-row icon-above-label grid — last 2 items auto-center */
+  /* Tablet: 3-per-row */
+  @media (max-width: 768px) and (min-width: 601px) {
+    .roadmap {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 14px 20px;
+      gap: 7px;
+    }
+    .roadmap-item {
+      font-size: 0.78em;
+      padding: 7px 10px;
+    }
+  }
+
+  /* Mobile: 3-per-row, icon above label */
   @media (max-width: 600px) {
     .roadmap {
+      grid-template-columns: repeat(3, 1fr);
       padding: 12px 14px;
       gap: 6px;
     }
     .roadmap-item {
-      flex: 0 0 calc(33.333% - 4px);
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       gap: 3px;
       font-size: 0.72em;
       padding: 8px 6px;
-      text-align: center;
-      white-space: normal;
       min-height: 46px;
     }
     .roadmap-icon {
