@@ -345,13 +345,13 @@
 				return;
 			}
 
-			/* 2. Try static files (.webm → .mp4 → .mp3); fall back to TTS */
-			var _staticExts = ['m4a', 'webm', 'mp4', 'mp3'];
+			/* 2. Try static files; fall back to TTS */
+			var _staticFiles = ['accessibilityaudio.m4a', 'intro.m4a', 'intro.webm', 'intro.mp4', 'intro.mp3'];
 			var _extIdx = 0;
 			function _tryNextExt() {
-				if (_extIdx >= _staticExts.length) { _speakWithTTS(); return; }
-				var ext = _staticExts[_extIdx++];
-				var audio2 = new Audio('./audio/intro.' + ext);
+				if (_extIdx >= _staticFiles.length) { _speakWithTTS(); return; }
+				var file = _staticFiles[_extIdx++];
+				var audio2 = new Audio('./audio/' + file);
 				audio2.preload = 'auto';
 				var _loaded = false;
 				audio2.oncanplaythrough = function() {
