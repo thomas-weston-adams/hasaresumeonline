@@ -174,7 +174,10 @@
       gap: 20px;
     }
     .profile-photo { width: 120px; height: 155px; }
-    h1 { font-size: clamp(1rem, 5.5vw, 1.8em); }
+    h1 {
+      font-size: clamp(0.75rem, 5vw, 1.8em);
+      white-space: nowrap;
+    }
   }
 
   /* ── Upside Down theme overrides ─────────────── */
