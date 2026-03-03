@@ -3,6 +3,7 @@
   import Stats from './Stats.svelte';
   import ResumeSection from './ResumeSection.svelte';
   import ChristmasLights from './ChristmasLights.svelte';
+  import MusicPlayer from './MusicPlayer.svelte';
   import data from './data.json';
 
   const profile = {
@@ -766,6 +767,8 @@
     {/if}
   </div>
 </div>
+
+<MusicPlayer />
 
 <style>
   .container {
