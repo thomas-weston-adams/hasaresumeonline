@@ -275,6 +275,10 @@
       <span class="roadmap-icon">⚡</span>
       <span class="roadmap-label">Competencies</span>
     </a>
+    <a class="roadmap-item" href="#certifications">
+      <span class="roadmap-icon">📋</span>
+      <span class="roadmap-label">Certifications</span>
+    </a>
     <a class="roadmap-item" href="#affiliations">
       <span class="roadmap-icon">🏢</span>
       <span class="roadmap-label">Affiliations</span>
@@ -712,7 +716,10 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection sectionId="competencies" icon="⚡" title="Core Competencies & Certifications" skillCategories={coreSkillCategories} skills={coreSkills} collapsible={true}>
+    <ResumeSection sectionId="competencies" icon="⚡" title="Core Competencies" skillCategories={coreSkillCategories} skills={coreSkills} collapsible={true}>
+    </ResumeSection>
+
+    <ResumeSection sectionId="certifications" icon="📋" title="Certifications & Key Training" collapsible={true}>
       {#if data.certifications}
         <div class="cert-section">
           <h4>Federal Grants Management Certificate</h4>
