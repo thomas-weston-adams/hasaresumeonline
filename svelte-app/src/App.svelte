@@ -197,25 +197,25 @@
   // ── SUN HOTSPOT (lightbox) ──────────────────────────────
   const FOOTER_PHOTO = './images/08-ridge-run-sunset.jpg';
 
-  // For cached images: compute once the element is bound
-  $: if (lightboxImgEl) {
-    requestAnimationFrame(() => {
-      if (lightboxImgEl?.complete && lightboxImgEl.naturalWidth > 0 && lightboxSrc === FOOTER_PHOTO) {
-        _computeSunBounds();
-      }
-    });
+  // Fires when footer photo lightbox opens (covers both cached + fresh image cases)
+  $: if (lightboxSrc === FOOTER_PHOTO && lightboxImgEl) {
+    if (lightboxImgEl.complete && lightboxImgEl.naturalWidth > 0) _computeSunBounds();
+    // on:load handles the uncached/first-load case
   }
 
   function _computeSunBounds() {
-    if (!lightboxImgEl) return;
-    const r = lightboxImgEl.getBoundingClientRect();
-    if (!r.width || !r.height) return;
-    // Sun is ~10% from left, ~45% from top of the image
-    sunHotspotBounds = {
-      left: r.left + r.width * 0.10,
-      top:  r.top  + r.height * 0.45,
-      size: Math.max(r.width * 0.09, 48)
-    };
+    // rAF ensures the browser has completed layout before we measure
+    requestAnimationFrame(() => {
+      if (!lightboxImgEl) return;
+      const r = lightboxImgEl.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      // Sun disk is ~12% from left, ~53% from top of the image
+      sunHotspotBounds = {
+        left: r.left + r.width * 0.12,
+        top:  r.top  + r.height * 0.53,
+        size: Math.max(r.width * 0.10, 52)
+      };
+    });
   }
 </script>
 
