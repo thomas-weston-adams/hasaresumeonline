@@ -757,7 +757,7 @@
 
   </div>
 
-  <div class="footer-photo" class:footer-upside-down={easterEggMode} on:click={activateEasterEgg} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && activateEasterEgg()} title={easterEggMode ? 'You found the Upside Down' : ''}>
+  <div class="footer-photo" class:footer-upside-down={easterEggMode} on:click={() => openLightbox('./images/08-ridge-run-sunset.jpg', 'Tommy Adams looking off into the distance at sunset on a Kentucky ridge')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/08-ridge-run-sunset.jpg', 'Tommy Adams looking off into the distance at sunset on a Kentucky ridge')}>
     <img src="./images/08-ridge-run-sunset.jpg" alt="Tommy Adams looking off into the distance at sunset on a Kentucky ridge" loading="lazy" />
     {#if data.closingQuote}
       <div class="footer-quote" aria-hidden="true">
@@ -768,6 +768,12 @@
     {#if easterEggMode}
       <div class="footer-found-label">// you found it //</div>
     {/if}
+    <button
+      class="sun-hotspot"
+      on:click|stopPropagation={activateEasterEgg}
+      aria-label="hidden"
+      tabindex="-1"
+    ></button>
   </div>
 </div>
 
@@ -907,6 +913,20 @@
       line-height: 1.25;
       white-space: normal;
     }
+  }
+
+  /* Sun easter egg hotspot */
+  .sun-hotspot {
+    position: absolute;
+    left: 10%;
+    top: 45%;
+    width: 7%;
+    padding-top: 7%;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    cursor: default;
+    pointer-events: all;
   }
 
   /* Footer panoramic photo */
