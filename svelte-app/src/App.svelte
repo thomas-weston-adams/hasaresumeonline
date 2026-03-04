@@ -209,11 +209,11 @@
       if (!lightboxImgEl) return;
       const r = lightboxImgEl.getBoundingClientRect();
       if (!r.width || !r.height) return;
-      // Sun disk + glow: ~14% from left, ~51% from top; large hitzone covers the full glow
+      // Doubled hitzone, shifted center up to cover sky above sun glow
       sunHotspotBounds = {
         left: r.left + r.width * 0.14,
-        top:  r.top  + r.height * 0.51,
-        size: Math.max(r.width * 0.18, 70)
+        top:  r.top  + r.height * 0.44,
+        size: Math.max(r.width * 0.36, 140)
       };
     });
   }
