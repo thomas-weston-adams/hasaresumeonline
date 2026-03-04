@@ -771,6 +771,7 @@
     <button
       class="sun-hotspot"
       on:click|stopPropagation={activateEasterEgg}
+      on:touchend|preventDefault|stopPropagation={activateEasterEgg}
       aria-label="hidden"
       tabindex="-1"
     ></button>
