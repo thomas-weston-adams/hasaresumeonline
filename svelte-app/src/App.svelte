@@ -66,6 +66,8 @@
   let lightboxAlt = '';
   let lightboxItems = [];
   let lightboxIndex = -1;
+  let lightboxImgEl = null;
+  let sunHotspotBounds = null;
 
   $: teachingGallery = teachingPhotos.map((photo) => ({
     src: './images/' + encodeURIComponent(photo.file),
@@ -121,6 +123,7 @@
     lightboxAlt = '';
     lightboxItems = [];
     lightboxIndex = -1;
+    sunHotspotBounds = null;
   }
 
   function handleLightboxKey(e) {
@@ -189,6 +192,30 @@
       }, 50);
       bgAudio = null;
     }
+  }
+
+  // ── SUN HOTSPOT (lightbox) ──────────────────────────────
+  const FOOTER_PHOTO = './images/08-ridge-run-sunset.jpg';
+
+  // For cached images: compute once the element is bound
+  $: if (lightboxImgEl) {
+    requestAnimationFrame(() => {
+      if (lightboxImgEl?.complete && lightboxImgEl.naturalWidth > 0 && lightboxSrc === FOOTER_PHOTO) {
+        _computeSunBounds();
+      }
+    });
+  }
+
+  function _computeSunBounds() {
+    if (!lightboxImgEl) return;
+    const r = lightboxImgEl.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    // Sun is ~10% from left, ~45% from top of the image
+    sunHotspotBounds = {
+      left: r.left + r.width * 0.10,
+      top:  r.top  + r.height * 0.45,
+      size: Math.max(r.width * 0.09, 48)
+    };
   }
 </script>
 
@@ -293,7 +320,16 @@
         <button class="lightbox-nav lightbox-next" on:click|stopPropagation={() => navigateLightbox(1)} aria-label="Next photo">›</button>
       {/if}
       <button class="lightbox-close" on:click={closeLightbox} aria-label="Close">✕</button>
-      <img src={lightboxSrc} alt={lightboxAlt} on:click|stopPropagation />
+      <img src={lightboxSrc} alt={lightboxAlt} on:click|stopPropagation
+        bind:this={lightboxImgEl} on:load={_computeSunBounds} />
+      {#if lightboxSrc === FOOTER_PHOTO && !easterEggMode && sunHotspotBounds}
+        <button class="lightbox-sun-hotspot"
+          style="left:{sunHotspotBounds.left}px; top:{sunHotspotBounds.top}px; width:{sunHotspotBounds.size}px; height:{sunHotspotBounds.size}px;"
+          on:click|stopPropagation={activateEasterEgg}
+          on:touchend|preventDefault|stopPropagation={activateEasterEgg}
+          aria-label="hidden" tabindex="-1"
+        ></button>
+      {/if}
       {#if lightboxItems.length > 1 && lightboxIndex >= 0}
         <div class="lightbox-counter">{lightboxIndex + 1} / {lightboxItems.length}</div>
       {/if}
@@ -768,13 +804,6 @@
     {#if easterEggMode}
       <div class="footer-found-label">// you found it //</div>
     {/if}
-    <button
-      class="sun-hotspot"
-      on:click|stopPropagation={activateEasterEgg}
-      on:touchend|preventDefault|stopPropagation={activateEasterEgg}
-      aria-label="hidden"
-      tabindex="-1"
-    ></button>
   </div>
 </div>
 
@@ -914,20 +943,6 @@
       line-height: 1.25;
       white-space: normal;
     }
-  }
-
-  /* Sun easter egg hotspot */
-  .sun-hotspot {
-    position: absolute;
-    left: 10%;
-    top: 45%;
-    width: 7%;
-    padding-top: 7%;
-    border-radius: 50%;
-    background: transparent;
-    border: none;
-    cursor: default;
-    pointer-events: all;
   }
 
   /* Footer panoramic photo */
@@ -1957,6 +1972,20 @@
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 999px;
     padding: 4px 10px;
+  }
+
+  /* Sun easter-egg hotspot inside the lightbox */
+  .lightbox-sun-hotspot {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    pointer-events: all;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   /* Teaching highlights — rendered below institutions dropdown */
