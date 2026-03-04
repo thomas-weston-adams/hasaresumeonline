@@ -314,6 +314,8 @@
 
       <p>{paragraphs(data.emergencyContent)[0]}</p>
 
+      <p>{paragraphs(data.emergencyContent)[1]}</p>
+
       {#if emHighlights.length > 0}
         <ul class="em-bullets">
           {#each emHighlights as item}
@@ -406,7 +408,7 @@
         </div>
       {/if}
 
-      <p>{paragraphs(data.emergencyContent)[1]}</p>
+      <p>{paragraphs(data.emergencyContent)[2]}</p>
 
       {#if sarHighlights.length > 0}
         <ul class="em-bullets">
