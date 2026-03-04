@@ -3,6 +3,7 @@
 
   export let src = './audio/Song for Walking.mp3';
   export let title = 'Song for Walking';
+  export let artist = '';
   export let autoplay = true;
   export let initialVolume = 0.18;
 
@@ -85,7 +86,10 @@
   </button>
 
   <div class="track-info">
-    <span class="track-title">{title}</span>
+    <div class="track-meta">
+      <span class="track-title">{title}</span>
+      {#if artist}<span class="track-artist">{artist}</span>{/if}
+    </div>
     {#if playing}
       <span class="playing-indicator" aria-hidden="true">
         <span></span><span></span><span></span>
@@ -174,6 +178,13 @@
     min-width: 0;
   }
 
+  .track-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+  }
+
   .track-title {
     white-space: nowrap;
     overflow: hidden;
@@ -181,6 +192,16 @@
     max-width: 160px;
     color: #d4c9a8;
     font-weight: 500;
+  }
+
+  .track-artist {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
+    color: #a89878;
+    font-size: 0.85em;
+    opacity: 0.8;
   }
 
   .playing-indicator {
