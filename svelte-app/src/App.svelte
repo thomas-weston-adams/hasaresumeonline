@@ -704,6 +704,7 @@
     </ResumeSection>
 
     <ResumeSection sectionId="community-service" icon="🌱" title="Community Service & Volunteer Work">
+      <p>My nonprofit and volunteer experience keep my work grounded in service.</p>
       <p>Active volunteer and mentor with <strong>A Running Start</strong> (2021–Present), a Lexington, KY-based nonprofit that supports men in recovery from addiction through running. The program provides structure, accountability, and community for participants — primarily men at the <strong>Hope Center</strong> and <strong>Privett Center</strong> in Lexington — who train together for 5Ks and other races. Running becomes more than exercise: it's a new coping mechanism, a daily discipline, and a pathway back to confidence and community. Coaches are often in long-term recovery themselves, and the program has supported participants in navigating early recovery, rebuilding self-worth, and reintegrating into daily life. Also a founder of campus run clubs at multiple institutions. Advisor to student organizations, judge for business pitch competitions, and extensive committee service across academic and community organizations.</p>
       <p>Member of Wolfe County Search & Rescue since 2021 — contributing not only as a field responder but as an officer, treasurer, and finance officer supporting the organizational health of the team.</p>
       {#if runningStartPhotos.length > 0}
