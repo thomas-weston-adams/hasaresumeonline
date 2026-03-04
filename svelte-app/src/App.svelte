@@ -808,7 +808,7 @@
     color: #2d3a35;
     text-align: left;
     line-height: 1.75;
-    margin: 0 0 12px;
+    margin: 0 0 1.25em;
   }
 
   .profile p:last-child {
