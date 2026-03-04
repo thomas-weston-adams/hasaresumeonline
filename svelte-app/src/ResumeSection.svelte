@@ -89,8 +89,8 @@
   .section-header {
     display: flex;
     align-items: center;
-    margin-bottom: 18px;
-    padding-bottom: 12px;
+    margin-bottom: 0;
+    padding-bottom: 8px;
     border-bottom: 2px solid #4a7c6b;
   }
 
@@ -162,7 +162,7 @@
     color: #34403b;
     font-size: 1em;
     line-height: 1.7;
-    padding-top: 18px;
+    padding-top: 12px;
   }
 
   /* Highlights */
