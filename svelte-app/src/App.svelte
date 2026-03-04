@@ -209,11 +209,11 @@
       if (!lightboxImgEl) return;
       const r = lightboxImgEl.getBoundingClientRect();
       if (!r.width || !r.height) return;
-      // Sun disk is ~12% from left, ~53% from top of the image
+      // Sun disk + glow: ~14% from left, ~51% from top; large hitzone covers the full glow
       sunHotspotBounds = {
-        left: r.left + r.width * 0.12,
-        top:  r.top  + r.height * 0.53,
-        size: Math.max(r.width * 0.10, 52)
+        left: r.left + r.width * 0.14,
+        top:  r.top  + r.height * 0.51,
+        size: Math.max(r.width * 0.18, 70)
       };
     });
   }
