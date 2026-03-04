@@ -771,7 +771,7 @@
   </div>
 </div>
 
-<MusicPlayer />
+<MusicPlayer artist="Tophouse" />
 
 <style>
   .container {
