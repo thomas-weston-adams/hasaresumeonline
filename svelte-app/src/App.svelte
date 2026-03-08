@@ -1,4 +1,5 @@
 <script>
+  import { onMount, onDestroy } from 'svelte';
   import Header from './Header.svelte';
   import Stats from './Stats.svelte';
   import ResumeSection from './ResumeSection.svelte';
@@ -154,6 +155,8 @@
   let easterEggMode = false;
   let showActivationOverlay = false;
   let bgAudio = null;
+  let fadeInInterval = null;
+  let fadeOutInterval = null;
 
   // Toggle body class reactively
   $: if (typeof document !== 'undefined') {
@@ -170,10 +173,11 @@
       bgAudio.play().catch(() => {});
       // Fade in over 2s
       let vol = 0;
-      const fadeIn = setInterval(() => {
+      if (fadeInInterval) clearInterval(fadeInInterval);
+      fadeInInterval = setInterval(() => {
         vol = Math.min(vol + 0.04, 0.85);
         if (bgAudio) bgAudio.volume = vol;
-        if (vol >= 0.85) clearInterval(fadeIn);
+        if (vol >= 0.85) { clearInterval(fadeInInterval); fadeInInterval = null; }
       }, 80);
     } catch (e) {}
     showActivationOverlay = true;
@@ -181,18 +185,43 @@
     setTimeout(() => { showActivationOverlay = false; }, 3200);
   }
 
+  function stopAudioNow(audio) {
+    if (fadeInInterval) { clearInterval(fadeInInterval); fadeInInterval = null; }
+    if (fadeOutInterval) { clearInterval(fadeOutInterval); fadeOutInterval = null; }
+    if (!audio) return;
+    fadeOutInterval = setInterval(() => {
+      audio.volume = Math.max(audio.volume - 0.06, 0);
+      if (audio.volume <= 0) {
+        clearInterval(fadeOutInterval); fadeOutInterval = null;
+        audio.pause(); audio.currentTime = 0;
+      }
+    }, 50);
+  }
+
   function deactivateEasterEgg() {
     easterEggMode = false;
-    if (bgAudio) {
-      // Fade out then stop
-      const audio = bgAudio;
-      const fadeOut = setInterval(() => {
-        audio.volume = Math.max(audio.volume - 0.06, 0);
-        if (audio.volume <= 0) { clearInterval(fadeOut); audio.pause(); audio.currentTime = 0; }
-      }, 50);
-      bgAudio = null;
+    const audio = bgAudio;
+    bgAudio = null;
+    stopAudioNow(audio);
+  }
+
+  function handleVisibilityChange() {
+    if (document.hidden) {
+      if (bgAudio && !bgAudio.paused) bgAudio.pause();
+    } else {
+      if (bgAudio && easterEggMode) bgAudio.play().catch(() => {});
     }
   }
+
+  onMount(() => {
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+  });
+
+  onDestroy(() => {
+    document.removeEventListener('visibilitychange', handleVisibilityChange);
+    stopAudioNow(bgAudio);
+    bgAudio = null;
+  });
 
   // ── SUN HOTSPOT (lightbox) ──────────────────────────────
   const FOOTER_PHOTO = './images/08-ridge-run-sunset.jpg';
