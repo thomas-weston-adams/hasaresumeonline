@@ -136,7 +136,106 @@
 
 
 		/* ── High Contrast Mode ───────────────────────────────── */
-		body.high-contrast { filter: contrast(1.5); }
+		/*
+		 * NOTE: filter on body breaks position:fixed (CSS stacking context bug).
+		 * Use explicit color overrides instead for real WCAG/ADA compliance.
+		 */
+
+		/* Page background */
+		body.high-contrast { background: #fff !important; }
+
+		/* All text defaults to near-black for 7:1+ contrast on white */
+		body.high-contrast p,
+		body.high-contrast span,
+		body.high-contrast li,
+		body.high-contrast td,
+		body.high-contrast th,
+		body.high-contrast label,
+		body.high-contrast div,
+		body.high-contrast section,
+		body.high-contrast article,
+		body.high-contrast aside,
+		body.high-contrast time,
+		body.high-contrast small { color: #111 !important; }
+
+		body.high-contrast h1,
+		body.high-contrast h2,
+		body.high-contrast h3,
+		body.high-contrast h4,
+		body.high-contrast h5,
+		body.high-contrast h6 { color: #000 !important; font-weight: 700 !important; }
+
+		/* Light section backgrounds → white */
+		body.high-contrast section,
+		body.high-contrast article,
+		body.high-contrast aside { background: #fff !important; }
+
+		/* Links: high-contrast blue, always underlined */
+		body.high-contrast a               { color: #0000cc !important; text-decoration: underline !important; }
+		body.high-contrast a:visited       { color: #551a8b !important; }
+		body.high-contrast a:hover,
+		body.high-contrast a:focus         { color: #0000ff !important; background: #ff0 !important; }
+
+		/* Buttons: solid black border, high-contrast text */
+		body.high-contrast button          { border: 2px solid #000 !important; color: #000 !important; background: #fff !important; }
+		body.high-contrast button:hover    { background: #000 !important; color: #fff !important; }
+
+		/* Focus indicators: thick black ring — WCAG 2.1 SC 1.4.11 */
+		body.high-contrast *:focus,
+		body.high-contrast *:focus-visible {
+			outline: 3px solid #000 !important;
+			outline-offset: 3px !important;
+			box-shadow: 0 0 0 5px #ff0 !important; /* yellow halo for visibility */
+		}
+
+		/* Dark navigation / roadmap bar → black bg, white text */
+		body.high-contrast [class*="roadmap"] {
+			background: #000 !important;
+			border-color: #fff !important;
+		}
+		body.high-contrast [class*="roadmap"] * { color: #fff !important; }
+		body.high-contrast [class*="roadmap"] a { color: #ff0 !important; }
+		body.high-contrast [class*="roadmap"] a:hover { background: #fff !important; color: #000 !important; }
+
+		/* Section headers / labels */
+		body.high-contrast [class*="section-header"],
+		body.high-contrast [class*="section-title"],
+		body.high-contrast [class*="header"] {
+			background: #000 !important;
+			color: #fff !important;
+		}
+
+		/* Images: boost contrast slightly without filter on body */
+		body.high-contrast img { filter: contrast(1.25) brightness(0.97); }
+
+		/* Remove decorative shadows / semi-transparent backgrounds that lower contrast */
+		body.high-contrast [class*="container"],
+		body.high-contrast [class*="profile"],
+		body.high-contrast [class*="card"] {
+			background: #fff !important;
+			box-shadow: 0 0 0 2px #000 !important;
+		}
+
+		/* Music player bar: keep it visible but high-contrast */
+		body.high-contrast [class*="music-player"] {
+			background: #000 !important;
+			border-top: 2px solid #fff !important;
+			color: #fff !important;
+		}
+		body.high-contrast [class*="music-player"] * { color: #fff !important; }
+		body.high-contrast [class*="music-player"] button {
+			background: #333 !important;
+			border-color: #fff !important;
+			color: #fff !important;
+		}
+
+		/* Accessibility panel itself — keep readable */
+		#a11y-widget.high-contrast-exempt,
+		body.high-contrast #a11y-panel { background: #fff !important; border: 2px solid #000 !important; }
+		body.high-contrast #a11y-panel .a11y-section-label { color: #000 !important; }
+		body.high-contrast #a11y-panel .a11y-btn { border: 2px solid #333 !important; color: #000 !important; background: #fff !important; }
+		body.high-contrast #a11y-panel .a11y-btn.active { background: #000 !important; color: #fff !important; border-color: #000 !important; }
+		body.high-contrast #a11y-panel .a11y-audio-btn { border: 2px solid #000 !important; color: #000 !important; background: #fff !important; }
 
 		/* ── Font Size Overrides ──────────────────────────────── */
 		body.font-lg  { font-size: 18px; }
