@@ -47,8 +47,7 @@
   }
 
   @media (max-width: 400px) {
-    .stats { grid-template-columns: 1fr; }
-    .stat-box { border-right: none; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
     .stat-number { font-size: 2.2em; }
   }
 
