@@ -70,22 +70,22 @@
   let lightboxImgEl = null;
   let sunHotspotBounds = null;
 
-  $: teachingGallery = teachingPhotos.map((photo) => ({
+  const teachingGallery = teachingPhotos.map((photo) => ({
     src: './images/' + encodeURIComponent(photo.file),
     alt: photo.alt || 'Teaching'
   }));
 
-  $: runningGallery = runningPhotos.map((photo) => ({
+  const runningGallery = runningPhotos.map((photo) => ({
     src: './images/' + encodeURIComponent(photo.file),
     alt: photo.alt
   }));
 
-  $: runningStartGallery = runningStartPhotos.map((photo) => ({
+  const runningStartGallery = runningStartPhotos.map((photo) => ({
     src: './images/' + encodeURIComponent(photo.file),
     alt: photo.alt || 'A Running Start'
   }));
 
-  $: sarGallery = (() => {
+  const sarGallery = (() => {
     const items = [];
     if (data.sarTeamPhoto) items.push({ src: './images/' + data.sarTeamPhoto, alt: data.sarTeamPhotoAlt || 'WCSAR Water Rescue' });
     items.push({ src: './images/SAR-IMAGE-1B.jpg', alt: 'Wolfe County SAR' });
@@ -143,7 +143,7 @@
     if (touchStartX === null) return;
     const delta = e.changedTouches[0].clientX - touchStartX;
     touchStartX = null;
-    if (Math.abs(delta) < 40) return;
+    if (Math.abs(delta) < 60) return;
     navigateLightbox(delta < 0 ? 1 : -1);
   }
 
@@ -839,6 +839,13 @@
 <MusicPlayer artist="Tophouse" />
 
 <style>
+  /* ── Global focus ring ───────────────────────────────── */
+  :global(:focus-visible) {
+    outline: 2px solid #2d5a47;
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
   .container {
     max-width: 850px;
     margin: 0 auto;
@@ -1988,6 +1995,16 @@
 
   .lightbox-prev { left: 16px; }
   .lightbox-next { right: 16px; }
+
+  @media (max-width: 600px) {
+    .lightbox-nav {
+      width: 56px;
+      height: 56px;
+      font-size: 2.4rem;
+    }
+    .lightbox-prev { left: 8px; }
+    .lightbox-next { right: 8px; }
+  }
 
   .lightbox-counter {
     position: absolute;
