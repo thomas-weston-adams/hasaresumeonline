@@ -128,6 +128,7 @@
   }
 
   function handleLightboxKey(e) {
+    if (!lightboxSrc) return;
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') navigateLightbox(-1);
     if (e.key === 'ArrowRight') navigateLightbox(1);
@@ -248,6 +249,8 @@
   }
 </script>
 
+<svelte:window on:keydown={handleLightboxKey} />
+
 {#if showActivationOverlay}
   <div class="ud-intro" aria-live="polite">
     <div class="ud-particles" aria-hidden="true">
@@ -343,7 +346,7 @@
   </nav>
 
   {#if lightboxSrc}
-    <div class="lightbox" on:click={closeLightbox} on:keydown={handleLightboxKey} on:touchstart|passive={handleTouchStart} on:touchend={handleTouchEnd} role="dialog" aria-modal="true" tabindex="-1">
+    <div class="lightbox" on:click={closeLightbox} on:touchstart|passive={handleTouchStart} on:touchend={handleTouchEnd} role="dialog" aria-modal="true" tabindex="-1">
       {#if lightboxItems.length > 1}
         <button class="lightbox-nav lightbox-prev" on:click|stopPropagation={() => navigateLightbox(-1)} aria-label="Previous photo">‹</button>
         <button class="lightbox-nav lightbox-next" on:click|stopPropagation={() => navigateLightbox(1)} aria-label="Next photo">›</button>
