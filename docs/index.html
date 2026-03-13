@@ -45,7 +45,15 @@
 			align-items: flex-end;
 		}
 
-		#a11y-toggle {
+		.a11y-btn-row {
+			display: flex;
+			gap: 8px;
+			align-items: center;
+			margin-top: 10px;
+		}
+
+		#a11y-toggle,
+		#back-to-top {
 			width: 48px;
 			height: 48px;
 			border-radius: 50%;
@@ -60,10 +68,11 @@
 			box-shadow: 0 4px 18px rgba(0,0,0,0.32);
 			transition: background 0.2s, transform 0.15s;
 			flex-shrink: 0;
-			margin-top: 10px;
 		}
-		#a11y-toggle:hover { background: #1e3a2f; transform: scale(1.06); }
-		#a11y-toggle:focus-visible { outline: 3px solid #c8a45c; outline-offset: 3px; }
+		#a11y-toggle:hover,
+		#back-to-top:hover { background: #1e3a2f; transform: scale(1.06); }
+		#a11y-toggle:focus-visible,
+		#back-to-top:focus-visible { outline: 3px solid #c8a45c; outline-offset: 3px; }
 
 		#a11y-panel {
 			display: none;
@@ -153,19 +162,15 @@
 		/* Page background */
 		body.high-contrast { background: #fff !important; }
 
-		/* All text defaults to near-black for 7:1+ contrast on white */
+		/* Text elements only (not div — too broad, breaks dark-bg sections) */
 		body.high-contrast p,
-		body.high-contrast span,
 		body.high-contrast li,
 		body.high-contrast td,
 		body.high-contrast th,
 		body.high-contrast label,
-		body.high-contrast div,
-		body.high-contrast section,
-		body.high-contrast article,
-		body.high-contrast aside,
 		body.high-contrast time,
-		body.high-contrast small { color: #111 !important; }
+		body.high-contrast small,
+		body.high-contrast blockquote { color: #111 !important; }
 
 		body.high-contrast h1,
 		body.high-contrast h2,
@@ -194,30 +199,32 @@
 		body.high-contrast *:focus-visible {
 			outline: 3px solid #000 !important;
 			outline-offset: 3px !important;
-			box-shadow: 0 0 0 5px #ff0 !important; /* yellow halo for visibility */
+			box-shadow: 0 0 0 5px #ff0 !important;
 		}
 
 		/* Dark navigation / roadmap bar → black bg, white text */
 		body.high-contrast [class*="roadmap"] {
 			background: #000 !important;
 			border-color: #fff !important;
+			color: #fff !important;
 		}
 		body.high-contrast [class*="roadmap"] * { color: #fff !important; }
 		body.high-contrast [class*="roadmap"] a { color: #ff0 !important; }
 		body.high-contrast [class*="roadmap"] a:hover { background: #fff !important; color: #000 !important; }
 
-		/* Section headers / labels */
+		/* Section header bars (dark green bg with white text) → black bg white text */
 		body.high-contrast [class*="section-header"],
-		body.high-contrast [class*="section-title"],
-		body.high-contrast [class*="header"] {
+		body.high-contrast [class*="section-title"] {
 			background: #000 !important;
 			color: #fff !important;
 		}
+		body.high-contrast [class*="section-header"] *,
+		body.high-contrast [class*="section-title"] * { color: #fff !important; }
 
-		/* Images: boost contrast slightly without filter on body */
+		/* Images: boost contrast slightly */
 		body.high-contrast img { filter: contrast(1.25) brightness(0.97); }
 
-		/* Remove decorative shadows / semi-transparent backgrounds that lower contrast */
+		/* Light content containers → white with visible border */
 		body.high-contrast [class*="container"],
 		body.high-contrast [class*="profile"],
 		body.high-contrast [class*="card"] {
@@ -225,7 +232,7 @@
 			box-shadow: 0 0 0 2px #000 !important;
 		}
 
-		/* Music player bar: keep it visible but high-contrast */
+		/* Music player bar */
 		body.high-contrast [class*="music-player"] {
 			background: #000 !important;
 			border-top: 2px solid #fff !important;
@@ -238,13 +245,14 @@
 			color: #fff !important;
 		}
 
-		/* Accessibility panel itself — keep readable */
-		#a11y-widget.high-contrast-exempt,
+		/* Accessibility panel — keep readable in both modes */
 		body.high-contrast #a11y-panel { background: #fff !important; border: 2px solid #000 !important; }
-		body.high-contrast #a11y-panel .a11y-section-label { color: #000 !important; }
+		body.high-contrast #a11y-panel .a11y-section-label { color: #555 !important; }
 		body.high-contrast #a11y-panel .a11y-btn { border: 2px solid #333 !important; color: #000 !important; background: #fff !important; }
 		body.high-contrast #a11y-panel .a11y-btn.active { background: #000 !important; color: #fff !important; border-color: #000 !important; }
 		body.high-contrast #a11y-panel .a11y-audio-btn { border: 2px solid #000 !important; color: #000 !important; background: #fff !important; }
+		body.high-contrast #a11y-toggle,
+		body.high-contrast #back-to-top { background: #000 !important; color: #fff !important; border: 2px solid #fff !important; }
 
 		/* ── Font Size Overrides ──────────────────────────────── */
 		body.font-lg  { font-size: 18px; }
@@ -300,20 +308,31 @@
 
 	</div>
 
-	<button id="a11y-toggle"
-		onclick="toggleA11yPanel()"
-		aria-label="Open accessibility options"
-		aria-expanded="false"
-		aria-controls="a11y-panel"
-		title="Accessibility Options">
-		<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-			<circle cx="12" cy="4" r="2.2" fill="currentColor" stroke="none"/>
-			<line x1="12" y1="6.2" x2="12" y2="15"/>
-			<line x1="4"  y1="10" x2="20" y2="10"/>
-			<line x1="12" y1="15" x2="5"  y2="22"/>
-			<line x1="12" y1="15" x2="19" y2="22"/>
-		</svg>
-	</button>
+	<div class="a11y-btn-row">
+		<button id="back-to-top"
+			onclick="window.scrollTo({top:0,behavior:'smooth'})"
+			aria-label="Back to top"
+			title="Back to top">
+			<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<polyline points="18 15 12 9 6 15"></polyline>
+			</svg>
+		</button>
+
+		<button id="a11y-toggle"
+			onclick="toggleA11yPanel()"
+			aria-label="Open accessibility options"
+			aria-expanded="false"
+			aria-controls="a11y-panel"
+			title="Accessibility Options">
+			<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+				<circle cx="12" cy="4" r="2.2" fill="currentColor" stroke="none"/>
+				<line x1="12" y1="6.2" x2="12" y2="15"/>
+				<line x1="4"  y1="10" x2="20" y2="10"/>
+				<line x1="12" y1="15" x2="5"  y2="22"/>
+				<line x1="12" y1="15" x2="19" y2="22"/>
+			</svg>
+		</button>
+	</div>
 </div>
 
 <script>
