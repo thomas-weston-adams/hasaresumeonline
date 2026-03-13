@@ -254,6 +254,100 @@
 		body.high-contrast #a11y-toggle,
 		body.high-contrast #back-to-top { background: #000 !important; color: #fff !important; border: 2px solid #fff !important; }
 
+		/* ── Dark Contrast Mode ──────────────────────────────── */
+		body.dark-contrast { background: #111 !important; }
+
+		/* Text: bright on dark */
+		body.dark-contrast p,
+		body.dark-contrast li,
+		body.dark-contrast td,
+		body.dark-contrast th,
+		body.dark-contrast label,
+		body.dark-contrast time,
+		body.dark-contrast small,
+		body.dark-contrast blockquote { color: #e8e8e8 !important; }
+
+		body.dark-contrast h1,
+		body.dark-contrast h2,
+		body.dark-contrast h3,
+		body.dark-contrast h4,
+		body.dark-contrast h5,
+		body.dark-contrast h6 { color: #fff !important; font-weight: 700 !important; }
+
+		/* Section / container backgrounds → dark */
+		body.dark-contrast section,
+		body.dark-contrast article,
+		body.dark-contrast aside { background: #1a1a1a !important; }
+
+		body.dark-contrast [class*="container"],
+		body.dark-contrast [class*="profile"],
+		body.dark-contrast [class*="card"] {
+			background: #1a1a1a !important;
+			box-shadow: 0 0 0 2px #555 !important;
+		}
+
+		/* Links: light blue on dark bg */
+		body.dark-contrast a               { color: #6ab0ff !important; text-decoration: underline !important; }
+		body.dark-contrast a:visited       { color: #c09fff !important; }
+		body.dark-contrast a:hover,
+		body.dark-contrast a:focus         { color: #fff !important; background: #004080 !important; }
+
+		/* Buttons */
+		body.dark-contrast button          { border: 2px solid #888 !important; color: #e8e8e8 !important; background: #222 !important; }
+		body.dark-contrast button:hover    { background: #fff !important; color: #000 !important; }
+
+		/* Focus indicators */
+		body.dark-contrast *:focus,
+		body.dark-contrast *:focus-visible {
+			outline: 3px solid #fff !important;
+			outline-offset: 3px !important;
+			box-shadow: 0 0 0 5px #004080 !important;
+		}
+
+		/* Roadmap nav — dark version stays dark, just ensure contrast */
+		body.dark-contrast [class*="roadmap"] {
+			background: #000 !important;
+			border-color: #444 !important;
+			color: #fff !important;
+		}
+		body.dark-contrast [class*="roadmap"] * { color: #e8e8e8 !important; }
+		body.dark-contrast [class*="roadmap"] a { color: #6ab0ff !important; }
+		body.dark-contrast [class*="roadmap"] a:hover { background: #fff !important; color: #000 !important; }
+
+		/* Section headers */
+		body.dark-contrast [class*="section-header"],
+		body.dark-contrast [class*="section-title"] {
+			background: #000 !important;
+			color: #fff !important;
+		}
+		body.dark-contrast [class*="section-header"] *,
+		body.dark-contrast [class*="section-title"] * { color: #fff !important; }
+
+		/* Images */
+		body.dark-contrast img { filter: brightness(0.85) contrast(1.1); }
+
+		/* Music player */
+		body.dark-contrast [class*="music-player"] {
+			background: #000 !important;
+			border-top: 2px solid #444 !important;
+			color: #e8e8e8 !important;
+		}
+		body.dark-contrast [class*="music-player"] * { color: #e8e8e8 !important; }
+		body.dark-contrast [class*="music-player"] button {
+			background: #222 !important;
+			border-color: #666 !important;
+			color: #e8e8e8 !important;
+		}
+
+		/* Accessibility panel */
+		body.dark-contrast #a11y-panel { background: #1a1a1a !important; border: 2px solid #555 !important; }
+		body.dark-contrast #a11y-panel .a11y-section-label { color: #aaa !important; }
+		body.dark-contrast #a11y-panel .a11y-btn { border: 2px solid #555 !important; color: #e8e8e8 !important; background: #222 !important; }
+		body.dark-contrast #a11y-panel .a11y-btn.active { background: #fff !important; color: #000 !important; border-color: #fff !important; }
+		body.dark-contrast #a11y-panel .a11y-audio-btn { border: 2px solid #888 !important; color: #e8e8e8 !important; background: #222 !important; }
+		body.dark-contrast #a11y-toggle,
+		body.dark-contrast #back-to-top { background: #222 !important; color: #fff !important; border: 2px solid #888 !important; }
+
 		/* ── Font Size Overrides ──────────────────────────────── */
 		body.font-lg  { font-size: 18px; }
 		body.font-xl  { font-size: 22px; }
@@ -291,7 +385,8 @@
 			<div class="a11y-section-label">Contrast</div>
 			<div class="a11y-row">
 				<button class="a11y-btn active" id="contrast-btn-normal" onclick="setContrast('normal')" aria-label="Normal contrast">Normal</button>
-				<button class="a11y-btn" id="contrast-btn-high" onclick="setContrast('high')" aria-label="High contrast mode">High Contrast</button>
+				<button class="a11y-btn" id="contrast-btn-light" onclick="setContrast('light')" aria-label="High contrast light mode">Light</button>
+				<button class="a11y-btn" id="contrast-btn-dark" onclick="setContrast('dark')" aria-label="High contrast dark mode">Dark</button>
 			</div>
 		</div>
 
@@ -371,9 +466,11 @@
 
 	/* ── Contrast ────────────────────────────────────────── */
 	function setContrast(mode) {
-		document.body.classList.toggle('high-contrast', mode === 'high');
+		document.body.classList.toggle('high-contrast', mode === 'light');
+		document.body.classList.toggle('dark-contrast', mode === 'dark');
 		document.getElementById('contrast-btn-normal').classList.toggle('active', mode === 'normal');
-		document.getElementById('contrast-btn-high').classList.toggle('active', mode === 'high');
+		document.getElementById('contrast-btn-light').classList.toggle('active', mode === 'light');
+		document.getElementById('contrast-btn-dark').classList.toggle('active', mode === 'dark');
 		try { localStorage.setItem('a11y-contrast', mode); } catch(e) {}
 	}
 
@@ -450,7 +547,7 @@
 			var f = localStorage.getItem('a11y-font');
 			if (f) setFontSize(f);
 			var c = localStorage.getItem('a11y-contrast');
-			if (c) setContrast(c);
+			if (c) setContrast(c === 'high' ? 'light' : c); /* migrate old 'high' value */
 		} catch(e) {}
 	});
 </script>
