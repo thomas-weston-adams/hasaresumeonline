@@ -825,6 +825,35 @@
 
   </div>
 
+  <div class="connect-section">
+    <div class="connect-inner">
+      <h2 class="connect-heading">Let's Connect</h2>
+      <p class="connect-body">If you're building something in emergency management, public safety, or organizational leadership — or just want to talk about any of the above — I'd welcome the conversation.</p>
+      <div class="connect-links">
+        {#if profile.linkedin}
+          <a class="connect-btn connect-btn-primary" href={profile.linkedin} target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            Connect on LinkedIn
+          </a>
+        {/if}
+        {#if profile.cvLink}
+          <a class="connect-btn connect-btn-secondary" href={profile.cvLink} target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            Download CV
+          </a>
+        {/if}
+      </div>
+    </div>
+  </div>
+
   <div class="footer-photo" class:footer-upside-down={easterEggMode} on:click={() => openLightbox('./images/08-ridge-run-sunset.jpg', 'Tommy Adams looking off into the distance at sunset on a Kentucky ridge')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/08-ridge-run-sunset.jpg', 'Tommy Adams looking off into the distance at sunset on a Kentucky ridge')}>
     <img src="./images/08-ridge-run-sunset.jpg" alt="Tommy Adams looking off into the distance at sunset on a Kentucky ridge" loading="lazy" />
     {#if data.closingQuote}
@@ -981,6 +1010,83 @@
     .roadmap-label {
       line-height: 1.25;
       white-space: normal;
+    }
+  }
+
+  /* Connect / CTA section */
+  .connect-section {
+    background: #1e3a2f;
+    padding: 48px 40px;
+    text-align: center;
+  }
+
+  .connect-inner {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .connect-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 14px;
+    letter-spacing: 0.3px;
+  }
+
+  .connect-body {
+    font-size: 1rem;
+    color: rgba(255, 248, 235, 0.82);
+    line-height: 1.65;
+    margin: 0 0 28px;
+  }
+
+  .connect-links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .connect-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  .connect-btn-primary {
+    background: #c8a45c;
+    color: #1e3a2f;
+    border: 2px solid #c8a45c;
+  }
+
+  .connect-btn-primary:hover {
+    background: #d9b872;
+    border-color: #d9b872;
+  }
+
+  .connect-btn-secondary {
+    background: transparent;
+    color: rgba(255, 248, 235, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .connect-btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.7);
+    color: #fff;
+  }
+
+  @media (max-width: 600px) {
+    .connect-section {
+      padding: 36px 24px;
+    }
+    .connect-heading {
+      font-size: 1.3rem;
     }
   }
 
