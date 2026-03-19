@@ -828,7 +828,7 @@
   <div class="connect-section">
     <div class="connect-inner">
       <h2 class="connect-heading">Let's Connect</h2>
-      <p class="connect-body">If you're building something in emergency management, public safety, or organizational leadership — or just want to talk about any of the above — I'd welcome the conversation.</p>
+      <p class="connect-body">If you're building something in emergency management, communications, community engagement, or public affairs — or just want to talk about any of the above — I'd welcome the conversation.</p>
       <div class="connect-links">
         {#if profile.linkedin}
           <a class="connect-btn connect-btn-primary" href={profile.linkedin} target="_blank" rel="noopener noreferrer">
