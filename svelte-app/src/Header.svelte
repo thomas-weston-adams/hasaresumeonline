@@ -195,27 +195,32 @@
       align-self: center;
     }
     h1 {
-      font-size: clamp(0.82rem, 3.7vw, 1.1em);
+      font-size: clamp(1.3rem, 6.5vw, 1.6em);
       white-space: nowrap;
-      line-height: 1.2;
-      margin: 0 0 4px;
+      line-height: 1.15;
+      margin: 0 0 5px;
     }
     .location {
-      font-size: 0.85em;
+      font-size: 0.9em;
       margin-bottom: 0;
     }
-    /* title roles: full width, row 2 */
+    /* title roles: full width, row 2 — each span on its own line */
     .title {
       grid-column: 1 / 3;
       grid-row: 2;
-      font-size: 0.72em;
-      letter-spacing: 1px;
-      line-height: 1.75;
+      font-size: 0; /* hides | separator text nodes */
       padding-top: 10px;
       border-top: 1px solid rgba(255,255,255,0.15);
       margin-bottom: 0;
     }
-    .title :global(span) { white-space: nowrap; }
+    .title :global(span) {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 1px;
+      line-height: 1.75;
+      white-space: nowrap;
+    }
+    .title :global(br) { display: none; }
     /* buttons: full width, row 3 */
     .header-links {
       grid-column: 1 / 3;
