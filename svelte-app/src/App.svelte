@@ -181,6 +181,7 @@
         if (vol >= 0.85) { clearInterval(fadeInInterval); fadeInInterval = null; }
       }, 80);
     } catch (e) {}
+    closeLightbox();
     showActivationOverlay = true;
     setTimeout(() => { easterEggMode = true; }, 600);
     setTimeout(() => { showActivationOverlay = false; }, 3200);
