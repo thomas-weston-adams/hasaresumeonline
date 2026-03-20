@@ -168,32 +168,33 @@
   }
 
   @media (max-width: 500px) {
+    .header { padding: 20px 16px; }
     .header-content {
-      flex-direction: column;
+      flex-direction: row;
       align-items: flex-start;
-      gap: 20px;
+      gap: 14px;
     }
-    .profile-photo { width: 120px; height: 155px; }
+    .profile-photo { width: 90px; height: 116px; flex-shrink: 0; }
+    .header-text { min-width: 0; }
     h1 {
-      font-size: clamp(0.75rem, 5vw, 1.8em);
-      white-space: nowrap;
+      font-size: clamp(0.8rem, 4.5vw, 1.4em);
+      white-space: normal;
     }
-    /* Each term becomes its own centered line; pipe text nodes are hidden
-       by setting parent font-size to 0 while spans use explicit rem units */
     .title {
       font-size: 0;
-      text-align: center;
-      width: 100%;
+      text-align: left;
     }
     .title :global(span) {
       display: block;
-      font-size: 0.72rem;
-      white-space: normal !important;
-      text-align: center;
-      letter-spacing: 0.5px;
-      line-height: 1.8;
+      font-size: clamp(0.55rem, 2.4vw, 0.68rem);
+      white-space: nowrap;
+      text-align: left;
+      letter-spacing: 0.4px;
+      line-height: 1.9;
     }
     .title :global(br) { display: none; }
+    .header-links { gap: 8px; }
+    .header-link { font-size: 0.78em; padding: 5px 10px; }
   }
 
   /* ── Upside Down theme overrides ─────────────── */
