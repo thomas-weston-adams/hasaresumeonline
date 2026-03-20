@@ -186,11 +186,11 @@
     }
     .title :global(span) {
       display: block;
-      font-size: 0.68rem;
-      white-space: normal !important;
+      font-size: clamp(0.55rem, 2.4vw, 0.68rem);
+      white-space: nowrap;
       text-align: left;
-      letter-spacing: 0.5px;
-      line-height: 1.8;
+      letter-spacing: 0.4px;
+      line-height: 1.9;
     }
     .title :global(br) { display: none; }
     .header-links { gap: 8px; }
