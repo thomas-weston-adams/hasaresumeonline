@@ -23,8 +23,10 @@
     {/if}
     <div class="header-text">
       <div class="title">{@html title}</div>
-      <h1>{name}</h1>
-      <div class="location">{location}</div>
+      <div class="name-loc">
+        <h1>{name}</h1>
+        <div class="location">{location}</div>
+      </div>
       <div class="header-links">
         {#if linkedin}
           <a class="header-link" href={linkedin} target="_blank" rel="noopener noreferrer">
@@ -169,32 +171,59 @@
 
   @media (max-width: 500px) {
     .header { padding: 20px 16px; }
+    /* 2-column grid: photo left, name+location right */
     .header-content {
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 14px;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      column-gap: 14px;
+      row-gap: 8px;
+      align-items: start;
     }
-    .profile-photo { width: 90px; height: 116px; flex-shrink: 0; }
-    .header-text { min-width: 0; }
+    /* photo: left col, row 1 */
+    .profile-photo {
+      width: 90px;
+      height: 116px;
+      grid-column: 1;
+      grid-row: 1;
+    }
+    /* dissolve wrapper so title/name-loc/links become direct grid items */
+    .header-text { display: contents; }
+    /* name + location: right col, row 1 (beside photo) */
+    .name-loc {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: center;
+    }
     h1 {
-      font-size: clamp(0.8rem, 4.5vw, 1.4em);
+      font-size: clamp(1rem, 5vw, 1.35em);
       white-space: normal;
+      line-height: 1.2;
+      margin: 0 0 4px;
     }
+    .location {
+      font-size: 0.85em;
+      margin-bottom: 0;
+    }
+    /* title roles: full width, row 2 */
     .title {
-      font-size: 0;
-      text-align: left;
+      grid-column: 1 / 3;
+      grid-row: 2;
+      font-size: 0.72em;
+      letter-spacing: 1px;
+      line-height: 1.75;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      margin-bottom: 0;
     }
-    .title :global(span) {
-      display: block;
-      font-size: clamp(0.55rem, 2.4vw, 0.68rem);
-      white-space: nowrap;
-      text-align: left;
-      letter-spacing: 0.4px;
-      line-height: 1.9;
+    .title :global(span) { white-space: nowrap; }
+    /* buttons: full width, row 3 */
+    .header-links {
+      grid-column: 1 / 3;
+      grid-row: 3;
+      gap: 8px;
+      flex-wrap: wrap;
     }
-    .title :global(br) { display: none; }
-    .header-links { gap: 8px; }
-    .header-link { font-size: 0.78em; padding: 5px 10px; }
+    .header-link { font-size: 0.82em; padding: 6px 14px; }
   }
 
   /* ── Upside Down theme overrides ─────────────── */
