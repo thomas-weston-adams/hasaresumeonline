@@ -44,11 +44,18 @@
 
   @media (max-width: 768px) {
     .stats { grid-template-columns: repeat(2, 1fr); }
+    /* When the last item is alone on a row (odd nth-child), span it full width */
+    .stat-box:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
   }
 
   @media (max-width: 400px) {
     .stats { grid-template-columns: repeat(2, 1fr); }
     .stat-number { font-size: 2.2em; }
+    .stat-box:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
   }
 
   @media print {

@@ -201,9 +201,11 @@
 
   function deactivateEasterEgg() {
     easterEggMode = false;
-    const audio = bgAudio;
-    bgAudio = null;
-    stopAudioNow(audio);
+    // Stop immediately — don't rely on a timer-based fade which iOS throttles,
+    // leaving audio playing with no button to stop it.
+    if (fadeInInterval) { clearInterval(fadeInInterval); fadeInInterval = null; }
+    if (fadeOutInterval) { clearInterval(fadeOutInterval); fadeOutInterval = null; }
+    if (bgAudio) { bgAudio.pause(); bgAudio.currentTime = 0; bgAudio = null; }
   }
 
   function handleVisibilityChange() {
@@ -2286,8 +2288,8 @@
   /* Return button */
   .return-btn {
     position: fixed;
-    top: 14px;
-    right: 14px;
+    top: max(14px, env(safe-area-inset-top, 14px));
+    right: max(14px, env(safe-area-inset-right, 14px));
     z-index: 9995;
     background: #1a0000;
     color: #ff4444;
