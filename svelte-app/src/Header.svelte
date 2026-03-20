@@ -178,6 +178,22 @@
       font-size: clamp(0.75rem, 5vw, 1.8em);
       white-space: nowrap;
     }
+    /* Each term becomes its own centered line; pipe text nodes are hidden
+       by setting parent font-size to 0 while spans use explicit rem units */
+    .title {
+      font-size: 0;
+      text-align: center;
+      width: 100%;
+    }
+    .title :global(span) {
+      display: block;
+      font-size: 0.72rem;
+      white-space: normal !important;
+      text-align: center;
+      letter-spacing: 0.5px;
+      line-height: 1.8;
+    }
+    .title :global(br) { display: none; }
   }
 
   /* ── Upside Down theme overrides ─────────────── */
