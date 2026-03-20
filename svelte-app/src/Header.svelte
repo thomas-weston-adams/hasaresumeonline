@@ -195,8 +195,8 @@
       align-self: center;
     }
     h1 {
-      font-size: clamp(1rem, 5vw, 1.35em);
-      white-space: normal;
+      font-size: clamp(0.82rem, 3.7vw, 1.1em);
+      white-space: nowrap;
       line-height: 1.2;
       margin: 0 0 4px;
     }
