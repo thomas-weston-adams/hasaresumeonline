@@ -211,6 +211,18 @@
         "name": "Intermediate Emergency Operations"
       },
       {
+        "code": "L105",
+        "name": "Public Information Basics"
+      },
+      {
+        "code": "IS-42.a",
+        "name": "Social Media in Emergency Management"
+      },
+      {
+        "code": "IS-909",
+        "name": "Community Preparedness: Implementing Simple Activities for Everyone"
+      },
+      {
         "code": "IS-29",
         "name": "Public Information Officer Awareness"
       },
