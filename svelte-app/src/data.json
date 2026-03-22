@@ -26,7 +26,7 @@
     "Heading to MGT 314 in Texas (April 2026) to train in writing, updating, and implementing all-hazards emergency plans and site-specific response plans",
     "Supervise the coordination of multi-agency exercises and responses with law enforcement, fire, EMS, public health, military, and local and federal partners",
     "Build and execute emergency preparedness exercises from tabletop to full-scale — then measure what worked",
-    "Support public information efforts during emergencies and blue sky days for KYEM operations",
+    "Support public information efforts during emergencies and blue-sky days for KYEM operations",
     "Brief senior leadership and partner agencies with situation reports and after-action reviews that drive real change",
     "Selected for Naval Postgraduate School executive education (2025 & 2026) — one of the few in emergency management nationally",
     "Provide perspective for my agency and its partners through an understanding of relational, organizational, social, and public communication",
@@ -38,10 +38,10 @@
     "Amassed significant wilderness rescue experience in the Red River Gorge, Daniel Boone National Forest, and surrounding jurisdictions",
     "Deployed during 2025 winter weather federally declared disaster",
     "Deployed to the devastating Eastern Kentucky floods of 2022 as a field responder before and after the federal disaster declaration",
-    "Certified in technical rope rescue, swift water rescue, and as a Wilderness First Responder — trained to operate where helicopters can't",
+    "Certified in technical rope rescue, swiftwater rescue, and as a Wilderness First Responder — trained to operate where helicopters can't",
     "Officially recognized and commended for service in the field by both the Kentucky House of Representatives and the Kentucky State Senate"
   ],
-  "emergencyContent": "As Section Supervisor at Kentucky Emergency Management, I supervise the drawdown of CSEPP—a complex and long running federal program coming to a close after 40 years—and serve in the State EOC during declared disasters. In the field, I serve with Wolfe County Search and Rescue as an officer and Wilderness First Responder. I’m certified in rope and swiftwater rescue. That dual role—field responder and EOC coordinator—keeps me directly connected to what’s happening on the ground while positioning me inside the broader coordinated response surrounding it.\n\nKentucky Emergency Management (May 2023 – Present): Section Supervisor overseeing Chemical Stockpile Emergency Preparedness Program (CSEPP) stewardship and drawdown. Serve on State EOC team during activations in multiple roles: Planning Section Chief, Field Operations, Logistics, Public Safety Branch, and ESF5 Emergency Management Support Function. FEMA-funded position requiring high-level coordination with federal, state, and local partners including U.S. Army and National Guard.\n\nWolfe County Search & Rescue (January 2021 – Present): Officer, Treasurer, and Finance Officer for 501(c)(3) nonprofit. Active team member with certifications as Wilderness First Responder, Rope Rescue Technician, and Swift Water/Moving Water Rescue Technician. FEMA National Incident Management System (ICS) certified. Responded to Eastern Kentucky floods (2022) and numerous search operations.",
+  "emergencyContent": "As Section Supervisor at Kentucky Emergency Management, I supervise the drawdown of CSEPP—a complex and long-running federal program coming to a close after 40 years—and serve in the State EOC during declared disasters. In the field, I serve with Wolfe County Search and Rescue as an officer and Wilderness First Responder. I’m certified in rope and swiftwater rescue. That dual role—field responder and EOC coordinator—keeps me directly connected to what’s happening on the ground while positioning me inside the broader coordinated response surrounding it.\n\nKentucky Emergency Management (May 2023 – Present): Section Supervisor overseeing Chemical Stockpile Emergency Preparedness Program (CSEPP) stewardship and drawdown. Serve on State EOC team during activations in multiple roles: Planning Section Chief, Field Operations, Logistics, Public Safety Branch, and ESF5 Emergency Management Support Function. FEMA-funded position requiring high-level coordination with federal, state, and local partners including U.S. Army and National Guard.\n\nWolfe County Search & Rescue (January 2021 – Present): Officer, Treasurer, and Finance Officer for 501(c)(3) nonprofit. Active team member with certifications as Wilderness First Responder, Rope Rescue Technician, and Swiftwater/Moving Water Rescue Technician. FEMA National Incident Management System (ICS) certified. Responded to Eastern Kentucky floods (2022) and numerous search operations.",
   "cseppExplainer": {
     "title": "More information about CSEPP",
     "overview": "The Chemical Stockpile Emergency Preparedness Program (CSEPP) was a joint federal initiative by the U.S. Army, FEMA, states, and local governments to prepare communities near Army chemical weapons stockpiles for potential accidents. Created in 1985 following congressional mandates to destroy aging chemical stockpiles while prioritizing public and environmental safety, it focused on sites like Blue Grass Army Depot in Kentucky. At Blue Grass alone, the stockpile consisted of 101,712 M55 rockets filled with GB (sarin) and VX nerve agents — one of the most chemically hazardous storage sites in the nation.",
@@ -104,7 +104,7 @@
     "websiteLabel": "Visit the WCSART website"
   },
   "educationHighlights": [
-    "17 years in the classroom — from Ohio Northern University to Shanghai University",
+    "17 years in the classroom — nine institutions, four states, and one semester abroad",
     "Critical Thinking Teacher of the Year nominee (2015) and Teacher Who Made a Difference Award winner (2014)",
     "Wrote a chapter on memes and pop culture communication for a book that won the National Communication Association Book Award (2023)",
     "Tapped by Pearson Higher Ed as a Faculty Advisor — built and integrated learning technologies across multiple institutions",
@@ -118,7 +118,7 @@
     "Ran for Kentucky State Representative (2022) — carried a campaign on public service, not politics",
     "Built working relationships across law enforcement, fire, public health, military, and volunteer organizations that hold up under pressure"
   ],
-  "publicServiceContent": "Nonprofit Leadership Experience: Currently serve as Treasurer & Finance Officer for Wolfe County Search & Rescue (501c3). Previously Executive Director and Interim President of Friends of Hemp (2019–2020), and Communication Director for Hemp Feed Coalition (2019–2020).\n\nCandidate for State Representative: Ran for Kentucky House District 73 in 2022, carrying a campaign grounded in public service and community engagement.",
+  "publicServiceContent": "Nonprofit Leadership Experience: Currently serve as Treasurer & Finance Officer for Wolfe County Search & Rescue (501(c)(3)). Previously Executive Director and Interim President of Friends of Hemp (2019–2020), and Communication Director for Hemp Feed Coalition (2019–2020).\n\nCandidate for State Representative: Ran for Kentucky House District 73 in 2022, carrying a campaign grounded in public service and community engagement.",
   "coreSkills": [
     "Emergency Management Leadership & Program Oversight",
     "Incident Planning & Operations (ICS, IAP, EOC, Exercises)",
@@ -282,7 +282,7 @@
     "sarCertifications": [
       "NOLS Wilderness First Responder",
       "Narcan/Naloxone Administration (Suspected Opioid Overdose)",
-      "Swift Water Rescue",
+      "Swiftwater Rescue",
       "Technical Rope Rescue",
       "B-Search and Rescue",
       "Land Navigation, GPS & GAIA",
@@ -433,10 +433,10 @@
     },
     {
       "title": "Officer, Treasurer & Finance Officer",
-      "org": "Wolfe County Search & Rescue (501c3)",
+      "org": "Wolfe County Search & Rescue (501(c)(3))",
       "dates": "January 2021 – Present",
       "bullets": [
-        "Active team member certified as Wilderness First Responder, Rope Rescue Technician, and Swift Water Rescue Technician",
+        "Active team member certified as Wilderness First Responder, Rope Rescue Technician, and Swiftwater Rescue Technician",
         "FEMA NIMS / ICS certified; responded to Eastern Kentucky floods (2022) and numerous search operations",
         "Manage organizational finances, grant reporting, and regulatory compliance"
       ]
@@ -453,7 +453,7 @@
     {
       "title": "Full-time Faculty — Communication",
       "org": "Texas A&M University",
-      "dates": "Prior",
+      "dates": "2017 – 2019",
       "bullets": [
         "Taught communication courses; mentored faculty and coached hundreds of students"
       ]
@@ -461,7 +461,7 @@
     {
       "title": "Communications Area Faculty",
       "org": "Bluegrass Community & Technical College",
-      "dates": "Prior",
+      "dates": "2014 – 2022",
       "bullets": [
         "Delivered university-level communication instruction to diverse student populations"
       ]
@@ -502,7 +502,7 @@
     },
     {
       "title": "Officer, Treasurer & Finance Officer",
-      "org": "Wolfe County Search & Rescue (501c3)",
+      "org": "Wolfe County Search & Rescue (501(c)(3))",
       "dates": "January 2021 – Present",
       "bullets": [
         "Wilderness First Responder, Rope Rescue Technician, Swift Water / Moving Water Rescue Technician",
