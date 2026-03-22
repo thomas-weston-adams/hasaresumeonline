@@ -28,7 +28,7 @@ import { dirname, join } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_PATH = join(__dirname, '../svelte-app/src/data.json');
-const DOC_ID = '17vCpAmGXa_FrkrrZRiAt_Qg8Td5YfL8_3DIq45qr678';
+const DOC_ID = '1qf27IW1HUVErAqOjJo22ISL4J0qV674DfuiBUvg4KHA';
 const EXPORT_URL = `https://docs.google.com/document/d/${DOC_ID}/export?format=txt`;
 
 async function fetchDoc() {
