@@ -23,7 +23,7 @@
   "emHighlights": [
     "Serve in and help manage the State EOC in five distinct roles — Planning Section Chief, Field Ops, Logistics, Public Safety Branch, and ESF5",
     "Steward the drawdown of a 40-year, multi-million-dollar FEMA program, with full federal, state, and local compliance (2 CFR 200)",
-    "Heading to MGT 314 in Texas (April 2026) to train in writing, updating, and implementing all-hazards emergency plans and site-specific response plans",
+    "Completed TEEX MGT314 (April 2026) — trained in writing, updating, and implementing all-hazards emergency plans and site-specific response plans",
     "Supervise the coordination of multi-agency exercises and responses with law enforcement, fire, EMS, public health, military, and local and federal partners",
     "Build and execute emergency preparedness exercises from tabletop to full-scale — then measure what worked",
     "Support public information efforts during emergencies and blue-sky days for KYEM operations",
@@ -369,7 +369,9 @@
       "institution": "Texas Engineering Extension Service (TEEX)",
       "program": "MGT314 | Enhanced Incident Management/Unified Command for All Hazards",
       "year": "April 2026",
-      "status": "upcoming"
+      "status": "completed",
+      "photo": "teex-mgt314-cohort.jpg",
+      "photoAlt": "TEEX MGT314 cohort group photo"
     },
     {
       "institution": "Naval Postgraduate School — Center for Homeland Defense and Security (CHDS)",
