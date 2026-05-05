@@ -277,6 +277,10 @@
       {
         "code": "WEB EOC",
         "name": "Web Emergency Operations Center Communication System"
+      },
+      {
+        "code": "IS-317.A",
+        "name": "Introduction to Community Emergency Response Team (CERTs)"
       }
     ],
     "sarCertifications": [
