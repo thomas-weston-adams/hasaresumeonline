@@ -124,11 +124,11 @@
   }
 
   .section-title {
-    font-size: 1.4em;
-    font-weight: 700;
+    font-family: 'Lora', Georgia, 'Times New Roman', serif;
+    font-size: 1.55em;
+    font-weight: 600;
     color: #1e3a2f;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.2px;
     margin: 0;
   }
 
@@ -240,7 +240,7 @@
   }
 
   @media (max-width: 768px) {
-    .section-title { font-size: 1.15em; letter-spacing: 0.5px; }
+    .section-title { font-size: 1.3em; letter-spacing: 0.15px; }
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
     .highlights li { padding-left: 24px; font-size: 0.95em; }
     .section-icon { font-size: 1.5em; margin-right: 10px; }

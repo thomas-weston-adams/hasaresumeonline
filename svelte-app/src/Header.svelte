@@ -114,9 +114,10 @@
   }
 
   h1 {
-    font-size: clamp(0.9rem, 4.5vw, 2.1em);
-    font-weight: 700;
-    letter-spacing: 0.5px;
+    font-family: 'Lora', Georgia, 'Times New Roman', serif;
+    font-size: clamp(0.9rem, 4.5vw, 2.3em);
+    font-weight: 600;
+    letter-spacing: 0.2px;
     margin: 0 0 10px;
     line-height: 1.1;
     white-space: nowrap;

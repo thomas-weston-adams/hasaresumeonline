@@ -1017,11 +1017,12 @@
   }
 
   .connect-heading {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-family: 'Lora', Georgia, 'Times New Roman', serif;
+    font-size: 1.65rem;
+    font-weight: 600;
     color: #fff;
     margin: 0 0 14px;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
   }
 
   .connect-body {
