@@ -17,9 +17,6 @@
 
 <div class="section" id={sectionId || undefined}>
   <div class="section-header" class:clickable={collapsible} on:click={toggle} role={collapsible ? 'button' : undefined} tabindex={collapsible ? 0 : undefined} on:keydown={e => (e.key === 'Enter' || e.key === ' ') && toggle()}>
-    {#if icon}
-      <span class="section-icon">{icon}</span>
-    {/if}
     <div class="section-title-wrap">
       <h3 class="section-title">{title}</h3>
       {#if collapsible}

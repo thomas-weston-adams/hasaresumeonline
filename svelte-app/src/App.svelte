@@ -299,51 +299,39 @@
 
   <nav class="roadmap" aria-label="Page sections">
     <a class="roadmap-item" href="#emergency-management">
-      <span class="roadmap-icon">🚨</span>
       <span class="roadmap-label">Emergency Management</span>
     </a>
     <a class="roadmap-item" href="#teaching-communication">
-      <span class="roadmap-icon">🎓</span>
       <span class="roadmap-label">Teaching</span>
     </a>
     <a class="roadmap-item" href="#school-education">
-      <span class="roadmap-icon">🎓</span>
       <span class="roadmap-label">Education</span>
     </a>
     <a class="roadmap-item" href="#nonprofit-service">
-      <span class="roadmap-icon">🤝</span>
       <span class="roadmap-label">Public Service</span>
     </a>
     <a class="roadmap-item" href="#work-experience">
-      <span class="roadmap-icon">💼</span>
       <span class="roadmap-label">Work Experience</span>
     </a>
     <a class="roadmap-item" href="#publications">
-      <span class="roadmap-icon">📚</span>
       <span class="roadmap-label">Publications</span>
     </a>
     <a class="roadmap-item" href="#awards">
-      <span class="roadmap-icon">🏆</span>
       <span class="roadmap-label">Awards</span>
     </a>
     <a class="roadmap-item" href="#personal-excellence">
-      <span class="roadmap-icon">🏃</span>
       <span class="roadmap-label">Personal Excellence</span>
     </a>
     <a class="roadmap-item" href="#community-service">
-      <span class="roadmap-icon">🌱</span>
       <span class="roadmap-label">Community Service</span>
     </a>
     <a class="roadmap-item" href="#competencies">
-      <span class="roadmap-icon">⚡</span>
       <span class="roadmap-label">Competencies</span>
     </a>
     <a class="roadmap-item" href="#certifications">
-      <span class="roadmap-icon">📋</span>
       <span class="roadmap-label">Certifications</span>
     </a>
     <a class="roadmap-item" href="#affiliations">
-      <span class="roadmap-icon">🏢</span>
       <span class="roadmap-label">Affiliations</span>
     </a>
   </nav>
@@ -373,7 +361,7 @@
 
   <div class="content">
 
-    <ResumeSection sectionId="emergency-management" icon="🚨" title="Emergency Management / Search & Rescue">
+    <ResumeSection sectionId="emergency-management" title="Emergency Management / Search & Rescue">
       <div class="photo-mosaic">
         {#each photos as photo, i}
           <div class="photo-cell" on:click={() => openGallery(photos, i)} role="button" tabindex="0" on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && openGallery(photos, i)}>
@@ -557,7 +545,7 @@
       <div class="sar-banner-caption">Cliff rescue operations — Red River Gorge area</div>
     </div>
 
-    <ResumeSection sectionId="teaching-communication" icon="🎓" title="Teaching & Communication">
+    <ResumeSection sectionId="teaching-communication" title="Teaching & Communication">
       <div class="classroom-banner" on:click={() => openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')}>
         <img src="./images/10-classroom-professor.png" alt="Tommy Adams in the classroom" loading="lazy" />
         <div class="classroom-banner-caption">17 years shaping communicators</div>
@@ -607,7 +595,7 @@
       </div>
     </ResumeSection>
 
-    <ResumeSection sectionId="school-education" icon="🎓" title="School / Education">
+    <ResumeSection sectionId="school-education" title="School / Education">
       <div class="school-ed-list">
         {#each executiveEducation as ed}
           <div class="exec-ed-card" class:upcoming={ed.status === 'upcoming'}>
@@ -655,13 +643,13 @@
       </div>
     </ResumeSection>
 
-    <ResumeSection sectionId="nonprofit-service" icon="🤝" title="Nonprofit & Public Service Leadership" highlights={publicServiceHighlights}>
+    <ResumeSection sectionId="nonprofit-service" title="Nonprofit & Public Service Leadership" highlights={publicServiceHighlights}>
       {#each paragraphs(data.publicServiceContent) as para}
         <p>{para}</p>
       {/each}
     </ResumeSection>
 
-    <ResumeSection sectionId="work-experience" icon="💼" title="Work Experience">
+    <ResumeSection sectionId="work-experience" title="Work Experience">
       {#each workExperience as job}
         <div class="job">
           <div class="job-header">
@@ -718,7 +706,7 @@
     </ResumeSection>
 
     {#if publications.length > 0}
-    <ResumeSection sectionId="publications" icon="📚" title="Publications & Scholarship">
+    <ResumeSection sectionId="publications" title="Publications & Scholarship">
       <div class="pub-list">
         {#each publications as pub}
           <div class="pub-item">
@@ -739,7 +727,7 @@
               {/if}
             </div>
             {#if pub.award}
-              <div class="pub-award">🏆 {pub.award}</div>
+              <div class="pub-award">{pub.award}</div>
             {/if}
           </div>
         {/each}
@@ -748,7 +736,7 @@
     {/if}
 
     {#if awards.length > 0}
-    <ResumeSection sectionId="awards" icon="🏆" title="Awards & Recognition">
+    <ResumeSection sectionId="awards" title="Awards & Recognition">
       <ul class="awards-list">
         {#each awards as award}
           <li>{award}</li>
@@ -757,7 +745,7 @@
     </ResumeSection>
     {/if}
 
-    <ResumeSection sectionId="personal-excellence" icon="🏃" title="Personal Excellence & Global Perspective">
+    <ResumeSection sectionId="personal-excellence" title="Personal Excellence & Global Perspective">
       <p><strong>Running Every Single Day Since October 2018:</strong> <span class="streak-count">{dayStreak.toLocaleString()}</span> consecutive days without missing a single one. This daily commitment reflects the discipline, resilience, and iterative refinement process I bring to every aspect of my life and work. {#if strava}<a class="strava-link" href={strava} target="_blank" rel="noopener noreferrer">Follow on Strava →</a>{/if}</p>
       <p><strong>Globally-Minded Traveler:</strong> Visited 30+ countries including Italy, UK, Germany, France, China, Japan, Thailand, Australia, Brazil, New Zealand, and many others. Studied abroad in Florence, Italy and taught in Shanghai, China as Visiting Professor.</p>
       {#if runningPhotos.length > 0}
@@ -774,7 +762,7 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection sectionId="community-service" icon="🌱" title="Community Service & Volunteer Work">
+    <ResumeSection sectionId="community-service" title="Community Service & Volunteer Work">
       <p>My nonprofit and volunteer experience keep my work grounded in service.</p>
       <p>Active volunteer and mentor with <strong>A Running Start</strong> (2021–Present), a Lexington, KY-based nonprofit that supports men in recovery from addiction through running. The program provides structure, accountability, and community for participants — primarily men at the <strong>Hope Center</strong> and <strong>Privett Center</strong> in Lexington — who train together for 5Ks and other races. Running becomes more than exercise: it's a new coping mechanism, a daily discipline, and a pathway back to confidence and community. Coaches are often in long-term recovery themselves, and the program has supported participants in navigating early recovery, rebuilding self-worth, and reintegrating into daily life. Also a founder of campus run clubs at multiple institutions. Advisor to student organizations, judge for business pitch competitions, and extensive committee service across academic and community organizations.</p>
       <p>Member of Wolfe County Search & Rescue since 2021 — contributing not only as a field responder but as an officer, treasurer, and finance officer supporting the organizational health of the team.</p>
@@ -791,10 +779,10 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection sectionId="competencies" icon="⚡" title="Core Competencies" skillCategories={coreSkillCategories} skills={coreSkills} collapsible={true}>
+    <ResumeSection sectionId="competencies" title="Core Competencies" skillCategories={coreSkillCategories} skills={coreSkills} collapsible={true}>
     </ResumeSection>
 
-    <ResumeSection sectionId="certifications" icon="📋" title="Certifications & Key Training" collapsible={true}>
+    <ResumeSection sectionId="certifications" title="Certifications & Key Training" collapsible={true}>
       {#if data.certifications}
         <div class="cert-section">
           <h4>Federal Grants Management Certificate</h4>
@@ -823,7 +811,7 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection sectionId="affiliations" icon="🏢" title="Professional Affiliations" orgs={affiliations} collapsible={true}>
+    <ResumeSection sectionId="affiliations" title="Professional Affiliations" orgs={affiliations} collapsible={true}>
     </ResumeSection>
 
   </div>
@@ -2010,20 +1998,25 @@
   }
 
   .awards-list li {
-    padding: 10px 16px 10px 44px;
+    padding: 10px 16px 10px 28px;
     position: relative;
     background: #faf8f5;
     border-radius: 4px;
     color: #2d3a35;
     font-size: 0.95em;
     border: 1px solid #e0d9cf;
+    border-left: 3px solid #c8a45c;
   }
 
   .awards-list li::before {
-    content: "🏆";
+    content: "";
     position: absolute;
     left: 12px;
-    top: 10px;
+    top: 18px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #c8a45c;
   }
 
   @media (max-width: 768px) {
