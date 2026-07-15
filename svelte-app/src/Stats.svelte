@@ -27,7 +27,8 @@
   }
 
   .stat-number {
-    font-size: 2.8em;
+    font-family: var(--font-serif);
+    font-size: 2.6em;
     font-weight: 700;
     color: #2d5a47;
     display: block;
