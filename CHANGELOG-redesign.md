@@ -1,5 +1,42 @@
 # Redesign rollback — what changed and how to undo it
 
+## Round 2 (after you said "I don't want it how I had it")
+
+Round 1 (below) reverted *structure and copy* both. That overcorrected —
+you wanted the structure back (nav, open-by-default sections, more visible
+photos/text) but you still wanted the executive/coaching *positioning* in
+the copy. Round 2 keeps Round 1's structure and rewrites the copy layer on
+top of it:
+
+- **Hero tagline** — added "& Coach" to the Educator line: "Strategic
+  Communicator | Educator & Coach / Relationship Builder | Community
+  Partner / Field Responder | Public Servant." Same structure as your
+  original, no "Crisis Leader," no "Public Service Executive."
+- **Hero intro paragraph** — kept ~90% of your original wording; wove in
+  two sentences: "...non-profit, education, and coaching leadership...
+  Communication runs through all of it: nearly two decades teaching people
+  how to do it well, and I coach as much as I teach," and "Now I'm ready to
+  bring that same experience into the private sector."
+- **Stats bar, stat 1** — "Years Teaching Experience" → "Years Teaching &
+  Coaching Communication" (number unchanged, 17+).
+- **Core Competencies** — "Communication" category moved to the front of
+  the list (was 2nd, now 1st) to push communication expertise forward, as
+  you originally asked. No renaming, no new categories.
+- **Section title** — "Teaching & Communication" → "Communication,
+  Coaching & Teaching" (nav label "Teaching" → "Communication" to match).
+- **Profile photo** — sized up from 190×240 to 230×290 on desktop (and
+  proportionally on tablet/mobile) since you flagged it as too small.
+- **Audio-intro script** — added the matching "private sector" closing
+  clause for consistency with the hero paragraph.
+
+Nothing from Round 1's structural revert changed again: nav is still the
+original 12-tile icon grid, sections are still open by default, "Crisis
+Leadership" is still not used as a repeated label.
+
+---
+
+
+
 You said the executive redesign overcorrected: the nav got ugly, the hero
 copy read like buzzwords, sections collapsing by default made the page feel
 thin on images and text, and "Public Service Executive/Leadership" wasn't
