@@ -8,12 +8,15 @@
   export let orgs = [];        // array of strings (rendered as org badges)
   export let collapsible = false;
   export let sectionId = '';
+  export let forceOpen = null; // { value: boolean, key: number } — set by a global "expand/collapse all" control
 
   let open = !collapsible;
 
   function toggle() {
     if (collapsible) open = !open;
   }
+
+  $: if (forceOpen) open = forceOpen.value;
 </script>
 
 <div class="section" id={sectionId || undefined}>

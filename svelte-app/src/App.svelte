@@ -52,6 +52,16 @@
   let additionalWorkOpen = false;
   function toggleAdditionalWork() { additionalWorkOpen = !additionalWorkOpen; }
 
+  // Global "expand all / collapse all" control for the ResumeSection dropdowns —
+  // a fresh object each click so the reactive statement in ResumeSection always fires,
+  // even if toggling to the same boolean it was already at.
+  let allSectionsExpanded = false;
+  let expandAllSignal = null;
+  function toggleExpandAll() {
+    allSectionsExpanded = !allSectionsExpanded;
+    expandAllSignal = { value: allSectionsExpanded, key: Date.now() };
+  }
+
   // Use local calendar dates (not UTC) so the count rolls over at local midnight
   const streakStart = new Date(2018, 9, 15); // Oct 15, 2018 in local time (months are 0-indexed)
   const _now = new Date();
@@ -300,10 +310,13 @@
   <nav class="roadmap" aria-label="Page sections">
     <a class="roadmap-item" href="#emergency-management">Leadership &amp; Crisis Response</a>
     <a class="roadmap-item" href="#teaching-communication">Communication &amp; Coaching</a>
-    <a class="roadmap-item" href="#nonprofit-service">Public-Sector Leadership</a>
+    <a class="roadmap-item" href="#nonprofit-service">Public Service Leadership</a>
     <a class="roadmap-item" href="#work-experience">Work History</a>
     <a class="roadmap-item" href="#school-education">Credentials</a>
     <a class="roadmap-item" href="#awards">Recognition</a>
+    <button type="button" class="roadmap-item roadmap-expand" on:click={toggleExpandAll}>
+      {allSectionsExpanded ? 'Collapse All ↑' : 'View Full Page ↓'}
+    </button>
   </nav>
 
   {#if lightboxSrc}
@@ -331,7 +344,7 @@
 
   <div class="content">
 
-    <ResumeSection sectionId="emergency-management" icon="🚨" title="Emergency Management & Crisis Leadership" collapsible={true} summary="Section Supervisor at Kentucky Emergency Management and field officer with Wolfe County Search & Rescue — leading crisis communication, stakeholder engagement, and federal program stewardship where the stakes are real.">
+    <ResumeSection sectionId="emergency-management" icon="🚨" title="Emergency Management & Crisis Leadership" collapsible={true} forceOpen={expandAllSignal} summary="Section Supervisor at Kentucky Emergency Management and field officer with Wolfe County Search & Rescue — leading crisis communication, stakeholder engagement, and federal program stewardship where the stakes are real.">
       <div class="photo-mosaic">
         {#each photos as photo, i}
           <div class="photo-cell" on:click={() => openGallery(photos, i)} role="button" tabindex="0" on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && openGallery(photos, i)}>
@@ -515,7 +528,7 @@
       </div>
     </ResumeSection>
 
-    <ResumeSection sectionId="teaching-communication" icon="🎓" title="Communication, Coaching & Teaching" collapsible={true} summary="Seventeen years teaching and coaching communication at ten institutions — turning classrooms, teams, and crisis rooms into places where people learn to speak, persuade, and lead.">
+    <ResumeSection sectionId="teaching-communication" icon="🎓" title="Communication, Coaching & Teaching" collapsible={true} forceOpen={expandAllSignal} summary="Seventeen years teaching and coaching communication at ten institutions — turning classrooms, teams, and crisis rooms into places where people learn to speak, persuade, and lead.">
       <div class="classroom-banner" on:click={() => openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')}>
         <img src="./images/10-classroom-professor.png" alt="Tommy Adams in the classroom" loading="lazy" />
         <div class="classroom-banner-caption">17 years shaping communicators</div>
@@ -565,7 +578,7 @@
       </div>
     </ResumeSection>
 
-    <ResumeSection sectionId="school-education" icon="🎓" title="School / Education" collapsible={true} summary="Ph.D. candidacy at Penn State, executive education at the Naval Postgraduate School, and a master's in political communication — credentials built for the room where decisions get made.">
+    <ResumeSection sectionId="school-education" icon="🎓" title="School / Education" collapsible={true} forceOpen={expandAllSignal} summary="Ph.D. candidacy at Penn State, executive education at the Naval Postgraduate School, and a master's in political communication — credentials built for the room where decisions get made.">
       <div class="school-ed-list">
         {#each executiveEducation as ed}
           <div class="exec-ed-card" class:upcoming={ed.status === 'upcoming'}>
@@ -613,13 +626,13 @@
       </div>
     </ResumeSection>
 
-    <ResumeSection sectionId="nonprofit-service" icon="🤝" title="Nonprofit & Public Service Leadership" highlights={publicServiceHighlights} collapsible={true} summary="Board-level nonprofit leadership, federal grants stewardship, and a run for public office — public service experience that goes beyond a paycheck.">
+    <ResumeSection sectionId="nonprofit-service" icon="🤝" title="Nonprofit & Public Service Leadership" highlights={publicServiceHighlights} collapsible={true} forceOpen={expandAllSignal} summary="Board-level nonprofit leadership, federal grants stewardship, and a run for public office — public service experience that goes beyond a paycheck.">
       {#each paragraphs(data.publicServiceContent) as para}
         <p>{para}</p>
       {/each}
     </ResumeSection>
 
-    <ResumeSection sectionId="work-experience" icon="💼" title="Work Experience" collapsible={true} summary="Full work history across emergency management, higher education, and nonprofit leadership.">
+    <ResumeSection sectionId="work-experience" icon="💼" title="Work Experience" collapsible={true} forceOpen={expandAllSignal} summary="Full work history across emergency management, higher education, and nonprofit leadership.">
       {#each workExperience as job}
         <div class="job">
           <div class="job-header">
@@ -676,7 +689,7 @@
     </ResumeSection>
 
     {#if publications.length > 0}
-    <ResumeSection sectionId="publications" icon="📚" title="Publications & Scholarship" collapsible={true} summary="Award-winning scholarship on communication and persuasion, including a National Communication Association Book Award.">
+    <ResumeSection sectionId="publications" icon="📚" title="Publications & Scholarship" collapsible={true} forceOpen={expandAllSignal} summary="Award-winning scholarship on communication and persuasion, including a National Communication Association Book Award.">
       <div class="pub-list">
         {#each publications as pub}
           <div class="pub-item">
@@ -706,7 +719,7 @@
     {/if}
 
     {#if awards.length > 0}
-    <ResumeSection sectionId="awards" icon="🏆" title="Awards & Recognition" collapsible={true} summary="Recognition from the Governor of Kentucky, the state legislature, and national academic bodies.">
+    <ResumeSection sectionId="awards" icon="🏆" title="Awards & Recognition" collapsible={true} forceOpen={expandAllSignal} summary="Recognition from the Governor of Kentucky, the state legislature, and national academic bodies.">
       <ul class="awards-list">
         {#each awards as award}
           <li>{award}</li>
@@ -715,7 +728,7 @@
     </ResumeSection>
     {/if}
 
-    <ResumeSection sectionId="personal-excellence" icon="🏃" title="Personal Excellence & Global Perspective" collapsible={true} summary="Seven-plus years of unbroken daily discipline and a genuinely global perspective — 30+ countries and counting.">
+    <ResumeSection sectionId="personal-excellence" icon="🏃" title="Personal Excellence & Global Perspective" collapsible={true} forceOpen={expandAllSignal} summary="Seven-plus years of unbroken daily discipline and a genuinely global perspective — 30+ countries and counting.">
       <p><strong>Running Every Single Day Since October 2018:</strong> <span class="streak-count">{dayStreak.toLocaleString()}</span> consecutive days without missing a single one. This daily commitment reflects the discipline, resilience, and iterative refinement process I bring to every aspect of my life and work. {#if strava}<a class="strava-link" href={strava} target="_blank" rel="noopener noreferrer">Follow on Strava →</a>{/if}</p>
       <p><strong>Globally-Minded Traveler:</strong> Visited 30+ countries including Italy, UK, Germany, France, China, Japan, Thailand, Australia, Brazil, New Zealand, and many others. Studied abroad in Florence, Italy and taught in Shanghai, China as Visiting Professor.</p>
       {#if runningPhotos.length > 0}
@@ -732,7 +745,7 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection sectionId="community-service" icon="🌱" title="Community Service & Volunteer Work" collapsible={true} summary="Volunteer coach and mentor with men in recovery, plus ongoing search-and-rescue and campus community service.">
+    <ResumeSection sectionId="community-service" icon="🌱" title="Community Service & Volunteer Work" collapsible={true} forceOpen={expandAllSignal} summary="Volunteer coach and mentor with men in recovery, plus ongoing search-and-rescue and campus community service.">
       <p>My nonprofit and volunteer experience keep my work grounded in service — and gives coaching a place outside the classroom and the EOC.</p>
       <p>Volunteer running coach and mentor with <strong>A Running Start</strong> (2021–Present), a Lexington, KY-based nonprofit that supports men in recovery from addiction through running. The program provides structure, accountability, and community for participants — primarily men at the <strong>Hope Center</strong> and <strong>Privett Center</strong> in Lexington — who train together for 5Ks and other races. Running becomes more than exercise: it's a new coping mechanism, a daily discipline, and a pathway back to confidence and community. Coaches are often in long-term recovery themselves, and the program has supported participants in navigating early recovery, rebuilding self-worth, and reintegrating into daily life. Also a founder of campus run clubs at multiple institutions. Advisor to student organizations, judge for business pitch competitions, and extensive committee service across academic and community organizations.</p>
       <p>Member of Wolfe County Search & Rescue since 2021 — contributing not only as a field responder but as an officer, treasurer, and finance officer supporting the organizational health of the team.</p>
@@ -749,10 +762,10 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection sectionId="competencies" icon="⚡" title="Core Competencies" skillCategories={coreSkillCategories} skills={coreSkills} collapsible={true} summary="Leadership, communication, coaching, and crisis-response competencies built over two careers.">
+    <ResumeSection sectionId="competencies" icon="⚡" title="Core Competencies" skillCategories={coreSkillCategories} skills={coreSkills} collapsible={true} forceOpen={expandAllSignal} summary="Leadership, communication, coaching, and crisis-response competencies built over two careers.">
     </ResumeSection>
 
-    <ResumeSection sectionId="certifications" icon="📋" title="Certifications & Key Training" collapsible={true} summary="FEMA, ICS, search-and-rescue, and federal grants management certifications — the technical backbone behind the leadership.">
+    <ResumeSection sectionId="certifications" icon="📋" title="Certifications & Key Training" collapsible={true} forceOpen={expandAllSignal} summary="FEMA, ICS, search-and-rescue, and federal grants management certifications — the technical backbone behind the leadership.">
       {#if data.certifications}
         <div class="cert-section">
           <h4>Federal Grants Management Certificate</h4>
@@ -781,7 +794,7 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection sectionId="affiliations" icon="🏢" title="Professional Affiliations" orgs={affiliations} collapsible={true} summary="Professional and academic affiliations spanning emergency management, higher education, and athletics.">
+    <ResumeSection sectionId="affiliations" icon="🏢" title="Professional Affiliations" orgs={affiliations} collapsible={true} forceOpen={expandAllSignal} summary="Professional and academic affiliations spanning emergency management, higher education, and athletics.">
     </ResumeSection>
 
   </div>
@@ -789,7 +802,7 @@
   <div class="connect-section">
     <div class="connect-inner">
       <h2 class="connect-heading">Let's Connect</h2>
-      <p class="connect-body">I'm entering the private and executive market with seventeen years of communication leadership and a decade-plus of public-sector crisis experience. If you need someone who can lead the room, write the message, and coach the team — I'd welcome the conversation.</p>
+      <p class="connect-body">I'm entering the private and executive market with seventeen years of communication leadership and a decade-plus of public service leadership. If you need someone who can lead the room, write the message, and coach the team — I'd welcome the conversation.</p>
       <div class="connect-links">
         {#if profile.linkedin}
           <a class="connect-btn connect-btn-primary" href={profile.linkedin} target="_blank" rel="noopener noreferrer">
@@ -910,6 +923,22 @@
 
   .roadmap-item:hover {
     color: #c8a45c;
+  }
+
+  .roadmap-expand {
+    background: none;
+    font: inherit;
+    color: #c8a45c;
+    cursor: pointer;
+    border-left: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    margin-left: auto;
+  }
+
+  .roadmap-expand:hover {
+    color: #fff;
   }
 
   /* Tablet / mobile: wrap into a tighter two-line menu, drop the dividers */
