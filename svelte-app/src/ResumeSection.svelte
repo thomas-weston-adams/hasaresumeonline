@@ -1,6 +1,7 @@
 <script>
   export let icon = '';
   export let title = '';
+  export let summary = '';     // teaser shown when collapsed — a short paragraph, not just one line
   export let highlights = [];  // array of strings
   export let skills = [];      // array of strings (rendered as badge pills)
   export let skillCategories = [];  // array of {category, items} (rendered as categorized badge groups)
@@ -34,6 +35,10 @@
       </span>
     {/if}
   </div>
+
+  {#if collapsible && !open && summary}
+    <p class="section-summary">{summary}</p>
+  {/if}
 
   {#if open}
     <div class="section-content">
@@ -142,6 +147,14 @@
     text-transform: none;
     letter-spacing: 0.3px;
     font-style: italic;
+  }
+
+  .section-summary {
+    margin: 14px 0 0;
+    padding: 0 2px;
+    color: #34403b;
+    font-size: 0.98em;
+    line-height: 1.65;
   }
 
   .toggle-indicator {
@@ -285,6 +298,10 @@
 
   :global(body.upside-down .section-content) {
     color: #d4b0b0;
+  }
+
+  :global(body.upside-down .section-summary) {
+    color: #b88888;
   }
 
   :global(body.upside-down .highlights li) {
