@@ -1,5 +1,33 @@
 # Redesign rollback — what changed and how to undo it
 
+## Round 4 (nav overflow bug, stats reorg, clearer collapse buttons, PM skill)
+
+- **Fixed a real bug**: the nav's `grid-template-columns: repeat(6, 1fr)`
+  didn't let grid tracks shrink below their content's natural width, and
+  since `.container` has `overflow: hidden`, the excess got silently
+  clipped instead of wrapping — this is what caused "Publications" and
+  "Affiliations" to look cut off on laptop-width Chrome. Fixed at all four
+  breakpoints with `minmax(0, 1fr)` plus `min-width: 0` on the nav items.
+  Verified no overflow at 1280/1366/1440px viewports.
+- **Stats bar reorganized to 4 items** (was 3): "17+ Years Teaching &
+  Coaching Communication," "10+ Years Public Service Leadership" (replaces
+  "8+ Years Emergency Management & Search & Rescue" — broader framing,
+  matches your own resume's "more than a decade of public-sector
+  leadership" line), "1000s Students, Trainees & Teammates Coached"
+  (brought back from the original redesign attempt), and "7+ Years Daily
+  Running Streak" (kept).
+- **Collapse/expand affordance redesigned**: the chevron is now a solid
+  filled circle button (was a bare outline icon), and the hint text changed
+  from faint italic "tap to expand" to bold "Click to expand" / "Click to
+  collapse" — should read as an obvious, clickable control now.
+- **Added Project & Program Management**: new tile in Core Competencies →
+  Planning, Grants & Analysis (leads the category), plus the phrase
+  "program management" worked into the Emergency Management section's
+  teaser, its Work Experience bullet, and its highlights — grounded in the
+  actual CSEPP program stewardship/drawdown work, not a new claim.
+
+---
+
 ## Round 3 (collapsible sections restored, for scannability)
 
 You asked what happened to the collapsible menus, specifically for

@@ -24,12 +24,12 @@
     <div class="section-title-wrap">
       <h3 class="section-title">{title}</h3>
       {#if collapsible}
-        <span class="expand-hint">{open ? 'tap to collapse' : 'tap to expand'}</span>
+        <span class="expand-hint">{open ? 'Click to collapse' : 'Click to expand'}</span>
       {/if}
     </div>
     {#if collapsible}
       <span class="toggle-indicator" class:open>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
       </span>
@@ -141,12 +141,12 @@
   }
 
   .expand-hint {
-    font-size: 0.72em;
-    font-weight: 400;
-    color: #4a7c6b;
+    font-size: 0.74em;
+    font-weight: 600;
+    color: #2d5a47;
     text-transform: none;
     letter-spacing: 0.3px;
-    font-style: italic;
+    font-style: normal;
   }
 
   .section-summary {
@@ -158,17 +158,25 @@
   }
 
   .toggle-indicator {
-    color: #4a7c6b;
-    width: 28px;
+    color: #fff;
+    background: #2d5a47;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    transition: transform 0.25s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    transition: transform 0.25s ease, background 0.2s ease;
   }
 
   .toggle-indicator.open {
     transform: rotate(180deg);
+  }
+
+  .section-header.clickable:hover .toggle-indicator {
+    background: #1e3a2f;
   }
 
   .section-content {
@@ -335,6 +343,7 @@
   }
 
   :global(body.upside-down .toggle-indicator) {
-    color: #cc4444;
+    color: #ffcccc;
+    background: #6b0000;
   }
 </style>

@@ -373,7 +373,7 @@
 
   <div class="content">
 
-    <ResumeSection sectionId="emergency-management" icon="🚨" title="Emergency Management / Search & Rescue" collapsible={true} summary="Section Supervisor at Kentucky Emergency Management, steering the drawdown of a 40-year, multi-million-dollar FEMA program with full federal, state, and local compliance. Serve in the State EOC in five distinct roles during declared disasters — Planning Section Chief, Field Operations, Logistics, Public Safety Branch, and ESF5. In the field, an officer and Wilderness First Responder with Wolfe County Search & Rescue, certified in technical rope and swiftwater rescue.">
+    <ResumeSection sectionId="emergency-management" icon="🚨" title="Emergency Management / Search & Rescue" collapsible={true} summary="Section Supervisor at Kentucky Emergency Management, leading full program management for the drawdown of a 40-year, multi-million-dollar FEMA program — planning, budget, compliance, and closeout — across federal, state, and local partners. Serve in the State EOC in five distinct roles during declared disasters — Planning Section Chief, Field Operations, Logistics, Public Safety Branch, and ESF5. In the field, an officer and Wilderness First Responder with Wolfe County Search & Rescue, certified in technical rope and swiftwater rescue.">
       <div class="photo-mosaic">
         {#each photos as photo, i}
           <div class="photo-cell" on:click={() => openGallery(photos, i)} role="button" tabindex="0" on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && openGallery(photos, i)}>
@@ -927,7 +927,7 @@
     background: #1e3a2f;
     padding: 16px 24px;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 8px;
     border-bottom: 3px solid #4a7c6b;
   }
@@ -937,6 +937,7 @@
     align-items: center;
     justify-content: center;
     gap: 6px;
+    min-width: 0;
     background: rgba(255, 255, 255, 0.07);
     border: 1px solid rgba(255, 255, 255, 0.14);
     color: rgba(255, 248, 235, 0.88);
@@ -968,7 +969,7 @@
   /* Medium desktop: 4-per-row */
   @media (max-width: 1100px) and (min-width: 769px) {
     .roadmap {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       padding: 14px 20px;
       gap: 7px;
     }
@@ -981,7 +982,7 @@
   /* Tablet: 3-per-row */
   @media (max-width: 768px) and (min-width: 601px) {
     .roadmap {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       padding: 14px 20px;
       gap: 7px;
     }
@@ -994,7 +995,7 @@
   /* Mobile: 3-per-row, icon above label */
   @media (max-width: 600px) {
     .roadmap {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       padding: 12px 14px;
       gap: 6px;
     }
