@@ -114,10 +114,9 @@
   }
 
   h1 {
-    font-family: var(--font-serif);
     font-size: clamp(0.9rem, 4.5vw, 2.1em);
     font-weight: 700;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
     margin: 0 0 10px;
     line-height: 1.1;
     white-space: nowrap;

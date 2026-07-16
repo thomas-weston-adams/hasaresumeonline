@@ -1,22 +1,18 @@
 <script>
   export let icon = '';
   export let title = '';
-  export let summary = '';     // one-line teaser shown when collapsed
   export let highlights = [];  // array of strings
   export let skills = [];      // array of strings (rendered as badge pills)
   export let skillCategories = [];  // array of {category, items} (rendered as categorized badge groups)
   export let orgs = [];        // array of strings (rendered as org badges)
   export let collapsible = false;
   export let sectionId = '';
-  export let forceOpen = null; // { value: boolean, key: number } — set by a global "expand/collapse all" control
 
   let open = !collapsible;
 
   function toggle() {
     if (collapsible) open = !open;
   }
-
-  $: if (forceOpen) open = forceOpen.value;
 </script>
 
 <div class="section" id={sectionId || undefined}>
@@ -38,10 +34,6 @@
       </span>
     {/if}
   </div>
-
-  {#if collapsible && !open && summary}
-    <p class="section-summary">{summary}</p>
-  {/if}
 
   {#if open}
     <div class="section-content">
@@ -135,7 +127,6 @@
   }
 
   .section-title {
-    font-family: var(--font-serif);
     font-size: 1.4em;
     font-weight: 700;
     color: #1e3a2f;
@@ -150,15 +141,6 @@
     color: #4a7c6b;
     text-transform: none;
     letter-spacing: 0.3px;
-    font-style: italic;
-  }
-
-  .section-summary {
-    margin: 12px 0 0;
-    padding: 0 2px;
-    color: #5c6b64;
-    font-size: 0.95em;
-    line-height: 1.6;
     font-style: italic;
   }
 
@@ -303,10 +285,6 @@
 
   :global(body.upside-down .section-content) {
     color: #d4b0b0;
-  }
-
-  :global(body.upside-down .section-summary) {
-    color: #886060;
   }
 
   :global(body.upside-down .highlights li) {
