@@ -145,12 +145,16 @@
     align-items: center;
     gap: 12px;
     padding: 9px 20px;
-    background: rgba(18, 36, 26, 0.75);
+    background: #12241a;
     border-top: 1px solid rgba(200, 164, 92, 0.25);
-    backdrop-filter: blur(8px);
     color: #e8dfc8;
     font-size: 0.78em;
     letter-spacing: 0.3px;
+    /* Force a dedicated compositor layer so the bar stays pinned during
+       momentum scroll instead of jittering/detaching on mobile Safari. */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
   }
 
   .play-btn {
