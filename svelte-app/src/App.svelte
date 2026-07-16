@@ -304,7 +304,7 @@
     </a>
     <a class="roadmap-item" href="#teaching-communication">
       <span class="roadmap-icon">🎓</span>
-      <span class="roadmap-label">Teaching</span>
+      <span class="roadmap-label">Communication</span>
     </a>
     <a class="roadmap-item" href="#school-education">
       <span class="roadmap-icon">🎓</span>
@@ -557,7 +557,7 @@
       <div class="sar-banner-caption">Cliff rescue operations — Red River Gorge area</div>
     </div>
 
-    <ResumeSection sectionId="teaching-communication" icon="🎓" title="Teaching & Communication">
+    <ResumeSection sectionId="teaching-communication" icon="🎓" title="Communication, Coaching & Teaching">
       <div class="classroom-banner" on:click={() => openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')}>
         <img src="./images/10-classroom-professor.png" alt="Tommy Adams in the classroom" loading="lazy" />
         <div class="classroom-banner-caption">17 years shaping communicators</div>

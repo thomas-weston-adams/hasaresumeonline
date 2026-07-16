@@ -79,8 +79,8 @@
   }
 
   .profile-photo {
-    width: 190px;
-    height: 240px;
+    width: 230px;
+    height: 290px;
     flex-shrink: 0;
     border-radius: 6px;
     overflow: hidden;
@@ -161,7 +161,7 @@
     .header { padding: 30px 24px; }
     .header-content { gap: 24px; }
     .header-text { min-width: 0; }
-    .profile-photo { width: 140px; height: 180px; }
+    .profile-photo { width: 165px; height: 210px; }
     .title { font-size: 0.78em; letter-spacing: 1px; }
     h1 {
       font-size: clamp(0.9rem, 3.2vw, 1.7em);
@@ -174,15 +174,15 @@
     /* 2-column grid: photo left, name+location right */
     .header-content {
       display: grid;
-      grid-template-columns: 90px 1fr;
+      grid-template-columns: 108px 1fr;
       column-gap: 14px;
       row-gap: 8px;
       align-items: start;
     }
     /* photo: left col, row 1 */
     .profile-photo {
-      width: 90px;
-      height: 116px;
+      width: 108px;
+      height: 139px;
       grid-column: 1;
       grid-row: 1;
     }
