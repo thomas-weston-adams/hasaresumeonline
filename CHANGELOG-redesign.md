@@ -1,5 +1,34 @@
 # Redesign rollback — what changed and how to undo it
 
+## Round 3 (collapsible sections restored, for scannability)
+
+You asked what happened to the collapsible menus, specifically for
+scannability — Business Leaders, HR people, and headhunters don't want to
+scroll a ~13,000px wall of photos and paragraphs; they want to scan section
+headers and open only what's relevant. Round 1 had reverted every section
+back to always-open (no collapse at all, except Competencies/
+Certifications/Affiliations). Round 3 restores collapse-by-default on
+every section, but fixes the thing that made it feel sparse the first
+time around: the teaser is now a real 2–4 sentence paragraph of specific,
+factual highlights (drawn from each section's own content — nothing
+invented) instead of a single thin italic line.
+
+- All 12 sections are now collapsible and closed by default, each with a
+  substantive teaser paragraph.
+- Fixed a bug (recurring from the original redesign attempt): a standalone
+  photo between the Emergency Management and Communication sections lived
+  outside any `ResumeSection`, so it kept showing even when that section
+  was collapsed. Moved it inside so collapsing actually collapses it.
+- Nav is untouched — still the original 12-tile icon grid.
+- Full page height dropped from ~13,000px to ~4,250px in the collapsed
+  state; every photo and paragraph is still there, one click away.
+
+If this feels like too much collapsing again, the easiest dial to turn is
+picking specific sections to leave open by default (e.g., Emergency
+Management, since it's the flagship one) rather than all-or-nothing.
+
+---
+
 ## Round 2 (after you said "I don't want it how I had it")
 
 Round 1 (below) reverted *structure and copy* both. That overcorrected —
