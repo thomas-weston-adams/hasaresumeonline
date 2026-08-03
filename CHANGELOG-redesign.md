@@ -1,5 +1,33 @@
 # Redesign rollback — what changed and how to undo it
 
+## Round 5 (content-preview tags, new certifications from your portfolio PDF)
+
+- **Collapsed sections now show small "content preview" pills** under the
+  teaser paragraph — e.g. Emergency Management shows "📷 Photos · 📋 Program
+  Details · 🏅 Commendations," Personal Excellence shows "📷 Photos · 🌍 30+
+  Countries · 🏃 Daily Streak." These are honest, specific previews of
+  what's actually inside each dropdown (not generic "click here" filler),
+  meant to make it obvious there's real substance behind the collapse
+  without adding visual clutter — small rounded pills, one line, done.
+- **Added 7 new certifications** from your Training & Certification
+  Portfolio PDF that weren't already on the site: IS-230.e (Fundamentals of
+  Emergency Management), NIMS All-Hazards Situation Unit Leader, O-305
+  (USFA Type 3 Incident Management Team Training), MGT-314 (Enhanced
+  All-Hazards Incident Management/Unified Command, TEEX), CDP's Key
+  Planning Factors for Chemical Incident Response & Recovery (directly
+  relevant to CSEPP), G-386 (Mass Fatalities), and the PAST Fusion Academy
+  PIO/social-media spokesperson training. Everything else in the portfolio
+  (ICS-100/200/300/400, IS-235/700/800/2200, HSEEP, IS-29/42.a/120/240/
+  241/244/650.b/909/317.a, G-191) was already listed — no duplicates added.
+  Skipped a couple of low-signal generic entries (e.g. "IS-13: Conduct and
+  Behavior," the meta "Professional Development Series" completion
+  certificate) as not worth a dedicated line. Send the rest as you finish
+  assembling them and I'll fold them in the same way.
+- Certifications & Key Training now covers 44 courses/certifications total
+  (was 37).
+
+---
+
 ## Round 4 (nav overflow bug, stats reorg, clearer collapse buttons, PM skill)
 
 - **Fixed a real bug**: the nav's `grid-template-columns: repeat(6, 1fr)`

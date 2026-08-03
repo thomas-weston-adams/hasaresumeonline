@@ -290,6 +290,34 @@
       {
         "code": "IS-317.A",
         "name": "Introduction to Community Emergency Response Team (CERTs)"
+      },
+      {
+        "code": "IS-230.e",
+        "name": "Fundamentals of Emergency Management"
+      },
+      {
+        "code": "NIMS SUL",
+        "name": "All-Hazards Situation Unit Leader"
+      },
+      {
+        "code": "O-305",
+        "name": "USFA Type 3 Incident Management Team Training (National Fire Academy)"
+      },
+      {
+        "code": "MGT-314",
+        "name": "Enhanced All-Hazards Incident Management/Unified Command (TEEX)"
+      },
+      {
+        "code": "CDP",
+        "name": "Key Planning Factors for Chemical Incident Response & Recovery"
+      },
+      {
+        "code": "G-386",
+        "name": "Mass Fatalities"
+      },
+      {
+        "code": "PAST Fusion",
+        "name": "Spokesperson for PIOs/PAOs, News Conference Strategies & Social Media Monitoring"
       }
     ],
     "sarCertifications": [
