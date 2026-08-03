@@ -2,6 +2,7 @@
   export let icon = '';
   export let title = '';
   export let summary = '';     // teaser shown when collapsed — a short paragraph, not just one line
+  export let tags = [];        // short content-preview chips shown when collapsed, e.g. "📷 Photos", "🏆 Awards"
   export let highlights = [];  // array of strings
   export let skills = [];      // array of strings (rendered as badge pills)
   export let skillCategories = [];  // array of {category, items} (rendered as categorized badge groups)
@@ -38,6 +39,13 @@
 
   {#if collapsible && !open && summary}
     <p class="section-summary">{summary}</p>
+    {#if tags.length > 0}
+      <div class="section-tags">
+        {#each tags as tag}
+          <span class="section-tag">{tag}</span>
+        {/each}
+      </div>
+    {/if}
   {/if}
 
   {#if open}
@@ -155,6 +163,27 @@
     color: #34403b;
     font-size: 0.98em;
     line-height: 1.65;
+  }
+
+  .section-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0 4px;
+    padding: 0 2px;
+  }
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    background: #eef4f0;
+    border: 1px solid #c8ddd0;
+    color: #2d5a47;
+    font-size: 0.78em;
+    font-weight: 600;
+    padding: 4px 11px;
+    border-radius: 20px;
+    letter-spacing: 0.2px;
   }
 
   .toggle-indicator {
@@ -310,6 +339,12 @@
 
   :global(body.upside-down .section-summary) {
     color: #b88888;
+  }
+
+  :global(body.upside-down .section-tag) {
+    background: #1a0a0a;
+    border-color: #4a0808;
+    color: #ff8c8c;
   }
 
   :global(body.upside-down .highlights li) {

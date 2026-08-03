@@ -373,7 +373,7 @@
 
   <div class="content">
 
-    <ResumeSection sectionId="emergency-management" icon="🚨" title="Emergency Management / Search & Rescue" collapsible={true} summary="Section Supervisor at Kentucky Emergency Management, leading full program management for the drawdown of a 40-year, multi-million-dollar FEMA program — planning, budget, compliance, and closeout — across federal, state, and local partners. Serve in the State EOC in five distinct roles during declared disasters — Planning Section Chief, Field Operations, Logistics, Public Safety Branch, and ESF5. In the field, an officer and Wilderness First Responder with Wolfe County Search & Rescue, certified in technical rope and swiftwater rescue.">
+    <ResumeSection sectionId="emergency-management" icon="🚨" title="Emergency Management / Search & Rescue" collapsible={true} summary="Section Supervisor at Kentucky Emergency Management, leading full program management for the drawdown of a 40-year, multi-million-dollar FEMA program — planning, budget, compliance, and closeout — across federal, state, and local partners. Serve in the State EOC in five distinct roles during declared disasters — Planning Section Chief, Field Operations, Logistics, Public Safety Branch, and ESF5. In the field, an officer and Wilderness First Responder with Wolfe County Search & Rescue, certified in technical rope and swiftwater rescue." tags={['📷 Photos', '📋 Program Details', '🏅 Commendations']}>
       <div class="photo-mosaic">
         {#each photos as photo, i}
           <div class="photo-cell" on:click={() => openGallery(photos, i)} role="button" tabindex="0" on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && openGallery(photos, i)}>
@@ -557,7 +557,7 @@
       </div>
     </ResumeSection>
 
-    <ResumeSection sectionId="teaching-communication" icon="🎓" title="Communication, Coaching & Teaching" collapsible={true} summary="Seventeen years teaching communication at ten institutions, from Kentucky community colleges to Shanghai — and coaching hundreds of students through the moments that actually test communication skill: high-stakes presentations, competitive speech, arguments that have to land. Author of the award-winning chapter “Memes as a Communicative Act” in Meme Life (National Communication Association Book Award, 2023).">
+    <ResumeSection sectionId="teaching-communication" icon="🎓" title="Communication, Coaching & Teaching" collapsible={true} summary="Seventeen years teaching communication at ten institutions, from Kentucky community colleges to Shanghai — and coaching hundreds of students through the moments that actually test communication skill: high-stakes presentations, competitive speech, arguments that have to land. Author of the award-winning chapter “Memes as a Communicative Act” in Meme Life (National Communication Association Book Award, 2023)." tags={['📷 Photos', '🏫 10 Institutions', '🏆 Award-Winning Author']}>
       <div class="classroom-banner" on:click={() => openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')}>
         <img src="./images/10-classroom-professor.png" alt="Tommy Adams in the classroom" loading="lazy" />
         <div class="classroom-banner-caption">17 years shaping communicators</div>
@@ -607,7 +607,7 @@
       </div>
     </ResumeSection>
 
-    <ResumeSection sectionId="school-education" icon="🎓" title="School / Education" collapsible={true} summary="Ph.D. candidacy in Communication Arts & Sciences at Penn State, a master's in Political Communication from San Diego State, and a B.A. from Pepperdine University. Executive education at the Naval Postgraduate School's Center for Homeland Defense and Security, plus ongoing FEMA and TEEX training in emergency management.">
+    <ResumeSection sectionId="school-education" icon="🎓" title="School / Education" collapsible={true} summary="Ph.D. candidacy in Communication Arts & Sciences at Penn State, a master's in Political Communication from San Diego State, and a B.A. from Pepperdine University. Executive education at the Naval Postgraduate School's Center for Homeland Defense and Security, plus ongoing FEMA and TEEX training in emergency management." tags={['📷 Photos', '🎓 Degrees & Executive Ed']}>
       <div class="school-ed-list">
         {#each executiveEducation as ed}
           <div class="exec-ed-card" class:upcoming={ed.status === 'upcoming'}>
@@ -655,13 +655,13 @@
       </div>
     </ResumeSection>
 
-    <ResumeSection sectionId="nonprofit-service" icon="🤝" title="Nonprofit & Public Service Leadership" highlights={publicServiceHighlights} collapsible={true} summary="Board-level nonprofit leadership as Executive Director of Friends of Hemp and Communications Director for Hemp Feed Coalition, plus ongoing service as Treasurer and Finance Officer for Wolfe County Search & Rescue. Ran for Kentucky State Representative in 2022 on a platform grounded in public service and community engagement.">
+    <ResumeSection sectionId="nonprofit-service" icon="🤝" title="Nonprofit & Public Service Leadership" highlights={publicServiceHighlights} collapsible={true} summary="Board-level nonprofit leadership as Executive Director of Friends of Hemp and Communications Director for Hemp Feed Coalition, plus ongoing service as Treasurer and Finance Officer for Wolfe County Search & Rescue. Ran for Kentucky State Representative in 2022 on a platform grounded in public service and community engagement." tags={['📋 Leadership Roles', '🗳️ Campaign History']}>
       {#each paragraphs(data.publicServiceContent) as para}
         <p>{para}</p>
       {/each}
     </ResumeSection>
 
-    <ResumeSection sectionId="work-experience" icon="💼" title="Work Experience" collapsible={true} summary="Full work history across emergency management leadership, higher education faculty roles, and nonprofit executive leadership — the complete career timeline, including a detailed additional-work-history archive for the full academic record.">
+    <ResumeSection sectionId="work-experience" icon="💼" title="Work Experience" collapsible={true} summary="Full work history across emergency management leadership, higher education faculty roles, and nonprofit executive leadership — the complete career timeline, including a detailed additional-work-history archive for the full academic record." tags={['📋 Full Timeline', '➕ Extended History']}>
       {#each workExperience as job}
         <div class="job">
           <div class="job-header">
@@ -718,7 +718,7 @@
     </ResumeSection>
 
     {#if publications.length > 0}
-    <ResumeSection sectionId="publications" icon="📚" title="Publications & Scholarship" collapsible={true} summary="Author of the award-winning chapter “Memes as a Communicative Act” in Meme Life, winner of the National Communication Association Book Award (2023), and research partner on Towers of Rhetoric: Memory and Reinvention (Penn State University Press, 2018).">
+    <ResumeSection sectionId="publications" icon="📚" title="Publications & Scholarship" collapsible={true} summary="Author of the award-winning chapter “Memes as a Communicative Act” in Meme Life, winner of the National Communication Association Book Award (2023), and research partner on Towers of Rhetoric: Memory and Reinvention (Penn State University Press, 2018)." tags={['📚 Full Citations', '🏆 Award-Winning']}>
       <div class="pub-list">
         {#each publications as pub}
           <div class="pub-item">
@@ -748,7 +748,7 @@
     {/if}
 
     {#if awards.length > 0}
-    <ResumeSection sectionId="awards" icon="🏆" title="Awards & Recognition" collapsible={true} summary="Named an Honorable Kentucky Colonel by Governor Andy Beshear, recognized by Kentucky Emergency Management and Team Kentucky for public service, and a National Communication Association Book Award winner — plus teaching honors including Critical Thinking Teacher of the Year nominee and Teacher Who Made a Difference.">
+    <ResumeSection sectionId="awards" icon="🏆" title="Awards & Recognition" collapsible={true} summary="Named an Honorable Kentucky Colonel by Governor Andy Beshear, recognized by Kentucky Emergency Management and Team Kentucky for public service, and a National Communication Association Book Award winner — plus teaching honors including Critical Thinking Teacher of the Year nominee and Teacher Who Made a Difference." tags={['🏅 5 Honors']}>
       <ul class="awards-list">
         {#each awards as award}
           <li>{award}</li>
@@ -757,7 +757,7 @@
     </ResumeSection>
     {/if}
 
-    <ResumeSection sectionId="personal-excellence" icon="🏃" title="Personal Excellence & Global Perspective" collapsible={true} summary="Running every single day since October 2018 — seven-plus years without missing one, a daily discipline that carries into everything I do. Visited 30+ countries across five continents, studied abroad in Florence, and taught in Shanghai as a Visiting Professor.">
+    <ResumeSection sectionId="personal-excellence" icon="🏃" title="Personal Excellence & Global Perspective" collapsible={true} summary="Running every single day since October 2018 — seven-plus years without missing one, a daily discipline that carries into everything I do. Visited 30+ countries across five continents, studied abroad in Florence, and taught in Shanghai as a Visiting Professor." tags={['📷 Photos', '🌍 30+ Countries', '🏃 Daily Streak']}>
       <p><strong>Running Every Single Day Since October 2018:</strong> <span class="streak-count">{dayStreak.toLocaleString()}</span> consecutive days without missing a single one. This daily commitment reflects the discipline, resilience, and iterative refinement process I bring to every aspect of my life and work. {#if strava}<a class="strava-link" href={strava} target="_blank" rel="noopener noreferrer">Follow on Strava →</a>{/if}</p>
       <p><strong>Globally-Minded Traveler:</strong> Visited 30+ countries including Italy, UK, Germany, France, China, Japan, Thailand, Australia, Brazil, New Zealand, and many others. Studied abroad in Florence, Italy and taught in Shanghai, China as Visiting Professor.</p>
       {#if runningPhotos.length > 0}
@@ -774,7 +774,7 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection sectionId="community-service" icon="🌱" title="Community Service & Volunteer Work" collapsible={true} summary="Volunteer running coach and mentor with A Running Start, supporting men in recovery from addiction through structured training, accountability, and community. Also an officer with Wolfe County Search & Rescue since 2021, plus ongoing unhoused outreach, campus mentorship, and committee service.">
+    <ResumeSection sectionId="community-service" icon="🌱" title="Community Service & Volunteer Work" collapsible={true} summary="Volunteer running coach and mentor with A Running Start, supporting men in recovery from addiction through structured training, accountability, and community. Also an officer with Wolfe County Search & Rescue since 2021, plus ongoing unhoused outreach, campus mentorship, and committee service." tags={['📷 Photos', '🤝 Volunteer Details']}>
       <p>My nonprofit and volunteer experience keep my work grounded in service.</p>
       <p>Active volunteer and mentor with <strong>A Running Start</strong> (2021–Present), a Lexington, KY-based nonprofit that supports men in recovery from addiction through running. The program provides structure, accountability, and community for participants — primarily men at the <strong>Hope Center</strong> and <strong>Privett Center</strong> in Lexington — who train together for 5Ks and other races. Running becomes more than exercise: it's a new coping mechanism, a daily discipline, and a pathway back to confidence and community. Coaches are often in long-term recovery themselves, and the program has supported participants in navigating early recovery, rebuilding self-worth, and reintegrating into daily life. Also a founder of campus run clubs at multiple institutions. Advisor to student organizations, judge for business pitch competitions, and extensive committee service across academic and community organizations.</p>
       <p>Member of Wolfe County Search & Rescue since 2021 — contributing not only as a field responder but as an officer, treasurer, and finance officer supporting the organizational health of the team.</p>
@@ -791,10 +791,10 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection sectionId="competencies" icon="⚡" title="Core Competencies" skillCategories={coreSkillCategories} skills={coreSkills} collapsible={true} summary="Strategic and crisis communication, public speaking and coaching, emergency management leadership, team supervision, and federal grants management — the full competency map across two careers.">
+    <ResumeSection sectionId="competencies" icon="⚡" title="Core Competencies" skillCategories={coreSkillCategories} skills={coreSkills} collapsible={true} summary="Strategic and crisis communication, public speaking and coaching, emergency management leadership, team supervision, and federal grants management — the full competency map across two careers." tags={['⚡ Full Skill Map']}>
     </ResumeSection>
 
-    <ResumeSection sectionId="certifications" icon="📋" title="Certifications & Key Training" collapsible={true} summary="Federal Grants Management Certificate, FEMA/ICS training (ICS-100 through ICS-400 and beyond), search-and-rescue certifications including Wilderness First Responder and swiftwater/rope rescue, and executive education at the Naval Postgraduate School.">
+    <ResumeSection sectionId="certifications" icon="📋" title="Certifications & Key Training" collapsible={true} summary="Federal Grants Management Certificate, FEMA/ICS training (ICS-100 through ICS-400 and beyond), search-and-rescue certifications including Wilderness First Responder and swiftwater/rope rescue, and executive education at the Naval Postgraduate School." tags={['📋 44 Courses & Certifications']}>
       {#if data.certifications}
         <div class="cert-section">
           <h4>Federal Grants Management Certificate</h4>
@@ -823,7 +823,7 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection sectionId="affiliations" icon="🏢" title="Professional Affiliations" orgs={affiliations} collapsible={true} summary="Affiliations spanning emergency management (FEMA, Kentucky Emergency Management), higher education (Penn State, Texas A&M, National Communication Association), search and rescue, and athletics.">
+    <ResumeSection sectionId="affiliations" icon="🏢" title="Professional Affiliations" orgs={affiliations} collapsible={true} summary="Affiliations spanning emergency management (FEMA, Kentucky Emergency Management), higher education (Penn State, Texas A&M, National Communication Association), search and rescue, and athletics." tags={['🏢 19 Organizations']}>
     </ResumeSection>
 
   </div>
