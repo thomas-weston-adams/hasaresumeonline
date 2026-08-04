@@ -25,7 +25,9 @@
       <div class="title">{@html title}</div>
       <div class="name-loc">
         <h1>{name}</h1>
-        <div class="location">{location}</div>
+        {#if location}
+          <div class="location">{location}</div>
+        {/if}
       </div>
       <div class="header-links">
         {#if linkedin}
