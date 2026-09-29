@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "check": "node ../scripts/check-content.mjs",
+    "prebuild": "node ../scripts/check-content.mjs",
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear"
