@@ -20,21 +20,21 @@
       "label": "Students, Trainees & Teammates Coached"
     },
     {
-      "number": "7+",
+      "number": "{streakYears}+",
       "label": "Years Daily Running Streak"
     }
   ],
   "emHighlights": [
-    "Serve in and help manage the State EOC in five distinct roles — Planning Section Chief, Field Ops, Logistics, Public Safety Branch, and ESF5",
-    "Full program management of a 40-year, multi-million-dollar FEMA program's drawdown, with full federal, state, and local compliance (2 CFR 200)",
+    "Served in and helped manage the State EOC in five distinct roles: Planning Section Chief, Field Ops, Logistics, Public Safety Branch, and ESF5",
+    "Oversaw program management for the drawdown of a 40-year FEMA program funded at millions of dollars a year, with full federal, state, and local compliance (2 CFR 200)",
     "Completed TEEX MGT314 (April 2026) — trained in writing, updating, and implementing all-hazards emergency plans and site-specific response plans",
-    "Supervise the coordination of multi-agency exercises and responses with law enforcement, fire, EMS, public health, military, and local and federal partners",
-    "Build and execute emergency preparedness exercises from tabletop to full-scale — then measure what worked",
-    "Support public information efforts during emergencies and blue-sky days for KYEM operations",
-    "Brief senior leadership and partner agencies with situation reports and after-action reviews that drive real change",
+    "Supervised the coordination of multi-agency exercises and responses with law enforcement, fire, EMS, public health, military, and local and federal partners",
+    "Oversaw development of the program's federal exercises, from tabletop to full-scale, and measured what worked",
+    "Supported public information efforts during emergencies and blue-sky days for KYEM operations",
+    "Briefed senior leadership and partner agencies with situation reports and after-action reviews that drove real change",
     "Selected for Naval Postgraduate School executive education (2025 & 2026) — one of the few in emergency management nationally",
-    "Provide perspective for my agency and its partners through an understanding of relational, organizational, social, and public communication",
-    "Form and foster relationships with federal, state, local, community, and non-governmental partners",
+    "Provided perspective for my agency and its partners through an understanding of relational, organizational, social, and public communication",
+    "Formed and fostered relationships with federal, state, local, community, and non-governmental partners",
     "Trauma-informed, audience-centered, and relationship-focused communicator — from the classroom to the EOC and crisis scene"
   ],
   "sarHighlights": [
@@ -45,7 +45,7 @@
     "Certified in technical rope rescue, swiftwater rescue, and as a Wilderness First Responder — trained to operate where helicopters can't",
     "Officially recognized and commended for service in the field by both the Kentucky House of Representatives and the Kentucky State Senate"
   ],
-  "emergencyContent": "As Section Supervisor at Kentucky Emergency Management, I supervise the drawdown of CSEPP—a complex and long-running federal program coming to a close after 40 years—and serve in the State EOC during declared disasters. In the field, I serve with Wolfe County Search and Rescue as an officer and Wilderness First Responder. I’m certified in rope and swiftwater rescue. That dual role—field responder and EOC coordinator—keeps me directly connected to what’s happening on the ground while positioning me inside the broader coordinated response surrounding it.\n\nKentucky Emergency Management (May 2023 – Present): Section Supervisor overseeing Chemical Stockpile Emergency Preparedness Program (CSEPP) stewardship and drawdown. Serve on State EOC team during activations in multiple roles: Planning Section Chief, Field Operations, Logistics, Public Safety Branch, and ESF5 Emergency Management Support Function. FEMA-funded position requiring high-level coordination with federal, state, and local partners including U.S. Army and National Guard.\n\nWolfe County Search & Rescue (January 2021 – Present): Officer, Treasurer, and Finance Officer for 501(c)(3) nonprofit. Active team member with certifications as Wilderness First Responder, Rope Rescue Technician, and Swiftwater/Moving Water Rescue Technician. FEMA National Incident Management System (ICS) certified. Responded to Eastern Kentucky floods (2022) and numerous search operations.",
+  "emergencyContent": "As Section Supervisor at Kentucky Emergency Management, I supervised the drawdown of CSEPP, a complex and long-running federal program that closed in 2026 after 40 years, and served in the State EOC during declared disasters. In the field, I serve with Wolfe County Search and Rescue as an officer and Wilderness First Responder. I’m certified in rope and swiftwater rescue. That dual role—field responder and EOC coordinator—keeps me directly connected to what’s happening on the ground while positioning me inside the broader coordinated response surrounding it.\n\nKentucky Emergency Management (May 2023 – 2026): Section Supervisor who oversaw Chemical Stockpile Emergency Preparedness Program (CSEPP) stewardship and drawdown. Served on State EOC team during activations in multiple roles: Planning Section Chief, Field Operations, Logistics, Public Safety Branch, and ESF5 Emergency Management Support Function. FEMA-funded position that required high-level coordination with federal, state, and local partners including U.S. Army and National Guard.\n\nWolfe County Search & Rescue (January 2021 – Present): Officer, Treasurer, and Finance Officer for 501(c)(3) nonprofit. Active team member with certifications as Wilderness First Responder, Rope Rescue Technician, and Swiftwater/Moving Water Rescue Technician. FEMA National Incident Management System (ICS) certified. Responded to Eastern Kentucky floods (2022) and numerous search operations.",
   "cseppExplainer": {
     "title": "More information about CSEPP",
     "overview": "The Chemical Stockpile Emergency Preparedness Program (CSEPP) was a joint federal initiative by the U.S. Army, FEMA, states, and local governments to prepare communities near Army chemical weapons stockpiles for potential accidents. Created in 1985 following congressional mandates to destroy aging chemical stockpiles while prioritizing public and environmental safety, it focused on sites like Blue Grass Army Depot in Kentucky. At Blue Grass alone, the stockpile consisted of 101,712 M55 rockets filled with GB (sarin) and VX nerve agents — one of the most chemically hazardous storage sites in the nation.",
@@ -55,7 +55,7 @@
       "Infrastructure Upgrades: Funded alert systems, emergency operations centers, protective equipment (PPE), and medical countermeasures like atropine autoinjectors for hospitals.",
       "Planning and Exercises: Created measurable protection benchmarks, NIMS-compliant plans, risk assessments, and annual full-scale drills across 10 states, 40 counties, and one tribal nation. These efforts ensured \"maximum protection\" for offsite populations and left lasting all-hazards emergency capabilities in host communities."
     ],
-    "personalNote": "I chose to stay with the program until the final funding ended — and it ended with me in my state. The final weapons were destroyed in 2023. The final pieces of agent-contaminated secondary waste were destroyed in 2025. March 31, 2026 marks the end of the program.",
+    "personalNote": "I chose to stay with the program until the final funding ended — and it ended with me in my state. The final weapons were destroyed in 2023. The final pieces of agent-contaminated secondary waste were destroyed in 2025. March 31, 2026 marked the end of the program.",
     "kentuckyImpactIntro": "For many of the ten Kentucky counties in this program, CSEPP wasn't just a federal preparedness initiative — it was access to infrastructure their local tax bases could never have supported on their own. Rural counties like Estill, Jackson, and Rockcastle operate with lean budgets and limited government capacity. Without CSEPP, there would have been no modern Emergency Operations Centers, no upgraded 911 dispatch facilities, no countywide warning siren networks. The program placed these communities on equal footing — and in some cases ahead — of far larger and better-resourced jurisdictions. That transformation doesn't happen by accident. It happens through years of sustained investment, coordination, and trust built between partners at every level.",
     "kentuckyBenefits": [
       "Public Warning Systems: Funded and maintained outdoor warning sirens, tone-alert radios for homes and businesses, and the Integrated Public Alert and Warning System (IPAWS) — giving rural communities the same notification infrastructure as major metropolitan areas.",
@@ -80,10 +80,10 @@
         "zone": "Host / Potentially Affected Zone"
       }
     ],
-    "transitionNote": "As the program winds down following the destruction of the stockpile, these communities keep what CSEPP built. The facilities are theirs. The equipment is theirs. The institutional knowledge and trained personnel are theirs. Current efforts focus on sustaining these capabilities through local and state support — ensuring that what took decades to build doesn't erode in the transition away from federal funding. The final M55 rockets at Blue Grass were destroyed in July 2023. Plant demolition is now underway, with full site closure and property return to the Army expected by 2026 — the same year CSEPP funding concludes.",
-    "partnershipNote": "Throughout this process, my role has been to manage the relationships that kept the program running: local emergency managers, county officials, federal agency representatives, U.S. Army and National Guard personnel, and the contractors responsible for delivery, documentation, and closeout. Being the person who bridges those relationships — who understands what each partner needs and how to move everyone toward the same goal — has defined this work.",
+    "transitionNote": "With the program closed after the destruction of the stockpile, these communities keep what CSEPP built. The facilities are theirs. The equipment is theirs. The institutional knowledge and trained personnel are theirs. Current efforts focus on sustaining these capabilities through local and state support — ensuring that what took decades to build doesn't erode in the transition away from federal funding. The final M55 rockets at Blue Grass were destroyed in July 2023. Plant demolition is now underway, with full site closure and property return to the Army expected by 2026 — the same year CSEPP funding concluded.",
+    "partnershipNote": "Throughout this process, my role was to manage the relationships that kept the program running: local emergency managers, county officials, federal agency representatives, U.S. Army and National Guard personnel, and the contractors responsible for delivery, documentation, and closeout. Being the person who connected those partners — who understands what each partner needs and how to move everyone toward the same goal — defined this work.",
     "newsReference": {
-      "intro": "For a closer look at what counties like Madison stand to lose when the program ends:",
+      "intro": "For a closer look at what counties like Madison faced when the program ended:",
       "label": "A Deep Dive into Life in Madison County After CSEPP Funds Are Gone — How Much Will It Cost?",
       "url": "https://wbontv.com/a-deep-dive-into-life-in-madison-county-after-csepp-funds-are-gone-how-much-will-it-cost/"
     },
@@ -108,7 +108,7 @@
     "websiteLabel": "Visit the WCSART website"
   },
   "educationHighlights": [
-    "17 years in the classroom — nine institutions, four states, and one semester abroad",
+    "17 years in the classroom: ten institutions, six states, and one summer teaching abroad",
     "Critical Thinking Teacher of the Year nominee (2015) and Teacher Who Made a Difference Award winner (2014)",
     "Wrote a chapter on memes and pop culture communication for a book that won the National Communication Association Book Award (2023)",
     "Tapped by Pearson Higher Ed as a Faculty Advisor — built and integrated learning technologies across multiple institutions",
@@ -126,7 +126,7 @@
   "publicServiceContent": "Nonprofit Leadership Experience: Currently serve as Treasurer & Finance Officer for Wolfe County Search & Rescue (501(c)(3)). Previously Executive Director and Interim President of Friends of Hemp (2019–2020), and Communication Director for Hemp Feed Coalition (2019–2020).\n\nCandidate for State Representative: Ran for Kentucky House District 73 in 2022, carrying a campaign grounded in public service, community engagement, and advocacy for the people of the district.",
   "coreSkills": [
     "Strategic Communication & Public Messaging",
-    "Crisis Communication & High-Stakes Briefing",
+    "Crisis Coordination & High-Stakes Briefing",
     "Public Speaking, Facilitation & Training",
     "Emergency Management Leadership & Program Oversight",
     "Incident Planning & Operations (ICS, IAP, EOC, Exercises)",
@@ -145,7 +145,7 @@
       "category": "Communication",
       "items": [
         "Strategic Communication & Public Messaging",
-        "Crisis Communication & High-Stakes Briefing",
+        "Crisis Coordination & High-Stakes Briefing",
         "Public Speaking, Facilitation & Training",
         "Writing & Content Development"
       ]
@@ -331,7 +331,7 @@
       "Lost Person Behavior",
       "Search Management"
     ],
-    "executiveEducation": "Radiological Emergency Preparedness Executive Education Program, Center for Homeland Defense and Security, Naval Postgraduate School (2025)"
+    "executiveEducation": "Radiological Emergency Preparedness Executive Education Program, Center for Homeland Defense and Security, Naval Postgraduate School (Monterey, CA, 2025; Washington, DC, September 2026)"
   },
   "affiliations": [
     "Kentucky Emergency Management",
@@ -397,7 +397,7 @@
       "caption": "Trail running — New Zealand"
     }
   ],
-  "educationDegrees": "Ph.D. Candidacy – Communication Arts & Sciences (Rhetoric, Politics, & Democratic Deliberation), Penn State University; M.A. Communication Studies (Political Communication), San Diego State University; B.A. Speech Communication & Philosophy (Double Major), Pepperdine University",
+  "educationDegrees": "Doctoral Coursework – Communication Arts & Sciences (Rhetoric, Politics, & Democratic Deliberation), Penn State University; M.A. Communication Studies (Political Communication), San Diego State University; B.A. Speech Communication & Philosophy (Double Major), Pepperdine University",
   "executiveEducation": [
     {
       "institution": "Naval Postgraduate School — Center for Homeland Defense and Security (CHDS)",
@@ -405,7 +405,8 @@
       "year": "2025",
       "status": "completed",
       "photo": "d351db61-1de8-42d2-b480-a33143516031~1.jpg",
-      "photoAlt": "CHDS cohort group photo"
+      "photoAlt": "CHDS cohort group photo",
+      "location": "Monterey, CA"
     },
     {
       "institution": "Texas Engineering Extension Service (TEEX)",
@@ -417,16 +418,24 @@
     },
     {
       "institution": "Naval Postgraduate School — Center for Homeland Defense and Security (CHDS)",
-      "program": "Executive Education Program (REP)",
-      "year": "2026",
+      "program": "Executive Education: Radiological Emergency Preparedness (REP)",
+      "year": "September 2026",
+      "status": "completed",
+      "location": "Washington, DC",
+      "url": "https://www.chds.us/c/academic-programs/rep/"
+    },
+    {
+      "institution": "Naval Postgraduate School — Center for Homeland Defense and Security (CHDS)",
+      "program": "Executive Education: Radiological Emergency Preparedness (REP), second session",
+      "year": "February 2027",
       "status": "upcoming",
-      "location": "Washington, DC & Monterey, CA",
+      "location": "Monterey, CA",
       "url": "https://www.chds.us/c/academic-programs/rep/"
     }
   ],
   "educationDegreesList": [
     {
-      "degree": "Ph.D. Candidacy",
+      "degree": "Doctoral Coursework",
       "field": "Communication Arts & Sciences — Rhetoric, Politics & Democratic Deliberation",
       "institution": "Penn State University"
     },
@@ -468,11 +477,11 @@
     {
       "title": "Section Supervisor — Chemical Stockpile Emergency Preparedness Program",
       "org": "Kentucky Emergency Management (KYEM)",
-      "dates": "May 2023 – Present",
+      "dates": "May 2023 – 2026",
       "bullets": [
-        "Full program management of a multi-year, multi-million-dollar federal program (CSEPP stewardship and drawdown); FEMA-funded position",
-        "Serve on State EOC in multiple roles: Planning Section Chief, Field Ops, Logistics, Public Safety Branch, ESF5",
-        "High-level coordination with federal, state, and local partners including U.S. Army and National Guard"
+        "Oversaw program management of CSEPP stewardship and drawdown, a federal program funded at millions of dollars a year; FEMA-funded position",
+        "Served on the State EOC in multiple roles: Planning Section Chief, Field Ops, Logistics, Public Safety Branch, ESF5",
+        "Coordinated at a high level with federal, state, and local partners including the U.S. Army and National Guard"
       ]
     },
     {
@@ -538,7 +547,7 @@
     {
       "title": "Section Supervisor — Chemical Stockpile Emergency Preparedness Program",
       "org": "Kentucky Emergency Management",
-      "dates": "May 2023 – Present",
+      "dates": "May 2023 – 2026",
       "bullets": [
         "Stewardship and drawdown of CSEPP; FEMA-funded position",
         "State EOC team during activations: Planning Section Chief, Field Operations, Logistics, Public Safety Branch, ESF5 Emergency Management Support Function"
@@ -745,10 +754,144 @@
     "San Diego State University",
     "Shanghai University (China)",
     "Eastern Kentucky University",
-    "Midway University"
+    "Midway University",
+    "College of Southern Nevada"
   ],
   "closingQuote": {
     "text": "It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither know victory nor defeat.",
     "attribution": "President Theodore Roosevelt — April 23, 1910, Paris, France"
+  },
+  "featured": {
+    "eyebrow": "Most recent",
+    "title": "CHDS Radiological Emergency Preparedness Executive Education",
+    "body": "In September 2026, I joined leaders from law enforcement, the fire service, emergency management, and private industry, including nuclear and radiological facilities, from across the country in Washington, D.C., for the Radiological Emergency Preparedness Executive Education Program at the Naval Postgraduate School's Center for Homeland Defense and Security. My cohort group is now comparing U.S. radiological emergency preparedness with the systems in Canada, China, and Japan, for presentation in February 2027. I came home with working relationships across every one of those disciplines.",
+    "url": "https://www.chds.us/c/academic-programs/rep/"
+  },
+  "streak": {
+    "start": "2018-10-15",
+    "timeZone": "America/Los_Angeles"
+  },
+  "sections": {
+    "emergency-management": {
+      "icon": "🚨",
+      "title": "Emergency Management / Search & Rescue",
+      "summary": "As Section Supervisor at Kentucky Emergency Management, oversaw program management for the drawdown of a 40-year FEMA program funded at millions of dollars a year — planning, budget, compliance, and closeout — across federal, state, and local partners. Served in the State EOC in five distinct roles during declared disasters: Planning Section Chief, Field Operations, Logistics, Public Safety Branch, and ESF5. In the field, an officer and Wilderness First Responder with Wolfe County Search & Rescue, certified in technical rope and swiftwater rescue.",
+      "tags": [
+        "📷 Photos",
+        "📋 Program Details",
+        "🏅 Commendations"
+      ]
+    },
+    "teaching-communication": {
+      "icon": "🎓",
+      "title": "Communication, Coaching & Teaching",
+      "summary": "Seventeen years teaching communication at ten institutions, from Kentucky community colleges to Shanghai — and coaching hundreds of students through the moments that actually test communication skill: high-stakes presentations, competitive speech, arguments that have to land. Author of the award-winning chapter “Memes as a Communicative Act” in Meme Life (National Communication Association Book Award, 2023).",
+      "tags": [
+        "📷 Photos",
+        "🏫 {teachingCount} Institutions",
+        "🏆 Award-Winning Author"
+      ],
+      "bannerCaption": "17 years shaping communicators"
+    },
+    "school-education": {
+      "icon": "🎓",
+      "title": "School / Education",
+      "summary": "Doctoral coursework in Communication Arts & Sciences at Penn State, a master's in Political Communication from San Diego State, and a B.A. from Pepperdine University. Executive education at the Naval Postgraduate School's Center for Homeland Defense and Security, plus ongoing FEMA and TEEX training in emergency management.",
+      "tags": [
+        "📷 Photos",
+        "🎓 Degrees & Executive Ed"
+      ]
+    },
+    "nonprofit-service": {
+      "icon": "🤝",
+      "title": "Nonprofit & Public Service Leadership",
+      "summary": "Board-level nonprofit leadership as Executive Director of Friends of Hemp and Communications Director for Hemp Feed Coalition, plus ongoing service as Treasurer and Finance Officer for Wolfe County Search & Rescue. Ran for Kentucky State Representative in 2022 on a platform grounded in public service and community engagement.",
+      "tags": [
+        "📋 Leadership Roles",
+        "🗳️ Campaign History"
+      ]
+    },
+    "work-experience": {
+      "icon": "💼",
+      "title": "Work Experience",
+      "summary": "Full work history across emergency management leadership, higher education faculty roles, and nonprofit executive leadership — the complete career timeline, including a detailed additional-work-history archive for the full academic record.",
+      "tags": [
+        "📋 Full Timeline",
+        "➕ Extended History"
+      ]
+    },
+    "publications": {
+      "icon": "📚",
+      "title": "Publications & Scholarship",
+      "summary": "Author of the award-winning chapter “Memes as a Communicative Act” in Meme Life, winner of the National Communication Association Book Award (2023), and research partner on Towers of Rhetoric: Memory and Reinvention (Penn State University Press, 2018).",
+      "tags": [
+        "📚 Full Citations",
+        "🏆 Award-Winning"
+      ]
+    },
+    "awards": {
+      "icon": "🏆",
+      "title": "Awards & Recognition",
+      "summary": "Named an Honorable Kentucky Colonel by Governor Andy Beshear, recognized by Kentucky Emergency Management and Team Kentucky for public service, and a National Communication Association Book Award winner — plus teaching honors including Critical Thinking Teacher of the Year nominee and Teacher Who Made a Difference.",
+      "tags": [
+        "🏅 {awardCount} Honors"
+      ]
+    },
+    "personal-excellence": {
+      "icon": "🏃",
+      "title": "Personal Excellence & Global Perspective",
+      "summary": "Running every single day since October 2018 — {streakYears}-plus years without missing one, a daily discipline that carries into everything I do. Visited 30+ countries across five continents, studied abroad in Florence, and taught in Shanghai as a Visiting Professor.",
+      "tags": [
+        "📷 Photos",
+        "🌍 30+ Countries",
+        "🏃 Daily Streak"
+      ],
+      "streakLead": "Running Every Single Day Since October 2018:",
+      "streakTail": "consecutive days without missing a single one. This daily commitment reflects the discipline, resilience, and iterative refinement process I bring to every aspect of my life and work.",
+      "travel": "<strong>Globally-Minded Traveler:</strong> Visited 30+ countries including Italy, UK, Germany, France, China, Japan, Thailand, Australia, Brazil, New Zealand, and many others. Studied abroad in Florence, Italy and taught in Shanghai, China as Visiting Professor."
+    },
+    "community-service": {
+      "icon": "🌱",
+      "title": "Community Service & Volunteer Work",
+      "summary": "Volunteer running coach and mentor with A Running Start, supporting men in recovery from addiction through structured training, accountability, and community. Also an officer with Wolfe County Search & Rescue since 2021, plus ongoing unhoused outreach, campus mentorship, and committee service.",
+      "tags": [
+        "📷 Photos",
+        "🤝 Volunteer Details"
+      ],
+      "paragraphs": [
+        "My nonprofit and volunteer experience keep my work grounded in service.",
+        "Active volunteer and mentor with <strong>A Running Start</strong> (2021–Present), a Lexington, KY-based nonprofit that supports men in recovery from addiction through running. The program provides structure, accountability, and community for participants — primarily men at the <strong>Hope Center</strong> and <strong>Privett Center</strong> in Lexington — who train together for 5Ks and other races. Running becomes more than exercise: it's a new coping mechanism, a daily discipline, and a pathway back to confidence and community. Coaches are often in long-term recovery themselves, and the program has supported participants in navigating early recovery, rebuilding self-worth, and reintegrating into daily life. Also a founder of campus run clubs at multiple institutions. Advisor to student organizations, judge for business pitch competitions, and extensive committee service across academic and community organizations.",
+        "Member of Wolfe County Search & Rescue since 2021 — contributing not only as a field responder but as an officer, treasurer, and finance officer supporting the organizational health of the team."
+      ],
+      "photoLabel": "A Running Start"
+    },
+    "competencies": {
+      "icon": "⚡",
+      "title": "Core Competencies",
+      "summary": "Strategic communication and crisis coordination, public speaking and coaching, emergency management leadership, team supervision, and federal grants management — the full competency map across two careers.",
+      "tags": [
+        "⚡ Full Skill Map"
+      ]
+    },
+    "certifications": {
+      "icon": "📋",
+      "title": "Certifications & Key Training",
+      "summary": "Federal Grants Management Certificate, FEMA/ICS training (ICS-100 through ICS-400 and beyond), search-and-rescue certifications including Wilderness First Responder and swiftwater/rope rescue, and executive education at the Naval Postgraduate School.",
+      "tags": [
+        "📋 {certCount} Courses & Certifications"
+      ]
+    },
+    "affiliations": {
+      "icon": "🏢",
+      "title": "Professional Affiliations",
+      "summary": "Affiliations spanning emergency management (FEMA, Kentucky Emergency Management), higher education (Penn State, Texas A&M, National Communication Association), search and rescue, and athletics.",
+      "tags": [
+        "🏢 {affiliationCount} Organizations"
+      ]
+    }
+  },
+  "connect": {
+    "heading": "Let's Connect",
+    "body": "If you're building something in emergency management, communications, community engagement, or public affairs — or just want to talk about any of the above — I'd welcome the conversation."
   }
 }

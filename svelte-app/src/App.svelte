@@ -6,6 +6,7 @@
   import ChristmasLights from './ChristmasLights.svelte';
   import MusicPlayer from './MusicPlayer.svelte';
   import data from './data.json';
+  import { computeStreak } from './streak.js';
 
   const profile = {
     name: data.name,
@@ -18,7 +19,6 @@
     statement: data.statement
   };
 
-  const stats = data.stats;
   const emHighlights = data.emHighlights || [];
   const sarHighlights = data.sarHighlights || [];
   const educationHighlights = data.educationHighlights;
@@ -52,11 +52,33 @@
   let additionalWorkOpen = false;
   function toggleAdditionalWork() { additionalWorkOpen = !additionalWorkOpen; }
 
-  // Use local calendar dates (not UTC) so the count rolls over at local midnight
-  const streakStart = new Date(2018, 9, 15); // Oct 15, 2018 in local time (months are 0-indexed)
-  const _now = new Date();
-  const todayLocal = new Date(_now.getFullYear(), _now.getMonth(), _now.getDate());
-  const dayStreak = Math.floor((todayLocal - streakStart) / (1000 * 60 * 60 * 24));
+  // Counted in Tommy's time zone (data.streak), start date = day 1.
+  // Re-checked every minute so an open tab rolls over at his midnight.
+  let streak = computeStreak(data.streak.start, data.streak.timeZone);
+  let streakTimer;
+  onMount(() => {
+    streakTimer = setInterval(() => {
+      streak = computeStreak(data.streak.start, data.streak.timeZone);
+    }, 60000);
+  });
+  onDestroy(() => clearInterval(streakTimer));
+
+  const sec = (id) => data.sections[id];
+
+  // Counts shown on the page come from the lists themselves, so they can't drift.
+  const certCount = (data.certifications ? 2 : 0)
+    + (data.certifications?.femaTraining?.length || 0)
+    + (data.certifications?.sarCertifications?.length || 0);
+  $: tokens = {
+    streakYears: streak.years,
+    streakDays: streak.days.toLocaleString('en-US'),
+    teachingCount: teachingInstitutions.length,
+    awardCount: awards.length,
+    affiliationCount: (affiliations || []).length,
+    certCount
+  };
+  $: fill = (text) => (text || '').replace(/\{(\w+)\}/g, (m, key) => (key in tokens ? tokens[key] : m));
+  $: stats = data.stats.map((st) => ({ ...st, number: fill(st.number) }));
 
   const photos = [
     { src: './images/05-sar-portrait-orange-field.jpg', alt: 'Tommy Adams in orange SAR Arc\'teryx jacket', caption: 'Wolfe County SAR', objectPosition: 'center top' },
@@ -297,6 +319,17 @@
 
   <Stats {stats} />
 
+  {#if data.featured}
+    <section class="featured" aria-labelledby="featured-title">
+      <p class="featured-eyebrow">{data.featured.eyebrow}</p>
+      <h2 class="featured-title" id="featured-title">{data.featured.title}</h2>
+      <p class="featured-body">{data.featured.body}</p>
+      {#if data.featured.url}
+        <a class="featured-link" href={data.featured.url} target="_blank" rel="noopener noreferrer">About the CHDS program →</a>
+      {/if}
+    </section>
+  {/if}
+
   <nav class="roadmap" aria-label="Page sections">
     <a class="roadmap-item" href="#emergency-management">
       <span class="roadmap-icon">🚨</span>
@@ -373,7 +406,7 @@
 
   <div class="content">
 
-    <ResumeSection sectionId="emergency-management" icon="🚨" title="Emergency Management / Search & Rescue" collapsible={true} summary="Section Supervisor at Kentucky Emergency Management, leading full program management for the drawdown of a 40-year, multi-million-dollar FEMA program — planning, budget, compliance, and closeout — across federal, state, and local partners. Serve in the State EOC in five distinct roles during declared disasters — Planning Section Chief, Field Operations, Logistics, Public Safety Branch, and ESF5. In the field, an officer and Wilderness First Responder with Wolfe County Search & Rescue, certified in technical rope and swiftwater rescue." tags={['📷 Photos', '📋 Program Details', '🏅 Commendations']}>
+    <ResumeSection sectionId="emergency-management" icon={sec('emergency-management').icon} title={sec('emergency-management').title} collapsible={true} summary={fill(sec('emergency-management').summary)} tags={sec('emergency-management').tags.map(fill)}>
       <div class="photo-mosaic">
         {#each photos as photo, i}
           <div class="photo-cell" on:click={() => openGallery(photos, i)} role="button" tabindex="0" on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && openGallery(photos, i)}>
@@ -557,10 +590,10 @@
       </div>
     </ResumeSection>
 
-    <ResumeSection sectionId="teaching-communication" icon="🎓" title="Communication, Coaching & Teaching" collapsible={true} summary="Seventeen years teaching communication at ten institutions, from Kentucky community colleges to Shanghai — and coaching hundreds of students through the moments that actually test communication skill: high-stakes presentations, competitive speech, arguments that have to land. Author of the award-winning chapter “Memes as a Communicative Act” in Meme Life (National Communication Association Book Award, 2023)." tags={['📷 Photos', '🏫 10 Institutions', '🏆 Award-Winning Author']}>
+    <ResumeSection sectionId="teaching-communication" icon={sec('teaching-communication').icon} title={sec('teaching-communication').title} collapsible={true} summary={fill(sec('teaching-communication').summary)} tags={sec('teaching-communication').tags.map(fill)}>
       <div class="classroom-banner" on:click={() => openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')}>
         <img src="./images/10-classroom-professor.png" alt="Tommy Adams in the classroom" loading="lazy" />
-        <div class="classroom-banner-caption">17 years shaping communicators</div>
+        <div class="classroom-banner-caption">{sec('teaching-communication').bannerCaption}</div>
       </div>
       {#each paragraphs(data.educationContent) as para}
         <p>{@html para}</p>
@@ -607,7 +640,7 @@
       </div>
     </ResumeSection>
 
-    <ResumeSection sectionId="school-education" icon="🎓" title="School / Education" collapsible={true} summary="Ph.D. candidacy in Communication Arts & Sciences at Penn State, a master's in Political Communication from San Diego State, and a B.A. from Pepperdine University. Executive education at the Naval Postgraduate School's Center for Homeland Defense and Security, plus ongoing FEMA and TEEX training in emergency management." tags={['📷 Photos', '🎓 Degrees & Executive Ed']}>
+    <ResumeSection sectionId="school-education" icon={sec('school-education').icon} title={sec('school-education').title} collapsible={true} summary={fill(sec('school-education').summary)} tags={sec('school-education').tags.map(fill)}>
       <div class="school-ed-list">
         {#each executiveEducation as ed}
           <div class="exec-ed-card" class:upcoming={ed.status === 'upcoming'}>
@@ -655,13 +688,13 @@
       </div>
     </ResumeSection>
 
-    <ResumeSection sectionId="nonprofit-service" icon="🤝" title="Nonprofit & Public Service Leadership" highlights={publicServiceHighlights} collapsible={true} summary="Board-level nonprofit leadership as Executive Director of Friends of Hemp and Communications Director for Hemp Feed Coalition, plus ongoing service as Treasurer and Finance Officer for Wolfe County Search & Rescue. Ran for Kentucky State Representative in 2022 on a platform grounded in public service and community engagement." tags={['📋 Leadership Roles', '🗳️ Campaign History']}>
+    <ResumeSection sectionId="nonprofit-service" icon={sec('nonprofit-service').icon} title={sec('nonprofit-service').title} highlights={publicServiceHighlights} collapsible={true} summary={fill(sec('nonprofit-service').summary)} tags={sec('nonprofit-service').tags.map(fill)}>
       {#each paragraphs(data.publicServiceContent) as para}
         <p>{para}</p>
       {/each}
     </ResumeSection>
 
-    <ResumeSection sectionId="work-experience" icon="💼" title="Work Experience" collapsible={true} summary="Full work history across emergency management leadership, higher education faculty roles, and nonprofit executive leadership — the complete career timeline, including a detailed additional-work-history archive for the full academic record." tags={['📋 Full Timeline', '➕ Extended History']}>
+    <ResumeSection sectionId="work-experience" icon={sec('work-experience').icon} title={sec('work-experience').title} collapsible={true} summary={fill(sec('work-experience').summary)} tags={sec('work-experience').tags.map(fill)}>
       {#each workExperience as job}
         <div class="job">
           <div class="job-header">
@@ -718,7 +751,7 @@
     </ResumeSection>
 
     {#if publications.length > 0}
-    <ResumeSection sectionId="publications" icon="📚" title="Publications & Scholarship" collapsible={true} summary="Author of the award-winning chapter “Memes as a Communicative Act” in Meme Life, winner of the National Communication Association Book Award (2023), and research partner on Towers of Rhetoric: Memory and Reinvention (Penn State University Press, 2018)." tags={['📚 Full Citations', '🏆 Award-Winning']}>
+    <ResumeSection sectionId="publications" icon={sec('publications').icon} title={sec('publications').title} collapsible={true} summary={fill(sec('publications').summary)} tags={sec('publications').tags.map(fill)}>
       <div class="pub-list">
         {#each publications as pub}
           <div class="pub-item">
@@ -748,7 +781,7 @@
     {/if}
 
     {#if awards.length > 0}
-    <ResumeSection sectionId="awards" icon="🏆" title="Awards & Recognition" collapsible={true} summary="Named an Honorable Kentucky Colonel by Governor Andy Beshear, recognized by Kentucky Emergency Management and Team Kentucky for public service, and a National Communication Association Book Award winner — plus teaching honors including Critical Thinking Teacher of the Year nominee and Teacher Who Made a Difference." tags={['🏅 5 Honors']}>
+    <ResumeSection sectionId="awards" icon={sec('awards').icon} title={sec('awards').title} collapsible={true} summary={fill(sec('awards').summary)} tags={sec('awards').tags.map(fill)}>
       <ul class="awards-list">
         {#each awards as award}
           <li>{award}</li>
@@ -757,9 +790,9 @@
     </ResumeSection>
     {/if}
 
-    <ResumeSection sectionId="personal-excellence" icon="🏃" title="Personal Excellence & Global Perspective" collapsible={true} summary="Running every single day since October 2018 — seven-plus years without missing one, a daily discipline that carries into everything I do. Visited 30+ countries across five continents, studied abroad in Florence, and taught in Shanghai as a Visiting Professor." tags={['📷 Photos', '🌍 30+ Countries', '🏃 Daily Streak']}>
-      <p><strong>Running Every Single Day Since October 2018:</strong> <span class="streak-count">{dayStreak.toLocaleString()}</span> consecutive days without missing a single one. This daily commitment reflects the discipline, resilience, and iterative refinement process I bring to every aspect of my life and work. {#if strava}<a class="strava-link" href={strava} target="_blank" rel="noopener noreferrer">Follow on Strava →</a>{/if}</p>
-      <p><strong>Globally-Minded Traveler:</strong> Visited 30+ countries including Italy, UK, Germany, France, China, Japan, Thailand, Australia, Brazil, New Zealand, and many others. Studied abroad in Florence, Italy and taught in Shanghai, China as Visiting Professor.</p>
+    <ResumeSection sectionId="personal-excellence" icon={sec('personal-excellence').icon} title={sec('personal-excellence').title} collapsible={true} summary={fill(sec('personal-excellence').summary)} tags={sec('personal-excellence').tags.map(fill)}>
+      <p><strong>{sec('personal-excellence').streakLead}</strong> <span class="streak-count">{tokens.streakDays}</span> {sec('personal-excellence').streakTail} {#if strava}<a class="strava-link" href={strava} target="_blank" rel="noopener noreferrer">Follow on Strava →</a>{/if}</p>
+      <p>{@html sec('personal-excellence').travel}</p>
       {#if runningPhotos.length > 0}
         <div class="running-banner-list">
           {#each runningPhotos as photo, i}
@@ -774,12 +807,12 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection sectionId="community-service" icon="🌱" title="Community Service & Volunteer Work" collapsible={true} summary="Volunteer running coach and mentor with A Running Start, supporting men in recovery from addiction through structured training, accountability, and community. Also an officer with Wolfe County Search & Rescue since 2021, plus ongoing unhoused outreach, campus mentorship, and committee service." tags={['📷 Photos', '🤝 Volunteer Details']}>
-      <p>My nonprofit and volunteer experience keep my work grounded in service.</p>
-      <p>Active volunteer and mentor with <strong>A Running Start</strong> (2021–Present), a Lexington, KY-based nonprofit that supports men in recovery from addiction through running. The program provides structure, accountability, and community for participants — primarily men at the <strong>Hope Center</strong> and <strong>Privett Center</strong> in Lexington — who train together for 5Ks and other races. Running becomes more than exercise: it's a new coping mechanism, a daily discipline, and a pathway back to confidence and community. Coaches are often in long-term recovery themselves, and the program has supported participants in navigating early recovery, rebuilding self-worth, and reintegrating into daily life. Also a founder of campus run clubs at multiple institutions. Advisor to student organizations, judge for business pitch competitions, and extensive committee service across academic and community organizations.</p>
-      <p>Member of Wolfe County Search & Rescue since 2021 — contributing not only as a field responder but as an officer, treasurer, and finance officer supporting the organizational health of the team.</p>
+    <ResumeSection sectionId="community-service" icon={sec('community-service').icon} title={sec('community-service').title} collapsible={true} summary={fill(sec('community-service').summary)} tags={sec('community-service').tags.map(fill)}>
+      {#each sec('community-service').paragraphs as para}
+        <p>{@html para}</p>
+      {/each}
       {#if runningStartPhotos.length > 0}
-        <div class="running-start-label">A Running Start</div>
+        <div class="running-start-label">{sec('community-service').photoLabel}</div>
         <div class="thumb-row">
           {#each runningStartPhotos as photo, i}
             <div class="thumb-cell" on:click={() => openGallery(runningStartGallery, i)} role="button" tabindex="0" on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && openGallery(runningStartGallery, i)}>
@@ -791,10 +824,10 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection sectionId="competencies" icon="⚡" title="Core Competencies" skillCategories={coreSkillCategories} skills={coreSkills} collapsible={true} summary="Strategic and crisis communication, public speaking and coaching, emergency management leadership, team supervision, and federal grants management — the full competency map across two careers." tags={['⚡ Full Skill Map']}>
+    <ResumeSection sectionId="competencies" icon={sec('competencies').icon} title={sec('competencies').title} skillCategories={coreSkillCategories} skills={coreSkills} collapsible={true} summary={fill(sec('competencies').summary)} tags={sec('competencies').tags.map(fill)}>
     </ResumeSection>
 
-    <ResumeSection sectionId="certifications" icon="📋" title="Certifications & Key Training" collapsible={true} summary="Federal Grants Management Certificate, FEMA/ICS training (ICS-100 through ICS-400 and beyond), search-and-rescue certifications including Wilderness First Responder and swiftwater/rope rescue, and executive education at the Naval Postgraduate School." tags={['📋 44 Courses & Certifications']}>
+    <ResumeSection sectionId="certifications" icon={sec('certifications').icon} title={sec('certifications').title} collapsible={true} summary={fill(sec('certifications').summary)} tags={sec('certifications').tags.map(fill)}>
       {#if data.certifications}
         <div class="cert-section">
           <h4>Federal Grants Management Certificate</h4>
@@ -823,15 +856,15 @@
       {/if}
     </ResumeSection>
 
-    <ResumeSection sectionId="affiliations" icon="🏢" title="Professional Affiliations" orgs={affiliations} collapsible={true} summary="Affiliations spanning emergency management (FEMA, Kentucky Emergency Management), higher education (Penn State, Texas A&M, National Communication Association), search and rescue, and athletics." tags={['🏢 19 Organizations']}>
+    <ResumeSection sectionId="affiliations" icon={sec('affiliations').icon} title={sec('affiliations').title} orgs={affiliations} collapsible={true} summary={fill(sec('affiliations').summary)} tags={sec('affiliations').tags.map(fill)}>
     </ResumeSection>
 
   </div>
 
   <div class="connect-section">
     <div class="connect-inner">
-      <h2 class="connect-heading">Let's Connect</h2>
-      <p class="connect-body">If you're building something in emergency management, communications, community engagement, or public affairs — or just want to talk about any of the above — I'd welcome the conversation.</p>
+      <h2 class="connect-heading">{data.connect.heading}</h2>
+      <p class="connect-body">{data.connect.body}</p>
       <div class="connect-links">
         {#if profile.linkedin}
           <a class="connect-btn connect-btn-primary" href={profile.linkedin} target="_blank" rel="noopener noreferrer">
@@ -874,6 +907,39 @@
 <MusicPlayer artist="Tophouse" />
 
 <style>
+  /* ── Featured (most recent) ─────────────────────────── */
+  .featured {
+    background: #faf8f5;
+    border-left: 4px solid #c8a45c;
+    padding: 28px 36px 30px;
+    border-bottom: 1px solid #e8e2d8;
+  }
+  .featured-eyebrow {
+    margin: 0 0 6px;
+    font-size: 0.72em;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #7a5f24;
+    font-weight: 600;
+  }
+  .featured-title {
+    margin: 0 0 12px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.3em;
+    line-height: 1.3;
+    color: #1e3a2f;
+  }
+  .featured-body {
+    margin: 0 0 12px;
+    max-width: 70ch;
+    line-height: 1.7;
+    color: #333;
+  }
+  .featured-link { color: #2d5a47; font-weight: 600; font-size: 0.9em; }
+  @media (max-width: 600px) {
+    .featured { padding: 22px 18px 24px; }
+  }
+
   /* ── Global focus ring ───────────────────────────────── */
   :global(:focus-visible) {
     outline: 2px solid #2d5a47;

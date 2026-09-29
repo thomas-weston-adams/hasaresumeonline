@@ -4,7 +4,7 @@
   export let src = './audio/Song for Walking.mp3';
   export let title = 'Song for Walking';
   export let artist = '';
-  export let autoplay = true;
+  export let autoplay = false;
   export let initialVolume = 0.18;
 
   let audio;
@@ -14,6 +14,8 @@
   let volume = initialVolume;
   let dragging = false;
   let progressBar;
+  // Starts as a small button; the full bar only opens when a visitor asks for it.
+  let expanded = false;
 
   onMount(() => {
     audio = new Audio(src);
@@ -71,6 +73,18 @@
   $: progress = duration ? (currentTime / duration) * 100 : 0;
 </script>
 
+{#if !expanded}
+  <button class="mini-player" class:is-playing={playing} on:click={() => (expanded = true)}
+    aria-expanded="false" aria-label="Open music player: {title}" title="{title}">
+    {#if playing}
+      <span class="playing-indicator" aria-hidden="true"><span></span><span></span><span></span></span>
+    {:else}
+      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
+        <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/>
+      </svg>
+    {/if}
+  </button>
+{:else}
 <div class="music-player" role="region" aria-label="Music player">
   <button class="play-btn" on:click={togglePlay} aria-label={playing ? 'Pause' : 'Play'}>
     {#if playing}
@@ -132,9 +146,44 @@
       class="volume-slider"
     />
   </div>
+  <button class="collapse-btn" on:click={() => (expanded = false)} aria-expanded="true" aria-label="Minimize music player">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14" stroke-linecap="round" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </button>
 </div>
+{/if}
 
 <style>
+  .mini-player {
+    position: fixed;
+    bottom: 24px;
+    left: 16px;
+    z-index: 200;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(200, 164, 92, 0.45);
+    background: rgba(18, 36, 26, 0.72);
+    color: #c8a45c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.7;
+    transition: opacity 0.2s, background 0.2s;
+  }
+  .mini-player:hover, .mini-player:focus-visible, .mini-player.is-playing { opacity: 1; background: #12241a; }
+  .collapse-btn {
+    background: none;
+    border: none;
+    color: #c8a45c;
+    cursor: pointer;
+    padding: 6px;
+    flex-shrink: 0;
+    display: flex;
+  }
   .music-player {
     position: fixed;
     bottom: 0;
@@ -144,7 +193,8 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 9px 20px;
+    /* right padding keeps the controls clear of the accessibility buttons */
+    padding: 9px 124px 9px 20px;
     background: #12241a;
     border-top: 1px solid rgba(200, 164, 92, 0.25);
     color: #e8dfc8;
@@ -209,7 +259,7 @@
   }
 
   .playing-indicator {
-    display: flex;
+    display: inline-flex;
     align-items: flex-end;
     gap: 2px;
     height: 12px;
@@ -290,7 +340,8 @@
   }
 
   @media (max-width: 500px) {
-    .music-player { gap: 8px; padding: 8px 14px; }
+    .music-player { gap: 8px; padding: 8px 130px 8px 14px; }
+    .time { display: none; }
     .track-title { max-width: 100px; }
     .volume-wrap { display: none; }
   }
@@ -300,6 +351,11 @@
     background: rgba(12, 2, 2, 0.96);
     border-top-color: rgba(255, 45, 45, 0.25);
     color: #ffcccc;
+  }
+  :global(body.upside-down) .mini-player {
+    background: rgba(12, 2, 2, 0.9);
+    border-color: rgba(255, 45, 45, 0.4);
+    color: #ff6b6b;
   }
   :global(body.upside-down) .play-btn {
     border-color: rgba(255, 45, 45, 0.4);
