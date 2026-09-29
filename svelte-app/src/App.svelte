@@ -335,6 +335,10 @@
       <span class="roadmap-icon">🚨</span>
       <span class="roadmap-label">Emergency Management</span>
     </a>
+    <a class="roadmap-item" href="#training-exercise">
+      <span class="roadmap-icon">🧭</span>
+      <span class="roadmap-label">Training & Exercise</span>
+    </a>
     <a class="roadmap-item" href="#teaching-communication">
       <span class="roadmap-icon">🎓</span>
       <span class="roadmap-label">Communication</span>
@@ -589,6 +593,24 @@
         <div class="sar-banner-caption">Cliff rescue operations — Red River Gorge area</div>
       </div>
     </ResumeSection>
+
+    {#if data.sections['training-exercise']}
+    <ResumeSection sectionId="training-exercise" icon={sec('training-exercise').icon} title={sec('training-exercise').title} collapsible={true} summary={fill(sec('training-exercise').summary)} tags={sec('training-exercise').tags.map(fill)}>
+      <p>{sec('training-exercise').intro}</p>
+      {#each sec('training-exercise').groups as group}
+        <h4 class="training-group-heading">{group.heading}</h4>
+        <ul class="em-bullets">
+          {#each group.items as item}
+            <li>{item}</li>
+          {/each}
+        </ul>
+      {/each}
+      <h4 class="training-group-heading">{sec('training-exercise').keepTrainingHeading}</h4>
+      {#each sec('training-exercise').keepTraining as para}
+        <p>{para}</p>
+      {/each}
+    </ResumeSection>
+    {/if}
 
     <ResumeSection sectionId="teaching-communication" icon={sec('teaching-communication').icon} title={sec('teaching-communication').title} collapsible={true} summary={fill(sec('teaching-communication').summary)} tags={sec('teaching-communication').tags.map(fill)}>
       <div class="classroom-banner" on:click={() => openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && openLightbox('./images/10-classroom-professor.png', 'Tommy Adams in the classroom')}>
@@ -907,6 +929,12 @@
 <MusicPlayer artist="Tophouse" />
 
 <style>
+  .training-group-heading {
+    margin: 22px 0 6px;
+    font-size: 0.95em;
+    color: #1e3a2f;
+  }
+
   /* ── Featured (most recent) ─────────────────────────── */
   .featured {
     background: #faf8f5;

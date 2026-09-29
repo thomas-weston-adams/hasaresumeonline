@@ -109,7 +109,9 @@
   },
   "educationHighlights": [
     "17 years in the classroom: ten institutions, six states, and one summer teaching abroad",
-    "Critical Thinking Teacher of the Year nominee (2015) and Teacher Who Made a Difference Award winner (2014)",
+    "Student-nominated for Critical Thinking Teacher of the Year (Eastern Kentucky University, 2014–2015) and A Teacher Who Made a Difference (University of Kentucky College of Education, 2014)",
+    "Designed courses for non-traditional and first-generation students, including a College of Southern Nevada pilot whose sections met at 10:30 p.m. and midnight for students working shifts",
+    "Built a communication-technology course from scratch at Texas A&M around the Adobe Creative Suite",
     "Wrote a chapter on memes and pop culture communication for a book that won the National Communication Association Book Award (2023)",
     "Tapped by Pearson Higher Ed as a Faculty Advisor — built and integrated learning technologies across multiple institutions",
     "Qualified for nationals twice in competitive speech and debate — then spent a career teaching others to do the same",
@@ -764,7 +766,7 @@
   "featured": {
     "eyebrow": "Most recent",
     "title": "CHDS Radiological Emergency Preparedness Executive Education",
-    "body": "In September 2026, I joined leaders from law enforcement, the fire service, emergency management, and private industry, including nuclear and radiological facilities, from across the country in Potomac, Maryland, for the Radiological Emergency Preparedness Executive Education Program at the Naval Postgraduate School's Center for Homeland Defense and Security. My cohort group is now comparing U.S. radiological emergency preparedness with the systems in Canada, China, and Japan, for presentation in February 2027. I came home with working relationships across every one of those disciplines.",
+    "body": "In September 2026, I joined leaders from law enforcement, the fire service, emergency management, and private industry, including nuclear and radiological facilities, from across the country in the Washington, D.C. area for the Radiological Emergency Preparedness Executive Education Program at the Naval Postgraduate School's Center for Homeland Defense and Security. My cohort group is now comparing U.S. radiological emergency preparedness with the systems in Canada, China, and Japan, for presentation in February 2027. We toured the Nuclear Regulatory Commission and the Pentagon, and people who work in Washington came to us. I came home with working relationships across every one of those disciplines.",
     "url": "https://www.chds.us/c/academic-programs/rep/"
   },
   "streak": {
@@ -780,6 +782,60 @@
         "📷 Photos",
         "📋 Program Details",
         "🏅 Commendations"
+      ]
+    },
+    "training-exercise": {
+      "icon": "🧭",
+      "title": "Training & Exercise",
+      "summary": "I design, deliver, and evaluate training and exercises: writing to learning objectives, applying adult learning principles, and building exercises to HSEEP from planning conference through after-action report and improvement plan. I also keep training, with Wolfe County Search & Rescue, alongside men in recovery, and with the Center for Homeland Defense and Security.",
+      "tags": [
+        "🎯 HSEEP",
+        "📋 Learning Objectives",
+        "🔁 Improvement Plans"
+      ],
+      "intro": "I design, deliver, and evaluate training and exercises. For seventeen years I taught communication across ten colleges and universities, where writing to learning objectives, applying adult learning principles, and assessing whether people could actually do the thing afterward was the daily work. At Kentucky Emergency Management, a Training and Exercise Supervisor reported to me, and the multi-year training and exercise plan for a ten-county federal preparedness program was my section’s product.",
+      "groups": [
+        {
+          "heading": "Training and exercise development, conduct, and evaluation",
+          "items": [
+            "Oversaw the development of exercises built to HSEEP across the ten-county footprint, from planning conference through conduct, evaluation, after-action report, and an improvement plan with corrective actions tracked to closure.",
+            "Together with my Training and Exercise Supervisor, crafted the final full-scale exercise of a forty-year federal program.",
+            "Served as a trusted agent, creating and crafting inject language across multiple exercises.",
+            "My section converted a chemical-specific training portfolio into an all-hazards portfolio so county capability would outlive the federal program that funded it. That conversion was validated when a train derailment struck the footprint and counties ran the response on training built for another hazard entirely."
+          ]
+        },
+        {
+          "heading": "Project management",
+          "items": [
+            "Carried a forty-year program to closeout on schedule across ten counties, with capability transferred rather than lost.",
+            "Held budget and vendor authority, including contracting an advertising firm to build and run the program’s closeout communications campaign."
+          ]
+        },
+        {
+          "heading": "Coordination with partners",
+          "items": [
+            "Brought ten independent local governments to the same decisions on the same timeline through negotiation and standing relationships rather than authority."
+          ]
+        },
+        {
+          "heading": "Operational guidelines, data, and reporting",
+          "items": [
+            "Developed and revised the plans, standard operating procedures, job aids, and policies governing a ten-county preparedness program.",
+            "Situation reports, corrective action tracking, and a statewide reporting process redesigned for all 120 Kentucky counties."
+          ]
+        },
+        {
+          "heading": "Equity and inclusive participation",
+          "items": [
+            "Led my section’s expansion of written translation and telephone interpretation for emergencies, declared disasters, EOC activations, and alert situations."
+          ]
+        }
+      ],
+      "keepTrainingHeading": "Where I keep training",
+      "keepTraining": [
+        "I train with Wolfe County Search and Rescue. I train alongside men in recovery with A Running Start. I train every day to learn a new language and to keep my running streak going. I just came back from a week in the Washington, D.C. area training with the Center for Homeland Defense and Security.",
+        "I always bring what I learn back to my team and my connections, and I don’t hesitate to put new lessons into my coaching.",
+        "I have trained people of all ages to communicate better, in the classroom and beyond it through speaking engagements and mentoring. At Texas A&M, every student I nominated placed in the public speaking competition: first place, second place, and runner-up (2017)."
       ]
     },
     "teaching-communication": {
