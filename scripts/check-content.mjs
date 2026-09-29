@@ -27,7 +27,7 @@ const banned = [
   [/\bintersection\b|\bbridg(e|es|ing)\b/i, 'Style: no intersection / bridge metaphors'],
   [/\b(senior leader|director-level)\b/i, 'Never self-label senior leader / director-level'],
   [/passionate, lifelong/i, 'Old tagline is retired'],
-  [/\bon (the )?state eoc\b/i, 'Served IN the EOC: it is a place, not a team'],
+  [/\bon (the |an? )?(state )?eoc\b(?! team)/i, 'Serve in the EOC or on an EOC team, never "on the EOC"'],
   [/private sector/i, 'Portland and similar roles are public sector; that line was cut']
 ];
 
