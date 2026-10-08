@@ -37,4 +37,4 @@ Nothing parses a Word doc, PDF, or Google Doc. The old hourly Google Doc sync wa
 
 ## Running streak
 
-`data.json → streak` holds the start date (`2018-10-15`, which counts as day 1) and the time zone (`America/Los_Angeles`). The count is computed live in that zone, so every visitor sees the same number. Tokens like `{streakYears}` and `{teachingCount}` in any section text are filled in from the data, so counts can't drift.
+`data.json → streak` holds the start date (`2018-10-15`, which counts as day 1). The count is computed live in each visitor's own time zone, so it rolls over at their midnight. Tokens like `{streakYears}` and `{teachingCount}` in any section text are filled in from the data, so counts can't drift.

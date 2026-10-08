@@ -1,4 +1,6 @@
 <script>
+  import Cited from './Cited.svelte';
+
   export let icon = '';
   export let title = '';
   export let summary = '';     // teaser shown when collapsed — a short paragraph, not just one line
@@ -38,7 +40,7 @@
   </div>
 
   {#if collapsible && !open && summary}
-    <p class="section-summary">{summary}</p>
+    <p class="section-summary"><Cited text={summary} /></p>
     {#if tags.length > 0}
       <div class="section-tags">
         {#each tags as tag}
