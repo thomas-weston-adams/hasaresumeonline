@@ -1,6 +1,7 @@
 <script>
   // Renders text, turning any phrase listed in data.json → citations into a
   // dotted-underline reference whose source note shows on hover, focus, or tap.
+  // A citation is a note string, or { note, url, label } to link the source.
   import data from './data.json';
 
   export let text = '';
@@ -11,6 +12,11 @@
   const pattern = phrases.length ? new RegExp(`(${phrases.map(escape).join('|')})`) : null;
 
   $: parts = pattern ? text.split(pattern) : [text];
+
+  const cite = phrase => {
+    const c = citations[phrase];
+    return typeof c === 'string' ? { note: c } : c;
+  };
 
   let openIndex = -1;
   const toggle = i => (openIndex = openIndex === i ? -1 : i);
@@ -38,8 +44,8 @@
       on:focus={place}
       on:click|stopPropagation={e => (place(e), toggle(i))}
       on:keydown={e => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), toggle(i))}
-      on:blur={() => openIndex === i && (openIndex = -1)}
-    >{part}<span class="cite-note" role="tooltip">{citations[part]}</span></span>{:else}{part}{/if}{/each}
+      on:focusout={e => !e.currentTarget.contains(e.relatedTarget) && openIndex === i && (openIndex = -1)}
+    >{part}<span class="cite-note" role="tooltip">{cite(part).note}{#if cite(part).url} <a href={cite(part).url} target="_blank" rel="noopener noreferrer" on:click|stopPropagation>{cite(part).label || 'Source'} ↗</a>{/if}</span></span>{:else}{part}{/if}{/each}
 
 <style>
   .cite {
@@ -76,8 +82,27 @@
     white-space: normal;
   }
 
+  /* Invisible strip over the gap so the pointer can travel up to the link. */
+  .cite-note::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 10px;
+  }
+
+  .cite-note a {
+    display: block;
+    margin-top: 6px;
+    color: #b8e0cf;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
   .cite:hover .cite-note,
-  .cite:focus .cite-note,
+  .cite:focus-within .cite-note,
   .cite.open .cite-note {
     display: block;
   }

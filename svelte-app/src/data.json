@@ -942,6 +942,10 @@
     "body": "If you're building something in emergency management, communications, community engagement, or public affairs — or just want to talk about any of the above — I'd welcome the conversation."
   },
   "citations": {
-    "$16.5 million": "$16,547,650: FY 2024 CSEPP cooperative agreement, Commonwealth of Kentucky. FY 2023 was $15,483,386."
+    "$16.5 million": {
+      "note": "$16,547,650: FY 2024 CSEPP cooperative agreement, Commonwealth of Kentucky.",
+      "url": "https://www.dhs.gov/sites/default/files/2025-09/25_0903_FEMA_2024-OS_C293IA_R045_4101_R_Award_Package_FY2024.pdf",
+      "label": "FEMA FY 2024 award package (PDF)"
+    }
   }
 }
