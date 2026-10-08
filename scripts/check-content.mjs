@@ -63,9 +63,9 @@ for (const list of ['workExperience', 'additionalWorkHistory']) {
   }
 }
 
-// The streak counter needs a real start date and zone.
-if (!/^\d{4}-\d{2}-\d{2}$/.test(data.streak?.start || '') || !data.streak?.timeZone) {
-  problems.push('streak: needs start (YYYY-MM-DD) and timeZone');
+// The streak counter needs a real start date (counted in the viewer's zone).
+if (!/^\d{4}-\d{2}-\d{2}$/.test(data.streak?.start || '')) {
+  problems.push('streak: needs start (YYYY-MM-DD)');
 }
 
 if (problems.length) {

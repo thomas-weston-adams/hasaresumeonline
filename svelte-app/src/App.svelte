@@ -52,13 +52,13 @@
   let additionalWorkOpen = false;
   function toggleAdditionalWork() { additionalWorkOpen = !additionalWorkOpen; }
 
-  // Counted in Tommy's time zone (data.streak), start date = day 1.
+  // Counted in the viewer's local time zone, start date = day 1.
   // Re-checked every minute so an open tab rolls over at his midnight.
-  let streak = computeStreak(data.streak.start, data.streak.timeZone);
+  let streak = computeStreak(data.streak.start);
   let streakTimer;
   onMount(() => {
     streakTimer = setInterval(() => {
-      streak = computeStreak(data.streak.start, data.streak.timeZone);
+      streak = computeStreak(data.streak.start);
     }, 60000);
   });
   onDestroy(() => clearInterval(streakTimer));

@@ -1,8 +1,8 @@
-// Running streak, counted in the runner's own time zone so every visitor
-// sees the same number no matter where they are.
+// Running streak, counted on the viewer's own calendar: with no timeZone,
+// Intl uses the zone of whoever is looking at the page.
 //
-// The start date is day 1. On 2026-09-29 (America/Los_Angeles) a streak
-// that began 2018-10-15 reads 2,907 days and 7 whole years.
+// The start date is day 1. On 2026-09-29 a streak that began 2018-10-15
+// reads 2,907 days and 7 whole years.
 
 function calendarDateIn(timeZone, when) {
   // en-CA formats as YYYY-MM-DD
@@ -12,7 +12,7 @@ function calendarDateIn(timeZone, when) {
   return { y, m, d };
 }
 
-export function computeStreak(startISO, timeZone, now = new Date()) {
+export function computeStreak(startISO, timeZone = undefined, now = new Date()) {
   const [sy, sm, sd] = startISO.split('-').map(Number);
   const { y, m, d } = calendarDateIn(timeZone, now);
 
