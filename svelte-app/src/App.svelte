@@ -355,13 +355,9 @@
       <span class="roadmap-icon">💼</span>
       <span class="roadmap-label">Work Experience</span>
     </a>
-    <a class="roadmap-item" href="#publications">
-      <span class="roadmap-icon">📚</span>
-      <span class="roadmap-label">Publications</span>
-    </a>
-    <a class="roadmap-item" href="#awards">
+    <a class="roadmap-item" href="#publications-awards">
       <span class="roadmap-icon">🏆</span>
-      <span class="roadmap-label">Awards</span>
+      <span class="roadmap-label">Publications & Awards</span>
     </a>
     <a class="roadmap-item" href="#personal-excellence">
       <span class="roadmap-icon">🏃</span>
@@ -772,8 +768,8 @@
       </div>
     </ResumeSection>
 
-    {#if publications.length > 0}
-    <ResumeSection sectionId="publications" icon={sec('publications').icon} title={sec('publications').title} collapsible={true} summary={fill(sec('publications').summary)} tags={sec('publications').tags.map(fill)}>
+    {#if publications.length > 0 || awards.length > 0}
+    <ResumeSection sectionId="publications-awards" icon={sec('publications-awards').icon} title={sec('publications-awards').title} collapsible={true} summary={fill(sec('publications-awards').summary)} tags={sec('publications-awards').tags.map(fill)}>
       <div class="pub-list">
         {#each publications as pub}
           <div class="pub-item">
@@ -799,11 +795,6 @@
           </div>
         {/each}
       </div>
-    </ResumeSection>
-    {/if}
-
-    {#if awards.length > 0}
-    <ResumeSection sectionId="awards" icon={sec('awards').icon} title={sec('awards').title} collapsible={true} summary={fill(sec('awards').summary)} tags={sec('awards').tags.map(fill)}>
       <ul class="awards-list">
         {#each awards as award}
           <li>{award}</li>
@@ -1020,9 +1011,13 @@
   .roadmap {
     background: #1e3a2f;
     padding: 16px 24px;
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 8px;
+    /* Flex, not grid, so a short last row centers under the full one. */
+    --cols: 6;
+    --gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--gap);
     border-bottom: 3px solid #4a7c6b;
   }
 
@@ -1031,6 +1026,8 @@
     align-items: center;
     justify-content: center;
     gap: 6px;
+    flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols));
+    box-sizing: border-box;
     min-width: 0;
     background: rgba(255, 255, 255, 0.07);
     border: 1px solid rgba(255, 255, 255, 0.14);
@@ -1060,25 +1057,24 @@
     line-height: 1;
   }
 
-  /* Medium desktop: 4-per-row */
-  @media (max-width: 1100px) and (min-width: 769px) {
-    .roadmap {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      padding: 14px 20px;
-      gap: 7px;
-    }
+  /* Narrow desktop: still 6-per-row, icon above label so long words fit */
+  @media (max-width: 900px) and (min-width: 769px) {
     .roadmap-item {
-      font-size: 0.78em;
-      padding: 7px 10px;
+      flex-direction: column;
+      gap: 3px;
+      padding: 7px 4px;
+    }
+    .roadmap-label {
+      line-height: 1.2;
     }
   }
 
   /* Tablet: 3-per-row */
   @media (max-width: 768px) and (min-width: 601px) {
     .roadmap {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      --cols: 3;
+      --gap: 7px;
       padding: 14px 20px;
-      gap: 7px;
     }
     .roadmap-item {
       font-size: 0.78em;
@@ -1089,9 +1085,9 @@
   /* Mobile: 3-per-row, icon above label */
   @media (max-width: 600px) {
     .roadmap {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      --cols: 3;
+      --gap: 6px;
       padding: 12px 14px;
-      gap: 6px;
     }
     .roadmap-item {
       flex-direction: column;
@@ -2061,6 +2057,10 @@
     display: flex;
     flex-direction: column;
     gap: 18px;
+  }
+
+  .pub-list + .awards-list {
+    margin-top: 28px;
   }
 
   .pub-item {

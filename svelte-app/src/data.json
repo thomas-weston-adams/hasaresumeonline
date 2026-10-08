@@ -876,20 +876,12 @@
         "➕ Extended History"
       ]
     },
-    "publications": {
-      "icon": "📚",
-      "title": "Publications & Scholarship",
-      "summary": "Author of the award-winning chapter “Memes as a Communicative Act” in Meme Life, winner of the National Communication Association Book Award (2023), and research partner on Towers of Rhetoric: Memory and Reinvention (Penn State University Press, 2018).",
+    "publications-awards": {
+      "icon": "🏆",
+      "title": "Publications & Awards",
+      "summary": "Author of the award-winning chapter “Memes as a Communicative Act” in Meme Life, winner of the National Communication Association Book Award (2023), and research partner on Towers of Rhetoric: Memory and Reinvention (Penn State University Press, 2018). Named an Honorable Kentucky Colonel by Governor Andy Beshear and recognized by Kentucky Emergency Management and Team Kentucky for public service, plus teaching honors including Critical Thinking Teacher of the Year nominee and Teacher Who Made a Difference.",
       "tags": [
         "📚 Full Citations",
-        "🏆 Award-Winning"
-      ]
-    },
-    "awards": {
-      "icon": "🏆",
-      "title": "Awards & Recognition",
-      "summary": "Named an Honorable Kentucky Colonel by Governor Andy Beshear, recognized by Kentucky Emergency Management and Team Kentucky for public service, and a National Communication Association Book Award winner — plus teaching honors including Critical Thinking Teacher of the Year nominee and Teacher Who Made a Difference.",
-      "tags": [
         "🏅 {awardCount} Honors"
       ]
     },
