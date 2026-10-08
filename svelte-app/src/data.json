@@ -25,8 +25,8 @@
     }
   ],
   "emHighlights": [
-    "Served in the State EOC as Planning Section Chief and Situation Unit Leader, and helped in Public Safety Branch, Logistics, and Field Operations; trained for each of those roles, including TEEX MGT-314 Enhanced All-Hazards Incident Management/Unified Command",
-    "Oversaw program management for the drawdown of a 40-year FEMA program funded at up to $16.5 million a year, with full federal, state, and local compliance (2 CFR 200)",
+    "Served in the State EOC as Planning Section Chief and Situation Unit Leader, and in the Public Safety Branch, Logistics, and Field Operations; trained for each of those roles, including TEEX MGT-314 Enhanced All-Hazards Incident Management/Unified Command",
+    "Supervised the CSEPP section overseeing the statewide drawdown of a 40-year FEMA program funded at up to $16.5 million a year, kept in full federal, state, and local compliance (2 CFR 200)",
     "Completed TEEX MGT314 (April 2026) — trained in writing, updating, and implementing all-hazards emergency plans and site-specific response plans",
     "Supervised the coordination of multi-agency exercises and responses with law enforcement, fire, EMS, public health, military, and local and federal partners",
     "Oversaw development of the program's federal exercises, from tabletop to full-scale, and measured what worked",
@@ -45,7 +45,7 @@
     "Certified in technical rope rescue, swiftwater rescue, and as a Wilderness First Responder — trained to operate where helicopters can't",
     "Officially recognized and commended for service in the field by both the Kentucky House of Representatives and the Kentucky State Senate"
   ],
-  "emergencyContent": "As Section Supervisor at Kentucky Emergency Management, I supervised the drawdown of CSEPP, a complex and long-running federal program that closed in 2026 after 40 years, and served in the State EOC during declared disasters. In the field, I serve with Wolfe County Search and Rescue as an officer and Wilderness First Responder. I’m certified in rope and swiftwater rescue. That dual role—field responder and EOC coordinator—keeps me directly connected to what’s happening on the ground while positioning me inside the broader coordinated response surrounding it.\n\nKentucky Emergency Management (May 2023 – 2026): Section Supervisor who oversaw Chemical Stockpile Emergency Preparedness Program (CSEPP) stewardship and drawdown. Served in the State EOC during activations as Planning Section Chief and Situation Unit Leader, and helped in Public Safety Branch, Logistics, and Field Operations. My CSEPP office sat right over the State EOC, and when emergencies arose, I went down to activate. FEMA-funded position that required high-level coordination with federal, state, and local partners including U.S. Army and National Guard.\n\nWolfe County Search & Rescue (January 2021 – Present): Officer, Treasurer, and Finance Officer for 501(c)(3) nonprofit. Active team member with certifications as Wilderness First Responder, Rope Rescue Technician, and Swiftwater/Moving Water Rescue Technician. FEMA National Incident Management System (ICS) certified. Responded to Eastern Kentucky floods (2022) and numerous search operations.",
+  "emergencyContent": "As Section Supervisor at Kentucky Emergency Management, I supervised the CSEPP section overseeing the statewide drawdown of a complex, long-running federal program that closed in 2026 after 40 years, and served in the State EOC during declared disasters. In the field, I serve with Wolfe County Search and Rescue as an officer and Wilderness First Responder. I’m certified in rope and swiftwater rescue. That dual role—field responder and EOC coordinator—keeps me directly connected to what’s happening on the ground while positioning me inside the broader coordinated response surrounding it.\n\nKentucky Emergency Management (May 2023 – 2026): Section Supervisor who oversaw Chemical Stockpile Emergency Preparedness Program (CSEPP) stewardship and drawdown. Served in the State EOC during activations as Planning Section Chief and Situation Unit Leader, and in the Public Safety Branch, Logistics, and Field Operations. My CSEPP office sat right over the State EOC, and when emergencies arose, I went down to activate. FEMA-funded position that required high-level coordination with federal, state, and local partners including U.S. Army and National Guard.\n\nWolfe County Search & Rescue (January 2021 – Present): Officer, Treasurer, and Finance Officer for 501(c)(3) nonprofit. Active team member with certifications as Wilderness First Responder, Rope Rescue Technician, and Swiftwater/Moving Water Rescue Technician. FEMA National Incident Management System (ICS) certified. Responded to Eastern Kentucky floods (2022) and numerous search operations.",
   "cseppExplainer": {
     "title": "More information about CSEPP",
     "overview": "The Chemical Stockpile Emergency Preparedness Program (CSEPP) was a joint federal initiative by the U.S. Army, FEMA, states, and local governments to prepare communities near Army chemical weapons stockpiles for potential accidents. Created in 1985 following congressional mandates to destroy aging chemical stockpiles while prioritizing public and environmental safety, it focused on sites like Blue Grass Army Depot in Kentucky. At Blue Grass alone, the stockpile consisted of 101,712 M55 rockets filled with GB (sarin) and VX nerve agents — one of the most chemically hazardous storage sites in the nation.",
@@ -481,8 +481,8 @@
       "org": "Kentucky Emergency Management (KYEM)",
       "dates": "May 2023 – 2026",
       "bullets": [
-        "Oversaw program management of CSEPP stewardship and drawdown, a federal program funded at up to $16.5 million a year; FEMA-funded position",
-        "Served in the State EOC as Planning Section Chief and Situation Unit Leader; helped in Public Safety Branch, Logistics, and Field Operations",
+        "Supervised the CSEPP section overseeing the statewide drawdown of a federal program funded at up to $16.5 million a year; FEMA-funded position",
+        "Served in the State EOC as Planning Section Chief and Situation Unit Leader, and in the Public Safety Branch, Logistics, and Field Operations",
         "Coordinated at a high level with federal, state, and local partners including the U.S. Army and National Guard"
       ]
     },
@@ -552,7 +552,7 @@
       "dates": "May 2023 – 2026",
       "bullets": [
         "Stewardship and drawdown of CSEPP; FEMA-funded position",
-        "State EOC activations: Planning Section Chief and Situation Unit Leader; helped in Public Safety Branch, Logistics, and Field Operations"
+        "State EOC activations: Planning Section Chief and Situation Unit Leader; also served in the Public Safety Branch, Logistics, and Field Operations"
       ]
     },
     {
@@ -776,7 +776,7 @@
     "emergency-management": {
       "icon": "🚨",
       "title": "Emergency Management / Search & Rescue",
-      "summary": "As Section Supervisor at Kentucky Emergency Management, oversaw program management for the drawdown of a 40-year FEMA program funded at up to $16.5 million a year — planning, budget, compliance, and closeout — across federal, state, and local partners. Served in the State EOC during declared disasters as Planning Section Chief and Situation Unit Leader, and helped in Public Safety Branch, Logistics, and Field Operations. In the field, an officer and Wilderness First Responder with Wolfe County Search & Rescue, certified in technical rope and swiftwater rescue.",
+      "summary": "As Section Supervisor at Kentucky Emergency Management, supervised the CSEPP section overseeing the statewide drawdown of a 40-year FEMA program funded at up to $16.5 million a year: planning, budget, compliance, and closeout, across federal, state, and local partners. Served in the State EOC during declared disasters as Planning Section Chief and Situation Unit Leader, and in the Public Safety Branch, Logistics, and Field Operations. In the field, an officer and Wilderness First Responder with Wolfe County Search & Rescue, certified in technical rope and swiftwater rescue.",
       "tags": [
         "📷 Photos",
         "📋 Program Details",
@@ -940,5 +940,8 @@
   "connect": {
     "heading": "Let's Connect",
     "body": "If you're building something in emergency management, communications, community engagement, or public affairs — or just want to talk about any of the above — I'd welcome the conversation."
+  },
+  "citations": {
+    "$16.5 million": "$16,547,650: FY 2024 CSEPP cooperative agreement, Commonwealth of Kentucky. FY 2023 was $15,483,386."
   }
 }

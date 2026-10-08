@@ -5,6 +5,7 @@
   import ResumeSection from './ResumeSection.svelte';
   import ChristmasLights from './ChristmasLights.svelte';
   import MusicPlayer from './MusicPlayer.svelte';
+  import Cited from './Cited.svelte';
   import data from './data.json';
   import { computeStreak } from './streak.js';
 
@@ -423,7 +424,7 @@
       {#if emHighlights.length > 0}
         <ul class="em-bullets">
           {#each emHighlights as item}
-            <li>{item}</li>
+            <li><Cited text={item} /></li>
           {/each}
         </ul>
       {/if}
@@ -724,7 +725,7 @@
           </div>
           <ul class="job-bullets">
             {#each job.bullets as bullet}
-              <li>{bullet}</li>
+              <li><Cited text={bullet} /></li>
             {/each}
           </ul>
         </div>
